@@ -1,4 +1,4 @@
-# EPIC V website and repository
+# EPIC VI website and repository
 
 The website is hosted here:
 
