@@ -2,10 +2,10 @@
 
 The website is hosted here:
 
-https://github.com/ciencialatitud0/EPIC_5
+https://github.com/ciencialatitud0/EPIC_6
 
 
 The material repository can be found in this sub-folder:
 
-https://github.com/ciencialatitud0/EPIC_5/tree/main/Tutorials
+https://github.com/ciencialatitud0/EPIC_6/tree/main/Tutorials
 
