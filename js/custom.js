@@ -145,23 +145,12 @@ $('document').ready(function () {
 			textSize: 54,
 			textColor: '#1a1a1a'
 		});
-		$(window).load(function() { 
+		$(window).load(function() {
 			  $('#filter .current').trigger('click');
 		});
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
-  
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-      const toggleIcon = item.querySelector('.toggle-icon');
-  
-      question.addEventListener('click', () => {
-        const isOpen = answer.style.display === 'block';
-        answer.style.display = isOpen ? 'none' : 'block';
-        toggleIcon.textContent = isOpen ? '+' : '-';
-      });
-    });
-  });
+// Note: the FAQ accordion click handler now lives inline in index.html
+// (function toggleFaq), using a class-based max-height transition. An
+// older duplicate handler used to live here and fought with it (both
+// listened on .faq-question, so clicks would double-toggle). Removed.

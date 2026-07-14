@@ -165,17 +165,17 @@
   #nav-toggle { border-color: var(--epic-border); }
 
   /* ---------- Hero ---------- */
-  /* Some of the template's other stylesheets (da-slider.css in
-     particular) position slide-caption blocks with position:absolute
-     plus top/left/right offsets, meant for a carousel. This banner is
-     not a slider, so that inherited rule on .row must be neutralized
-     here — otherwise the caption card drifts off to one side and gets
-     cut off, which is exactly what happened. */
+  /* The base theme's own rule is: .banner-content { position:absolute;
+     top:0; left:0; right:0; } — a full-bleed overlay with no bottom
+     offset and no centering logic of its own. Rather than fight that
+     with static/relative overrides (which depends on auto-margin
+     resolution edge cases and kept failing), we lean into it: keep it
+     absolutely positioned but pin all four edges (inset:0) and turn it
+     into a flex container that centers its child directly. This can't
+     drift, because flexbox — not margin math — places the card. */
   .banner-container {
     position: relative !important;
     min-height: 560px;
-    display: flex;
-    align-items: center;
   }
   .banner-container::after {
     content: '';
@@ -185,9 +185,20 @@
     pointer-events: none;
   }
   .banner-content {
-    position: relative !important;
-    z-index: 2;
-    width: 100%;
+    position: absolute !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 2 !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   .banner-content .row {
     position: static !important;
@@ -198,9 +209,10 @@
     transform: none !important;
     float: none !important;
     display: block !important;
-    width: auto !important;
+    flex: none !important;
+    width: 100% !important;
     max-width: 640px;
-    margin: 0 auto !important;
+    margin: 0 !important;
     background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(6px);
     border-radius: 18px;
