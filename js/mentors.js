@@ -3,6 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // .mentor-card's "Read More" button, in the same order as the cards.
   const mentorData = {
     mentor1: {
+      name: "Lupe Villegas, PhD",
+      title: "Cellular & Biomedical Image Analysis",
+      affiliation: "Instituto de Investigaciones Biomédicas Sols-Morreale (CSIC-UAM), Madrid",
+      bio: "I am a physicist with a deep passion for the medical sciences, driven by a longstanding fascination with the complexity of biological systems. This curiosity led me to pursue a Master's in Bioengineering and Biophysics, followed by a PhD in Biomedical Engineering. I am currently a researcher in the imAIgene lab at the Instituto de Investigaciones Biomédicas Sols-Morreale (CSIC-UAM) in Madrid, as part of the CSIC Momentum program, applying machine learning to cell image analysis.",
+      achievements: [
+        "Researcher, imAIgene lab, Instituto de Investigaciones Biomédicas Sols-Morreale (CSIC-UAM)",
+        "Selected for the CSIC Momentum Program, funded by the European Commission – NextGenerationEU"
+      ],
+      courses: [
+        "Bioimage Analysis",
+        "Data Science for Biological Data"
+      ]
+    },
+    mentor2: {
       name: "Daysi Quinatoa, PhD",
       title: "Astrophysics and Data Analysis",
       affiliation: "Pontificia Universidad Católica del Ecuador (PUCE), Quito",
@@ -17,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Data Analysis for Astrophysics"
       ]
     },
-    mentor2: {
+    mentor3: {
       name: "Pablo Rodríguez López, PhD",
       title: "Quantum Physics, Statistical Physics, and Materials Physics",
       affiliation: "Universidad Rey Juan Carlos (URJC), Madrid",
@@ -32,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Quantum and Statistical Physics"
       ]
     },
-    mentor3: {
+    mentor4: {
       name: "Andrés Morales-Navarrete, PhD",
       title: "Computational Biophysics & Machine Learning for Biology",
       affiliation: "Universidad de Las Américas (UDLA), Quito",
@@ -49,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Machine Learning for Biological Data"
       ]
     },
-    mentor4: {
+    mentor5: {
       name: "Paulina Vizcaíno, PhD",
       title: "Computer Science & Data Science Education",
       affiliation: "Universidad Internacional del Ecuador (UIDE), Quito",
@@ -64,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Data Handling and Programming Fundamentals"
       ]
     },
-    mentor5: {
+    mentor6: {
       name: "Helga Dénes, PhD",
       title: "Radio Astronomy & Astrophysics",
       affiliation: "Universidad Yachay Tech, Urcuquí",
@@ -79,20 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
         "Galaxy evolution",
         "Gas content of galaxies",
         "Radio astronomy surveys"
-      ]
-    },
-    mentor6: {
-      name: "Lupe Villegas, PhD",
-      title: "Cellular & Biomedical Image Analysis",
-      affiliation: "Instituto de Investigaciones Biomédicas Sols-Morreale (CSIC-UAM), Madrid",
-      bio: "I am a physicist with a deep passion for the medical sciences, driven by a longstanding fascination with the complexity of biological systems. This curiosity led me to pursue a Master's in Bioengineering and Biophysics, followed by a PhD in Biomedical Engineering. I am currently a researcher in the imAIgene lab at the Instituto de Investigaciones Biomédicas Sols-Morreale (CSIC-UAM) in Madrid, as part of the CSIC Momentum program, applying machine learning to cell image analysis.",
-      achievements: [
-        "Researcher, imAIgene lab, Instituto de Investigaciones Biomédicas Sols-Morreale (CSIC-UAM)",
-        "Selected for the CSIC Momentum Program, funded by the European Commission – NextGenerationEU"
-      ],
-      courses: [
-        "Bioimage Analysis",
-        "Data Science for Biological Data"
       ]
     },
     mentor7: {
