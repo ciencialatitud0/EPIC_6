@@ -38,35 +38,51 @@
      Palette: deep space navy + cyan/teal accent + warm coral highlight
      ============================================================ */
   :root {
-    --epic-navy: #0b1f3a;
-    --epic-navy-2: #12294d;
-    --epic-blue: #1c5d99;
-    --epic-cyan: #17b7c7;
+    --epic-navy: #123a63;
+    --epic-navy-2: #1a4a7a;
+    --epic-blue: #2277b8;
+    --epic-cyan: #12a9b8;
     --epic-teal: #0f9e8f;
-    --epic-coral: #ef6a5a;
-    --epic-amber: #f0a336;
+    --epic-coral: #e8604e;
+    --epic-amber: #e2932a;
     --epic-purple: #7a5cc9;
     --epic-ink: #1c2733;
     --epic-muted: #5c6b7a;
     --epic-bg-soft: #f4f8fb;
-    --epic-border: #e3ebf1;
-    --epic-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
-    --epic-shadow-lg: 0 20px 45px rgba(11, 31, 58, 0.16);
+    --epic-bg-soft-2: #eaf3f8;
+    --epic-border: #dfe9f0;
+    --epic-shadow: 0 8px 24px rgba(18, 58, 99, 0.07);
+    --epic-shadow-lg: 0 18px 40px rgba(18, 58, 99, 0.14);
     --font-head: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
     --font-body: 'Source Sans 3', Arial, sans-serif;
   }
 
+  /* Force a light theme everywhere, regardless of what the base
+     stylesheet (css/styles.css) sets as its default section/body
+     background. This single override matters most — without it,
+     dark-on-dark and navy-on-black contrast bugs show up because the
+     original template defaults several sections to a dark background. */
+  html, body {
+    background-color: #ffffff !important;
+  }
   body {
     font-family: var(--font-body);
-    color: var(--epic-ink);
-    background: #ffffff;
+    color: var(--epic-ink) !important;
+  }
+  section, .container, .row, .page-section, #introText, #introText > .container > div {
+    background-color: transparent;
+  }
+  section {
+    background-color: #ffffff;
   }
 
   h1, h2, h3, h4, h5, .txtHead h2, header.centered h1 {
     font-family: var(--font-head);
     font-weight: 700;
     letter-spacing: 0.2px;
+    color: var(--epic-navy);
   }
+  section p, section li { color: var(--epic-ink); }
 
   a { transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease; }
 
@@ -126,76 +142,91 @@
     text-align: justify;
   }
 
-  /* ---------- Header / Nav ---------- */
+  /* ---------- Header / Nav (light) ---------- */
   .header {
-    background: var(--epic-navy) !important;
-    box-shadow: 0 2px 18px rgba(0,0,0,0.25);
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--epic-border);
+    box-shadow: 0 2px 14px rgba(18, 58, 99, 0.06);
   }
   .navbar.navbar-inverse { background: transparent; border: none; }
   #mainNav > li > a {
     font-family: var(--font-head);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     font-size: 13px;
+    color: var(--epic-navy) !important;
   }
   #mainNav > li > a:hover,
   #mainNav > li.active > a {
     color: var(--epic-cyan) !important;
   }
+  #nav-toggle .icon-bar { background-color: var(--epic-navy); }
+  #nav-toggle { border-color: var(--epic-border); }
 
   /* ---------- Hero ---------- */
-  .banner-container { position: relative; }
+  .banner-container { position: relative; min-height: 560px; display: flex; align-items: center; }
   .banner-container::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(11,31,58,0.55) 0%, rgba(11,31,58,0.78) 65%, rgba(11,31,58,0.92) 100%);
+    background: linear-gradient(180deg, rgba(18,58,99,0.12) 0%, rgba(18,58,99,0.18) 100%);
     pointer-events: none;
   }
-  .banner-content { position: relative; z-index: 2; }
+  .banner-content { position: relative; z-index: 2; width: 100%; }
+  .banner-content .row {
+    max-width: 640px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding: 44px 40px 38px;
+    text-align: center;
+    box-shadow: var(--epic-shadow-lg);
+    border: 1px solid rgba(255,255,255,0.6);
+  }
   .banner-content header.centered h1 {
-    font-size: 64px;
+    font-size: 54px;
     font-weight: 800;
-    letter-spacing: 4px;
-    color: #fff;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    letter-spacing: 3px;
+    color: var(--epic-navy);
+    margin-bottom: 6px;
   }
   .banner-content header.centered p {
-    color: #dfeaf5;
-    font-size: 19px;
-    letter-spacing: 0.5px;
+    color: var(--epic-muted);
+    font-size: 18px;
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
   }
   .banner-content header.centered p:last-of-type {
     display: inline-block;
-    margin-top: 6px;
-    padding: 6px 18px;
-    border: 1px solid rgba(255,255,255,0.4);
+    margin-top: 10px;
+    padding: 6px 20px;
     border-radius: 30px;
-    font-weight: 600;
+    font-weight: 700;
     color: #fff;
-    background: rgba(23, 183, 199, 0.18);
+    background: linear-gradient(90deg, var(--epic-blue), var(--epic-cyan));
   }
   .social-icons a {
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.35);
+    color: var(--epic-navy);
+    border: 1px solid var(--epic-border);
     border-radius: 50%;
     width: 38px;
     height: 38px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 0 5px;
+    margin: 4px 5px 0;
   }
   .social-icons a:hover {
     background: var(--epic-cyan);
     border-color: var(--epic-cyan);
-    color: var(--epic-navy);
+    color: #fff;
     transform: translateY(-3px);
   }
   .hireMe {
     display: inline-block;
-    margin-top: 26px;
+    margin-top: 22px;
     padding: 14px 40px;
     background: linear-gradient(90deg, var(--epic-cyan), var(--epic-teal));
     color: #fff !important;
@@ -203,9 +234,9 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     border-radius: 40px;
-    box-shadow: 0 10px 25px rgba(23,183,199,0.35);
+    box-shadow: 0 10px 25px rgba(18,169,184,0.3);
   }
-  .hireMe:hover { box-shadow: 0 14px 32px rgba(23,183,199,0.5); text-decoration: none; }
+  .hireMe:hover { box-shadow: 0 14px 32px rgba(18,169,184,0.45); text-decoration: none; }
 
   /* ---------- Buttons ---------- */
   .btn-primary {
@@ -240,12 +271,14 @@
 
   /* ---------- Quote / previous edition ---------- */
   .bg-parlex {
-    background: linear-gradient(120deg, var(--epic-navy) 0%, var(--epic-navy-2) 55%, var(--epic-blue) 130%);
+    background: linear-gradient(120deg, var(--epic-bg-soft) 0%, var(--epic-bg-soft-2) 100%);
     padding: 50px 0;
     position: relative;
+    border-top: 1px solid var(--epic-border);
+    border-bottom: 1px solid var(--epic-border);
   }
   .quote-image {
-    border: 5px solid rgba(255,255,255,0.15);
+    border: 5px solid #fff;
     box-shadow: var(--epic-shadow-lg);
   }
   .quote-text p {
@@ -253,6 +286,7 @@
     font-size: 18px !important;
     border-left: 3px solid var(--epic-cyan);
     padding-left: 18px;
+    color: var(--epic-navy) !important;
   }
 
   /* ---------- Format / Objectives ---------- */
@@ -317,6 +351,29 @@
 
   /* ---------- Schedule ---------- */
   #schedule { background: #fff; }
+  .programme-poster {
+    max-width: 980px;
+    margin: 0 auto 40px;
+    text-align: center;
+    border: 1px solid var(--epic-border);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: var(--epic-shadow);
+    background: #fff;
+  }
+  .programme-poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+  }
+  .programme-poster-caption {
+    margin: 14px 0 4px;
+    font-size: 13.5px;
+    color: var(--epic-muted);
+  }
+  .programme-poster-caption a { color: var(--epic-blue); font-weight: 600; }
+  .programme-poster-caption i { margin-right: 6px; color: var(--epic-cyan); }
   .schedule-legend {
     display: flex;
     flex-wrap: wrap;
@@ -622,7 +679,7 @@
     font-size: 16px;
     line-height: 1.8;
     text-align: justify;
-    color: white;
+    color: var(--epic-navy);
   }
   @media screen and (max-width: 768px) {
     .quote-text { font-size: 14px; line-height: 1.6; }
@@ -761,7 +818,7 @@
           <img src="images/epic-v1.jpeg" alt="EPIC 5" class="quote-image">
         </div>
         <div class="col-md-8 quote-text">
-          <p style="color: white;">Perticipants of the previous the EPIC School.</p>
+          <p>Participants of the previous EPIC School edition.</p>
         </div>
       </div>
     </div>
@@ -865,7 +922,15 @@
     <div class="heading animate__animated animate__fadeIn">
       <h2>Schedule</h2>
       <p style="font-size: 16px; line-height: 1.8;">
-        Explore the detailed EPIC VI programme below. Click on each day to expand and view the sessions.
+        The full EPIC VI programme at a glance, and an interactive day-by-day breakdown below.
+      </p>
+    </div>
+
+    <div class="programme-poster">
+      <img src="images/EPIC_VI_Programme_EN.png" alt="EPIC VI full programme, Monday to Friday, 3-7 August 2026" />
+      <p class="programme-poster-caption">
+        <i class="fa fa-download"></i>
+        <a href="images/EPIC_VI_Programme_EN.png" download>Download the programme as an image</a>
       </p>
     </div>
 
