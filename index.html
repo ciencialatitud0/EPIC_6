@@ -76,11 +76,27 @@
     background-color: #ffffff;
   }
 
-  h1, h2, h3, h4, h5, .txtHead h2, header.centered h1 {
+  h1, h2, h3, h4, h5, .txtHead h2 {
     font-family: var(--font-head);
     font-weight: 700;
     letter-spacing: 0.2px;
     color: var(--epic-navy);
+  }
+  /* The hero's h1 relies on inheriting white text color from its
+     ancestor (.banner-content header{color:#fff}) in the theme's own
+     css/styles.css — it never set color directly on the h1 itself. The
+     blanket rule above directly targets h1 as an element, which beats
+     inheritance regardless of specificity, so it was silently turning
+     "EPIC VI" navy against the dark banner image. Restore inheritance. */
+  .banner-content h1,
+  .banner-content h2,
+  .banner-content h3,
+  .banner-content h4,
+  .banner-content h5 {
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
   }
   section p, section li { color: var(--epic-ink); }
 
@@ -90,6 +106,18 @@
   section .heading, section .txtHead {
     text-align: center;
     margin-bottom: 34px;
+  }
+  /* text-align:center above is meant for the section title/intro only,
+     but .heading also wraps body content (e.g. .format-section, lists)
+     which inherited the centering and broke bullet/text alignment —
+     bullets ended up pinned to the block edge while the (now-centered)
+     text floated away from them. Force normal left alignment back on
+     any real content nested inside. */
+  section .heading ul,
+  section .heading li,
+  section .heading .format-section,
+  section .heading .format-section * {
+    text-align: left;
   }
 
   section .heading h2,
@@ -142,148 +170,8 @@
     text-align: justify;
   }
 
-  /* ---------- Header / Nav (light) ---------- */
-  .header {
-    background: #ffffff !important;
-    border-bottom: 1px solid var(--epic-border);
-    box-shadow: 0 2px 14px rgba(18, 58, 99, 0.06);
-  }
-  .navbar.navbar-inverse { background: transparent; border: none; }
-  #mainNav > li > a {
-    font-family: var(--font-head);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    font-size: 13px;
-    color: var(--epic-navy) !important;
-  }
-  #mainNav > li > a:hover,
-  #mainNav > li.active > a {
-    color: var(--epic-cyan) !important;
-  }
-  #nav-toggle .icon-bar { background-color: var(--epic-navy); }
-  #nav-toggle { border-color: var(--epic-border); }
-
-  /* ---------- Hero ---------- */
-  /* The base theme's own rule is: .banner-content { position:absolute;
-     top:0; left:0; right:0; } — a full-bleed overlay with no bottom
-     offset and no centering logic of its own. Rather than fight that
-     with static/relative overrides (which depends on auto-margin
-     resolution edge cases and kept failing), we lean into it: keep it
-     absolutely positioned but pin all four edges (inset:0) and turn it
-     into a flex container that centers its child directly. This can't
-     drift, because flexbox — not margin math — places the card. */
-  .banner-container {
-    position: relative !important;
-    min-height: 560px;
-  }
-  .banner-container::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(18,58,99,0.12) 0%, rgba(18,58,99,0.18) 100%);
-    pointer-events: none;
-  }
-  .banner-content {
-    position: absolute !important;
-    inset: 0 !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    z-index: 2 !important;
-    width: auto !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 20px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-  .banner-content .row {
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    float: none !important;
-    display: block !important;
-    flex: none !important;
-    width: 100% !important;
-    max-width: 640px;
-    margin: 0 !important;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(6px);
-    border-radius: 18px;
-    padding: 44px 40px 38px;
-    text-align: center;
-    box-shadow: var(--epic-shadow-lg);
-    border: 1px solid rgba(255,255,255,0.6);
-  }
-  .banner-content header.centered,
-  .banner-content .social-icons,
-  .banner-content .hireMe {
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    float: none !important;
-  }
-  .banner-content header.centered h1 {
-    font-size: 54px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: var(--epic-navy);
-    margin-bottom: 6px;
-  }
-  .banner-content header.centered p {
-    color: var(--epic-muted);
-    font-size: 18px;
-    letter-spacing: 0.3px;
-    margin-bottom: 4px;
-  }
-  .banner-content header.centered p:last-of-type {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 6px 20px;
-    border-radius: 30px;
-    font-weight: 700;
-    color: #fff;
-    background: linear-gradient(90deg, var(--epic-blue), var(--epic-cyan));
-  }
-  .social-icons a {
-    color: var(--epic-navy);
-    border: 1px solid var(--epic-border);
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin: 4px 5px 0;
-  }
-  .social-icons a:hover {
-    background: var(--epic-cyan);
-    border-color: var(--epic-cyan);
-    color: #fff;
-    transform: translateY(-3px);
-  }
-  .hireMe {
-    display: inline-block;
-    margin-top: 22px;
-    padding: 14px 40px;
-    background: linear-gradient(90deg, var(--epic-cyan), var(--epic-teal));
-    color: #fff !important;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 40px;
-    box-shadow: 0 10px 25px rgba(18,169,184,0.3);
-  }
-  .hireMe:hover { box-shadow: 0 14px 32px rgba(18,169,184,0.45); text-decoration: none; }
+  /* Header/Nav and Hero are intentionally left unstyled here — they
+     use the theme's own css/styles.css as originally designed. */
 
   /* ---------- Buttons ---------- */
   .btn-primary {
@@ -494,6 +382,7 @@
     margin: 0;
     font-size: 18px;
     font-weight: 700;
+    color: #fff !important;
   }
   .day-card-header .day-date {
     display: block;
@@ -736,7 +625,6 @@
     .quote-text { font-size: 14px; line-height: 1.6; }
     .quote-image { max-width: 200px; }
     .parlex-back .row { flex-direction: column; align-items: center; text-align: center; }
-    .banner-content header.centered h1 { font-size: 40px; letter-spacing: 2px; }
     .session-table td { padding: 12px 16px; }
     .session-time { width: 120px; font-size: 12.5px; }
     .day-card-header { padding: 16px 18px; }
@@ -781,10 +669,7 @@
           <li><a href="#aboutEPIC" class="scroll-link">About EPIC</a></li>
           <li><a href="#formatObjectives" class="scroll-link">Format</a></li>
           <li><a href="#registration" class="scroll-link">Registration</a></li>
-          <li><a href="#schedule" class="scroll-link">Schedule</a></li>
           <li><a href="#venue" class="scroll-link">Venue</a></li>
-          <li><a href="#mentors" class="scroll-link">Mentors</a></li>
-          <li><a href="#faq" class="scroll-link">FAQ</a></li>
           <li><a href="#contactUs" class="scroll-link">Contact Us</a></li>
         </ul>
       </div>
@@ -1019,7 +904,7 @@
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 1: Método de Elementos Finitos — <strong>Pablo Rodríguez López</strong></span>
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 1: Finite Element Method — <strong>Pablo Rodríguez López</strong></span>
               </td>
             </tr>
             <tr class="session-row-lunch">
@@ -1057,7 +942,7 @@
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 3: Método de Elementos Finitos — <strong>Pablo Rodríguez López</strong></span>
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 3: Finite Element Method — <strong>Pablo Rodríguez López</strong></span>
               </td>
             </tr>
             <tr class="session-row-break">
@@ -1067,7 +952,7 @@
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 4: Astronomía Observacional — <strong>Daysi Quinatoa</strong></span>
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 4: Observational Astronomy — <strong>Daysi Quinatoa</strong></span>
               </td>
             </tr>
             <tr class="session-row-lunch">
@@ -1077,7 +962,7 @@
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 5: Biofísica Computacional — <strong>Andrés Morales Navarrete</strong></span>
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 5: Computational Biophysics — <strong>Andrés Morales Navarrete</strong></span>
               </td>
             </tr>
           </table>
@@ -1116,7 +1001,7 @@
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 6: Astronomía Observacional — <strong>Daysi Quinatoa</strong></span>
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 6: Observational Astronomy — <strong>Daysi Quinatoa</strong></span>
               </td>
             </tr>
             <tr class="session-row-lunch">
@@ -1126,7 +1011,7 @@
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 7: Biofísica Computacional — <strong>Andrés Morales Navarrete</strong></span>
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 7: Computational Biophysics — <strong>Andrés Morales Navarrete</strong></span>
               </td>
             </tr>
           </table>
