@@ -12,26 +12,69 @@
 
 <style>
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.8;
+:root {
+  --jr-navy: #123a63;
+  --jr-blue: #2277b8;
+  --jr-cyan: #12a9b8;
+  --jr-coral: #e8604e;
+  --jr-amber: #e2932a;
+  --jr-purple: #7a5cc9;
+  --jr-ink: #1c2733;
+  --jr-muted: #5c6b7a;
+  --jr-bg-soft: #f4f8fb;
+  --jr-border: #dfe9f0;
+  --jr-shadow: 0 8px 24px rgba(18, 58, 99, 0.08);
+  --jr-shadow-lg: 0 18px 40px rgba(18, 58, 99, 0.16);
 }
 
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.8;
+  color: var(--jr-ink);
+  background: #fff;
+}
+
+a { color: var(--jr-blue); }
+
 .hero-section {
-  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+  background: linear-gradient(135deg, rgba(18,58,99,0.82), rgba(18,169,184,0.68)),
               url('images/epicjr_image.jpg') center center/cover no-repeat;
-  color: white;
-  padding: 120px 0;
+  color: #fff;
+  padding: 130px 0 110px;
   text-align: center;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--jr-coral);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 18px;
+  border-radius: 30px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
 }
 
 .hero-section h1 {
   font-size: 60px;
-  font-weight: bold;
+  font-weight: 800;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.hero-section .hero-dates {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffe6b3;
+  margin-top: 10px;
 }
 
 .hero-section p {
-  font-size: 22px;
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.3);
 }
 
 .section-title {
@@ -39,9 +82,24 @@ body {
   text-align: center;
 }
 
+.section-title .fa {
+  color: var(--jr-cyan);
+  font-size: 30px;
+  display: block;
+  margin-bottom: 8px;
+}
+
 .section-title h2 {
-  font-size: 40px;
-  color: #3498db;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--jr-navy);
+}
+
+.section-title .subtitle {
+  color: var(--jr-muted);
+  font-size: 16px;
+  max-width: 640px;
+  margin: 6px auto 0;
 }
 
 .content-section {
@@ -50,48 +108,165 @@ body {
 
 .info-card {
   background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid var(--jr-border);
+  box-shadow: var(--jr-shadow);
   margin-bottom: 30px;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
+  box-shadow: var(--jr-shadow-lg);
+}
+
+.info-card h3 {
+  color: var(--jr-navy);
+  font-weight: 700;
+}
+
+.info-card h3 .fa {
+  color: var(--jr-coral);
+  margin-right: 8px;
 }
 
 .timeline {
-  border-left: 4px solid #3498db;
-  padding-left: 20px;
-  margin-top: 30px;
+  border-left: 4px solid var(--jr-cyan);
+  padding-left: 24px;
+  margin-top: 20px;
 }
 
 .timeline-item {
-  margin-bottom: 25px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--jr-coral);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px var(--jr-coral);
 }
 
 .timeline-item h4 {
-  color: #3498db;
+  color: var(--jr-blue);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.timeline-note {
+  font-size: 14px;
+  color: var(--jr-muted);
+  font-style: italic;
+  margin-top: -10px;
+  margin-bottom: 25px;
 }
 
 .register-btn {
   margin-top: 20px;
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 12px 32px;
+}
+
+.badge-pill {
+  display: inline-block;
+  background: var(--jr-bg-soft);
+  color: var(--jr-navy);
+  border: 1px solid var(--jr-border);
+  border-radius: 30px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 4px 6px 4px 0;
+}
+
+.partner-list,
+.requirements-list,
+.coordinators-list {
+  list-style: none;
+  padding-left: 0;
 }
 
 .partner-list li,
 .requirements-list li,
-.instructors-list li,
 .coordinators-list li {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  padding-left: 32px;
+  position: relative;
+}
+
+.partner-list li::before,
+.requirements-list li::before,
+.coordinators-list li::before {
+  content: '\f058';
+  font-family: FontAwesome;
+  color: var(--jr-cyan);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 18px;
+}
+
+.instructors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.instructors-grid li {
+  background: var(--jr-bg-soft);
+  border: 1px solid var(--jr-border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--jr-navy);
+  font-size: 15px;
+}
+
+.instructors-grid li .fa {
+  color: var(--jr-coral);
+  margin-right: 8px;
+}
+
+.instructors-note {
+  color: var(--jr-muted);
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.org-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.org-logos img {
+  max-height: 70px;
+  max-width: 160px;
+  object-fit: contain;
 }
 
 .footer {
-  background: #111;
-  color: white;
+  background: var(--jr-navy);
+  color: #fff;
   text-align: center;
-  padding: 25px 0;
+  padding: 30px 0;
 }
+
+.footer p { color: #dce8f2; }
 
 .poster-img,
 .logo-img {
@@ -99,16 +274,102 @@ body {
   max-width: 500px;
   border-radius: 10px;
   margin-top: 20px;
+  box-shadow: var(--jr-shadow);
+}
+
+.text-highlight {
+  color: var(--jr-coral);
+  font-weight: 700;
+}
+
+.shift-note {
+  background: var(--jr-bg-soft);
+  border: 1px solid var(--jr-border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  color: var(--jr-navy);
+  font-size: 15px;
+}
+
+.shift-note .fa {
+  color: var(--jr-coral);
+  margin-right: 6px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid var(--jr-border);
+  padding: 10px 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.schedule-table thead th {
+  background: var(--jr-navy);
+  color: #fff;
+  font-weight: 700;
+}
+
+.schedule-table td:first-child,
+.schedule-table th:first-child {
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--jr-navy);
+  background: var(--jr-bg-soft);
+}
+
+.schedule-table .shift-row td {
+  background: var(--jr-cyan);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.schedule-table .shift-row.shift-afternoon td {
+  background: var(--jr-amber);
+}
+
+.schedule-table .break-row td {
+  background: #fbfbfb;
+  color: var(--jr-muted);
+  font-style: italic;
+}
+
+.schedule-table .closing-cell {
+  color: var(--jr-muted);
+  font-style: italic;
+  font-size: 13px;
 }
 
 @media screen and (max-width: 768px) {
 
+  .hero-section {
+    padding: 100px 0 80px;
+  }
+
   .hero-section h1 {
-    font-size: 42px;
+    font-size: 40px;
+  }
+
+  .hero-section .hero-dates {
+    font-size: 19px;
   }
 
   .hero-section p {
-    font-size: 18px;
+    font-size: 17px;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
   }
 
 }
@@ -124,10 +385,12 @@ body {
 
   <div class="container animate__animated animate__fadeIn">
 
+    <span class="hero-badge"><i class="fa fa-rocket"></i> Segunda edición</span>
+
     <h1>EPIC Junior II</h1>
 
-    <p>
-      3 - 6Agosto 2026
+    <p class="hero-dates">
+      3 – 6 de agosto de 2026 &middot; UIDE, Quito
     </p>
 
     <p>
@@ -146,7 +409,9 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-lightbulb-o"></i>
       <h2>¿Qué es EPIC Junior?</h2>
+      <p class="subtitle">Ciencia, computación y muchas ganas de aprender, en un solo evento</p>
     </div>
 
     <div class="row">
@@ -159,7 +424,13 @@ body {
             Por segunda ocasión, la serie de escuelas EPIC ofrece un espacio para
             que estudiantes de secundaria de nuestro país puedan aprender sobre
             computación científica e interactuar con científicas y científicos
-            ecuatorianos.
+            ecuatorianos. Esta edición se organiza en el marco del proyecto de
+            vinculación <span class="text-highlight">Citizen Science Lab YT</span> de la
+            Universidad Yachay Tech, en articulación con la Universidad Internacional
+            del Ecuador (UIDE), e integra por primera vez al grupo
+            <span class="text-highlight">Hands-On Astronomy</span>, dedicado al
+            entrenamiento para las Olimpiadas Ecuatorianas de Astronomía y
+            Astronáutica (OEAA).
           </p>
 
           <p>
@@ -169,7 +440,8 @@ body {
 
           <ul>
             <li>Asistir a charlas científicas preparadas por nuestr@s expositoras/es invitad@s</li>
-            <li>Participar en mini-talleres de programación científica preparados por estudiantes universitarios</li>
+            <li>Participar en mini-talleres de programación científica y astrocomputación preparados por estudiantes universitarios</li>
+            <li>Sumarse a una sesión especial de <strong>Hands-On Astronomy</strong>, con entrenamiento rumbo a las Olimpiadas Ecuatorianas de Astronomía y Astronáutica (OEAA)</li>
             <li>Aprender sobre ciencia y tecnología en un ambiente interactivo</li>
           </ul>
 
@@ -191,6 +463,7 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-folder-open"></i>
       <h2>Material</h2>
     </div>
 
@@ -231,8 +504,10 @@ body {
           <h3><i class="fa fa-calendar"></i> ¿Cuándo?</h3>
 
           <p>
-            EPIC Junior tendrá lugar los días <strong>de agosto de 2026</strong>
-            desde las <strong>10h00 hasta las 16h00</strong>.
+            EPIC Junior II se realizará del <strong>lunes 3 al jueves 6 de agosto de 2026</strong>,
+            de <strong>08h00 a 16h00</strong> cada día. La jornada matutina (08h00–13h00) y
+            la vespertina (14h30–16h00) son independientes: puedes registrarte solo a una
+            de ellas o al día completo.
           </p>
 
         </div>
@@ -246,11 +521,14 @@ body {
           <h3><i class="fa fa-map-marker"></i> ¿Dónde?</h3>
 
           <p>
-            El evento se realizará en formato presencial en el campus de la UIDE en Quito.
+            El evento se realizará en formato presencial en el <strong>campus de la
+            Universidad Internacional del Ecuador (UIDE), en Quito</strong>.
           </p>
 
           <p>
-            Los detalles serán posteados más adelante.
+            La convocatoria está dirigida principalmente a estudiantes de secundaria
+            de Pichincha, Imbabura, Carchi, Cotopaxi y Santo Domingo de los Tsáchilas.
+            Los detalles logísticos se publicarán más adelante.
           </p>
 
         </div>
@@ -271,6 +549,7 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-check-circle-o"></i>
       <h2>Requisitos</h2>
     </div>
 
@@ -280,6 +559,7 @@ body {
         <li>Cursar el bachillerato (> 15 años) en cualquier institución educativa secundaria del país</li>
         <li>Escribir una excelente carta de motivación en el formulario de registro</li>
         <li>Tener muchos deseos de aprender sobre ciencia y computación</li>
+        <li>Contar con la autorización de madre, padre o representante para asistir de forma presencial</li>
       </ul>
 
     </div>
@@ -296,17 +576,23 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-handshake-o"></i>
       <h2>Organizan</h2>
     </div>
 
     <div class="info-card">
 
       <ul class="partner-list">
-        <li>Universidad Yachay Tech</li>
-        <li>Universidad Internacional del Ecuador</li>
+        <li>Universidad Yachay Tech — Escuela de Ciencias Físicas y Nanotecnología (proyecto Citizen Science Lab YT)</li>
+        <li>Universidad Internacional del Ecuador (UIDE)</li>
         <li>Grupo de Investigadores Latitud Cero</li>
-        <li>Hands-on Astronomy</li>
+        <li>Hands-On Astronomy</li>
       </ul>
+
+      <div class="org-logos">
+        <img src="images/LOGOTIPO-YACHAY-TECH-UITEY-2023.png" alt="Universidad Yachay Tech">
+        <img src="images/thumbnail_Logo%20UIDE.png" alt="Universidad Internacional del Ecuador">
+      </div>
 
     </div>
 
@@ -322,14 +608,35 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-graduation-cap"></i>
       <h2>Instructores</h2>
     </div>
 
     <div class="info-card">
 
-      <ul class="instructors-list">
-        <li>TBD</li>
+      <p class="instructors-note">
+        El equipo de facilitadores está conformado por estudiantes de la Maestría en
+        Física con mención en Física Fundamental de la Universidad Yachay Tech:
+      </p>
+
+      <ul class="instructors-grid">
+        <li><i class="fa fa-user"></i>Alejandro Cobo Urvina</li>
+        <li><i class="fa fa-user"></i>Pablo Escobar Tibán</li>
+        <li><i class="fa fa-user"></i>Daniel Espinoza Gaona</li>
+        <li><i class="fa fa-user"></i>Gary Guamán Toasa</li>
+        <li><i class="fa fa-user"></i>Franklin Limaico Ibadango</li>
+        <li><i class="fa fa-user"></i>Jorge Pico Vela</li>
+        <li><i class="fa fa-user"></i>Ángel Rodríguez Ocaña</li>
+        <li><i class="fa fa-user"></i>Jhon Villacís Ramón</li>
+        <li><i class="fa fa-user"></i>Daniel Villarruel Yánez</li>
       </ul>
+
+      <p class="instructors-note" style="margin-top: 20px;">
+        A ellos se suma <strong>Jerson Chunez Yugsi</strong>, estudiante de Física de
+        Yachay Tech y coordinador del grupo <strong>Hands-On Astronomy</strong>, a
+        cargo del entrenamiento para las Olimpiadas Ecuatorianas de Astronomía y
+        Astronáutica (OEAA).
+      </p>
 
     </div>
 
@@ -345,16 +652,18 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-users"></i>
       <h2>Coordinador@s</h2>
     </div>
 
     <div class="info-card">
 
       <ul class="coordinators-list">
-        <li>Paulina Vizcaíno — Universidad Internacional del Ecuador</li>
-        <li>Wladimir Banda-Barragán — Universidad Yachay Tech</li>
-        <li>Andrés Morales Navarrete — UDLAh</li>
-        <li>Helga Dénes — USFQ</li>
+        <li>Wladimir Banda-Barragán, PhD — Director del proyecto, Universidad Yachay Tech</li>
+        <li>Paulina Vizcaíno, PhD — Representante institucional, Universidad Internacional del Ecuador (UIDE)</li>
+        <li>Andrés Morales-Navarrete, PhD — Universidad de Las Américas (UDLA)</li>
+        <li>Helga Dénes, PhD — Universidad Yachay Tech</li>
+        <li>Iván Reyes Chacón, MgTI, MCs — Universidad Internacional del Ecuador (UIDE)</li>
       </ul>
 
     </div>
@@ -371,18 +680,19 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-ticket"></i>
       <h2>Cupos Disponibles</h2>
     </div>
 
     <div class="info-card text-center">
 
       <p>
-        Solo tenemos <strong>20 cupos disponibles</strong>.
+        Contamos con aproximadamente <strong>30 cupos disponibles</strong>, incluidos
+        <strong>6 cupos</strong> para el componente <strong>Hands-On Astronomy</strong>.
       </p>
 
       <p>
-        El registro se cerrará el día martes 12 de septiembre o al llegar
-        a 20 participantes registrad@s.
+        El registro se cerrará al completar los cupos disponibles.
       </p>
 
       <p>
@@ -413,44 +723,81 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-map-signs"></i>
       <h2>Programa Preliminar</h2>
+      <p class="subtitle">Cuatro días de charlas, talleres y astronomía práctica en la UIDE, Quito</p>
     </div>
 
     <div class="info-card">
 
-      <div class="timeline">
+      <p class="shift-note">
+        <i class="fa fa-info-circle"></i>
+        <strong>La jornada de la mañana es independiente de la jornada de la tarde.</strong>
+        Al registrarte podrás elegir asistir <strong>solo en la mañana</strong>
+        (08h00–13h00), <strong>solo en la tarde</strong> (14h30–16h00), o durante
+        <strong>todo el día</strong> — según tu disponibilidad.
+      </p>
 
-        <div class="timeline-item">
-          <h4>10:00 - 10:30</h4>
-          <p><strong>TBD:</strong> Bienvenida</p>
-        </div>
-
-        <div class="timeline-item">
-          <h4>19:10 - 19:20</h4>
-          <p><strong>TBD:</strong> Mecánica orbital y agujeros negros</p>
-        </div>
-
-        <div class="timeline-item">
-          <h4>19:20 - 19:30</h4>
-          <p><strong>TBD:</strong> ¿Cómo se ven los átomos a nivel cuántico?</p>
-        </div>
-
-        <div class="timeline-item">
-          <h4>19:30 - 19:40</h4>
-          <p><strong>TBD:</strong> ¿Qué es la computación cuántica?</p>
-        </div>
-
-        <div class="timeline-item">
-          <h4>19:40 - 19:50</h4>
-          <p><strong>TBD:</strong> Monte Carlo y desintegración radioactiva</p>
-        </div>
-
-        <div class="timeline-item">
-          <h4>19:50 - 20:00</h4>
-          <p><strong>Preguntas</strong></p>
-        </div>
-
+      <div class="table-responsive">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Horario</th>
+              <th>Lunes<br>3 de agosto</th>
+              <th>Martes<br>4 de agosto</th>
+              <th>Miércoles<br>5 de agosto</th>
+              <th>Jueves<br>6 de agosto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="shift-row">
+              <td colspan="5">Jornada Matutina</td>
+            </tr>
+            <tr>
+              <td>08h00 – 08h30</td>
+              <td colspan="4">Llegada &amp; Bienvenida</td>
+            </tr>
+            <tr>
+              <td>08h30 – 10h30</td>
+              <td>Talleres de Astro Computacional (Laboratorio)</td>
+              <td>Talleres de Astro Computacional (Laboratorio)</td>
+              <td>Talleres de Astro Computacional (Laboratorio)</td>
+              <td>Presentaciones de Proyectos (Auditorio)</td>
+            </tr>
+            <tr class="break-row">
+              <td>10h30 – 11h00</td>
+              <td colspan="4">Receso &amp; Coffee Break</td>
+            </tr>
+            <tr>
+              <td>11h00 – 13h00</td>
+              <td>Hands-On Astro (Laboratorio)</td>
+              <td>Hands-On Astro (Laboratorio)</td>
+              <td>Hands-On Astro (Laboratorio)</td>
+              <td>Presentaciones de Proyectos (Auditorio)</td>
+            </tr>
+            <tr class="break-row">
+              <td>13h00 – 14h30</td>
+              <td colspan="4">Almuerzo (UIDE / traer almuerzo)</td>
+            </tr>
+            <tr class="shift-row shift-afternoon">
+              <td colspan="5">Jornada Vespertina</td>
+            </tr>
+            <tr>
+              <td>14h30 – 16h00</td>
+              <td>Charlas de Astro (Auditorio)</td>
+              <td>Charla IEEE para Estudiantes de Secundaria (Auditorio)</td>
+              <td>Foro de Preguntas con Académicos (Auditorio)</td>
+              <td class="closing-cell">Entrega de incentivos y certificados</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
+      <p class="timeline-note">
+        El componente Hands-On Astronomy (laboratorio de 11h00 a 13h00) está reservado
+        para 6 cupos. El programa detallado de charlas y expositoras/es se publicará
+        más adelante.
+      </p>
 
     </div>
 
@@ -466,6 +813,7 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-certificate"></i>
       <h2>Certificado</h2>
     </div>
 
@@ -491,17 +839,18 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-history"></i>
       <h2>Evento Anterior EPIC Junior</h2>
     </div>
 
     <div class="info-card text-center">
 
       <p>
-        La primera escuela EPIC Junior se desarrolló el jueves 17 de agosto de 2023 desde las 10h00 hasta las 16h00
-      </p>
-
-      <p>
-        Campus Yachay Tech
+        La primera escuela EPIC Junior se desarrolló el jueves 17 de agosto de 2023,
+        desde las 10h00 hasta las 16h00, en el campus de Yachay Tech, dentro del
+        proyecto de vinculación <strong>Young Optics: EPIC Junior</strong>. Su buena
+        acogida —reflejada en el interés vocacional y el aprendizaje científico de
+        sus participantes— motivó esta segunda edición.
       </p>
 
     </div>
@@ -517,6 +866,7 @@ body {
   <div class="container">
 
     <div class="section-title">
+      <i class="fa fa-image"></i>
       <h2>Poster del Evento</h2>
     </div>
 
