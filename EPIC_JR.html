@@ -36,6 +36,15 @@ body {
 
 a { color: var(--jr-blue); }
 
+.content-section,
+.hero-section {
+  scroll-margin-top: 90px;
+}
+
+.header .navbar-nav > li > a.scroll-link {
+  cursor: pointer;
+}
+
 .hero-section {
   background: linear-gradient(135deg, rgba(18,58,99,0.82), rgba(18,169,184,0.68)),
               url('images/epicjr_image.jpg') center center/cover no-repeat;
@@ -403,9 +412,43 @@ a { color: var(--jr-blue); }
 
 <body>
 
+<!-- NAV -->
+
+<header class="header">
+  <div class="container">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!--/.navbar-header-->
+      <div id="main-nav" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav" id="mainNav">
+          <li class="active"><a href="#home" class="scroll-link">Inicio</a></li>
+          <li><a href="#intro" class="scroll-link">Qué es</a></li>
+          <li><a href="#fechaLugar" class="scroll-link">Cuándo y Dónde</a></li>
+          <li><a href="#requisitos" class="scroll-link">Requisitos</a></li>
+          <li><a href="#instructores" class="scroll-link">Instructores</a></li>
+          <li><a href="#programa" class="scroll-link">Programa</a></li>
+          <li><a href="#cupos" class="scroll-link">Registro</a></li>
+          <li><a href="index.html">EPIC VI</a></li>
+        </ul>
+      </div>
+      <!--/.navbar-collapse-->
+    </nav>
+    <!--/.navbar-->
+  </div>
+  <!--/.container-->
+</header>
+<!--/.header-->
+
 <!-- HERO -->
 
-<section class="hero-section">
+<section id="home" class="hero-section">
 
   <div class="container animate__animated animate__fadeIn">
 
@@ -428,7 +471,7 @@ a { color: var(--jr-blue); }
 
 <!-- INTRO -->
 
-<section class="content-section">
+<section id="intro" class="content-section">
 
   <div class="container">
 
@@ -480,42 +523,9 @@ a { color: var(--jr-blue); }
 </section>
 
 
-<!-- MATERIAL -->
-
-<section class="content-section" style="background-color: #f9f9f9;">
-
-  <div class="container">
-
-    <div class="section-title">
-      <i class="fa fa-folder-open"></i>
-      <h2>Material</h2>
-    </div>
-
-    <div class="info-card text-center">
-
-      <p>
-        El material presentado durante EPIC Junior está disponible en el repositorio
-        GitHub del evento:
-      </p>
-
-      <a href="https://github.com/ciencialatitud0/EPIC_6/tree/main/EPIC_Junior"
-         target="_blank"
-         class="btn btn-primary btn-lg register-btn">
-
-        Ver Material en GitHub
-
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
 <!-- FECHA Y LUGAR -->
 
-<section class="content-section">
+<section id="fechaLugar" class="content-section" style="background-color: #f9f9f9;">
 
   <div class="container">
 
@@ -532,6 +542,13 @@ a { color: var(--jr-blue); }
             de <strong>08h00 a 16h00</strong> cada día. La jornada matutina (08h00–13h00) y
             la vespertina (14h30–16h00) son independientes: puedes registrarte solo a una
             de ellas o al día completo.
+          </p>
+
+          <p>
+            <i class="fa fa-coffee"></i> Los <strong>coffee breaks están cubiertos</strong>
+            por la organización. El <strong>almuerzo no está cubierto</strong>: cada
+            participante puede traer su propio almuerzo o comprarlo en las cafeterías
+            y restaurantes cercanos al campus.
           </p>
 
           <img src="images/uide_campus_2.jpg" alt="Campus UIDE, Quito" class="venue-img">
@@ -599,7 +616,7 @@ a { color: var(--jr-blue); }
 
 <!-- REQUISITOS -->
 
-<section class="content-section" style="background-color: #f9f9f9;">
+<section id="requisitos" class="content-section">
 
   <div class="container">
 
@@ -624,46 +641,9 @@ a { color: var(--jr-blue); }
 </section>
 
 
-<!-- ORGANIZAN -->
-
-<section class="content-section">
-
-  <div class="container">
-
-    <div class="section-title">
-      <i class="fa fa-handshake-o"></i>
-      <h2>Organizan</h2>
-    </div>
-
-    <div class="info-card">
-
-      <ul class="partner-list">
-        <li>Universidad Yachay Tech — Escuela de Ciencias Físicas y Nanotecnología (proyecto Citizen Science Lab YT)</li>
-        <li>Universidad Internacional del Ecuador (UIDE)</li>
-        <li>Grupo de Investigadores Latitud Cero</li>
-        <li>Hands-On Astronomy</li>
-        <li>Olimpiadas Ecuatorianas de Astronomía y Astronáutica (OEAA)</li>
-      </ul>
-
-      <div class="org-logos">
-        <img src="images/LOGOTIPO-YACHAY-TECH-UITEY-2023.png" alt="Universidad Yachay Tech">
-        <img src="images/thumbnail_Logo%20UIDE.png" alt="Universidad Internacional del Ecuador">
-        <img src="images/oeaa.jpg" alt="Olimpiadas Ecuatorianas de Astronomía y Astronáutica (OEAA)">
-        <img src="images/logo_oeaa.png" alt="Olimpiadas Ecuatorianas de Astronomía y Astronáutica (OEAA)">
-        <img src="images/oeaa_solo.png" alt="OEAA">
-        <img src="images/hoa.png" alt="Hands-On Astronomy">
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
 <!-- INSTRUCTORES -->
 
-<section class="content-section" style="background-color: #f9f9f9;">
+<section id="instructores" class="content-section" style="background-color: #f9f9f9;">
 
   <div class="container">
 
@@ -699,81 +679,9 @@ a { color: var(--jr-blue); }
 </section>
 
 
-<!-- COORDINADORES -->
-
-<section class="content-section">
-
-  <div class="container">
-
-    <div class="section-title">
-      <i class="fa fa-users"></i>
-      <h2>Coordinador@s</h2>
-    </div>
-
-    <div class="info-card">
-
-      <ul class="coordinators-list">
-        <li>Wladimir Banda-Barragán, PhD — Director del proyecto, Universidad Yachay Tech</li>
-        <li>Renato Gabriel Herrera Proaño — Departamento de Vinculación con la Sociedad, Universidad Yachay Tech</li>
-        <li>Paulina Vizcaíno, PhD — Representante institucional, Universidad Internacional del Ecuador (UIDE)</li>
-        <li>Andrés Morales-Navarrete, PhD — Universidad de Las Américas (UDLA)</li>
-        <li>Helga Dénes, PhD — Universidad San Francisco de Quito (USFQ)</li>
-        <li>Iván Reyes Chacón, MgTI, MCs — Universidad Internacional del Ecuador (UIDE)</li>
-      </ul>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CUPOS -->
-
-<section class="content-section" style="background-color: #f9f9f9;">
-
-  <div class="container">
-
-    <div class="section-title">
-      <i class="fa fa-ticket"></i>
-      <h2>Cupos Disponibles</h2>
-    </div>
-
-    <div class="info-card text-center">
-
-      <p>
-        Contamos con aproximadamente <strong>30 cupos disponibles</strong>, incluidos
-        <strong>6 cupos</strong> para el componente <strong>Hands-On Astronomy</strong>.
-      </p>
-
-      <p>
-        El registro se cerrará al completar los cupos disponibles.
-      </p>
-
-      <p>
-        <strong>
-          Por favor completar el siguiente formulario para registrarse en EPIC Junior:
-        </strong>
-      </p>
-
-      <a href="https://forms.gle/Vx38fNjV81P7JdTL6"
-         target="_blank"
-         class="btn btn-success btn-lg register-btn">
-
-        Registrarse
-
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
 <!-- PROGRAMA -->
 
-<section class="content-section">
+<section id="programa" class="content-section">
 
   <div class="container">
 
@@ -871,9 +779,119 @@ a { color: var(--jr-blue); }
 </section>
 
 
+<!-- ORGANIZAN -->
+
+<section id="organizan" class="content-section" style="background-color: #f9f9f9;">
+
+  <div class="container">
+
+    <div class="section-title">
+      <i class="fa fa-handshake-o"></i>
+      <h2>Organizan</h2>
+    </div>
+
+    <div class="info-card">
+
+      <ul class="partner-list">
+        <li>Universidad Yachay Tech — Escuela de Ciencias Físicas y Nanotecnología (proyecto Citizen Science Lab YT)</li>
+        <li>Universidad Internacional del Ecuador (UIDE)</li>
+        <li>Grupo de Investigadores Latitud Cero</li>
+        <li>Hands-On Astronomy</li>
+        <li>Olimpiadas Ecuatorianas de Astronomía y Astronáutica (OEAA)</li>
+      </ul>
+
+      <div class="org-logos">
+        <img src="images/LOGOTIPO-YACHAY-TECH-UITEY-2023.png" alt="Universidad Yachay Tech">
+        <img src="images/thumbnail_Logo%20UIDE.png" alt="Universidad Internacional del Ecuador">
+        <img src="images/oeaa.jpg" alt="Olimpiadas Ecuatorianas de Astronomía y Astronáutica (OEAA)">
+        <img src="images/logo_oeaa.png" alt="Olimpiadas Ecuatorianas de Astronomía y Astronáutica (OEAA)">
+        <img src="images/oeaa_solo.png" alt="OEAA">
+        <img src="images/hoa.png" alt="Hands-On Astronomy">
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COORDINADORES -->
+
+<section id="coordinadores" class="content-section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <i class="fa fa-users"></i>
+      <h2>Coordinador@s</h2>
+    </div>
+
+    <div class="info-card">
+
+      <ul class="coordinators-list">
+        <li>Wladimir Banda-Barragán, PhD — Director del proyecto, Universidad Yachay Tech</li>
+        <li>Renato Gabriel Herrera Proaño — Departamento de Vinculación con la Sociedad, Universidad Yachay Tech</li>
+        <li>Paulina Vizcaíno, PhD — Representante institucional, Universidad Internacional del Ecuador (UIDE)</li>
+        <li>Andrés Morales-Navarrete, PhD — Universidad de Las Américas (UDLA)</li>
+        <li>Helga Dénes, PhD — Universidad San Francisco de Quito (USFQ)</li>
+        <li>Iván Reyes Chacón, MgTI, MCs — Universidad Internacional del Ecuador (UIDE)</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CUPOS -->
+
+<section id="cupos" class="content-section" style="background-color: #f9f9f9;">
+
+  <div class="container">
+
+    <div class="section-title">
+      <i class="fa fa-ticket"></i>
+      <h2>Cupos Disponibles</h2>
+    </div>
+
+    <div class="info-card text-center">
+
+      <p>
+        Contamos con aproximadamente <strong>30 cupos disponibles</strong>, incluidos
+        <strong>6 cupos</strong> para el componente <strong>Hands-On Astronomy</strong>.
+      </p>
+
+      <p>
+        El registro se cerrará el <strong>viernes 24 de julio de 2026</strong>, o al
+        completar los cupos disponibles.
+      </p>
+
+      <p>
+        <strong>
+          Por favor completar el siguiente formulario para registrarse en EPIC Junior:
+        </strong>
+      </p>
+
+      <a href="https://forms.gle/Vx38fNjV81P7JdTL6"
+         target="_blank"
+         class="btn btn-success btn-lg register-btn">
+
+        Registrarse
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <!-- CERTIFICADO -->
 
-<section class="content-section" style="background-color: #f9f9f9;">
+<section id="certificado" class="content-section">
 
   <div class="container">
 
@@ -896,10 +914,66 @@ a { color: var(--jr-blue); }
 </section>
 
 
+<!-- MATERIAL -->
+
+<section id="material" class="content-section" style="background-color: #f9f9f9;">
+
+  <div class="container">
+
+    <div class="section-title">
+      <i class="fa fa-folder-open"></i>
+      <h2>Material</h2>
+    </div>
+
+    <div class="info-card text-center">
+
+      <p>
+        El material presentado durante EPIC Junior está disponible en el repositorio
+        GitHub del evento:
+      </p>
+
+      <a href="https://github.com/ciencialatitud0/EPIC_6/tree/main/EPIC_Junior"
+         target="_blank"
+         class="btn btn-primary btn-lg register-btn">
+
+        Ver Material en GitHub
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- POSTER -->
+
+<section id="poster" class="content-section">
+
+  <div class="container">
+
+    <div class="section-title">
+      <i class="fa fa-image"></i>
+      <h2>Poster del Evento</h2>
+    </div>
+
+    <div class="text-center">
+
+      <img src="images/epic_jr_ii.png"
+           alt="Poster EPIC Junior II"
+           class="poster-img">
+
+    </div>
+
+  </div>
+
+</section>
+
 
 <!-- EVENTO ANTERIOR -->
 
-<section class="content-section">
+<section id="eventoAnterior" class="content-section" style="background-color: #f9f9f9;">
 
   <div class="container">
 
@@ -932,29 +1006,6 @@ a { color: var(--jr-blue); }
 
 </section>
 
-  <!-- POSTER -->
-
-<section class="content-section" style="background-color: #f9f9f9;">
-
-  <div class="container">
-
-    <div class="section-title">
-      <i class="fa fa-image"></i>
-      <h2>Poster del Evento</h2>
-    </div>
-
-    <div class="text-center">
-
-      <img src="images/epic_jr_ii.png"
-           alt="Poster EPIC Junior II"
-           class="poster-img">
-
-    </div>
-
-  </div>
-
-</section>
-
 <!-- FOOTER -->
 
 <footer class="footer">
@@ -976,6 +1027,36 @@ a { color: var(--jr-blue); }
 
 <script src="js/jquery-1.8.2.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script>
+  if ($('#main-nav ul li:first-child').hasClass('active')) {
+    $('#main-nav').css('background', 'none');
+  }
+
+  $('#mainNav').onePageNav({
+    currentClass: 'active',
+    changeHash: false,
+    scrollSpeed: 950,
+    scrollThreshold: 0.2,
+    filter: '',
+    easing: 'swing',
+    begin: function () {},
+    end: function () {
+      if (!$('#main-nav ul li:first-child').hasClass('active')) {
+        $('.header').addClass('addBg');
+      } else {
+        $('.header').removeClass('addBg');
+      }
+    },
+    scrollChange: function ($currentListItem) {
+      if (!$('#main-nav ul li:first-child').hasClass('active')) {
+        $('.header').addClass('addBg');
+      } else {
+        $('.header').removeClass('addBg');
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
