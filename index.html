@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<!--[if lt IE 9]> 
+<!--[if lt IE 9]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <![endif]-->
 <title>EPIC VI Programming School</title>
@@ -29,148 +29,588 @@
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  .timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
+  /* ============================================================
+     EPIC VI — Design refresh
+     Palette: deep space navy + cyan/teal accent + warm coral highlight
+     ============================================================ */
+  :root {
+    --epic-navy: #0b1f3a;
+    --epic-navy-2: #12294d;
+    --epic-blue: #1c5d99;
+    --epic-cyan: #17b7c7;
+    --epic-teal: #0f9e8f;
+    --epic-coral: #ef6a5a;
+    --epic-amber: #f0a336;
+    --epic-purple: #7a5cc9;
+    --epic-ink: #1c2733;
+    --epic-muted: #5c6b7a;
+    --epic-bg-soft: #f4f8fb;
+    --epic-border: #e3ebf1;
+    --epic-shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+    --epic-shadow-lg: 0 20px 45px rgba(11, 31, 58, 0.16);
+    --font-head: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Source Sans 3', Arial, sans-serif;
   }
 
-  .timeline::after {
+  body {
+    font-family: var(--font-body);
+    color: var(--epic-ink);
+    background: #ffffff;
+  }
+
+  h1, h2, h3, h4, h5, .txtHead h2, header.centered h1 {
+    font-family: var(--font-head);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  a { transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease; }
+
+  /* ---------- Section rhythm & headings ---------- */
+  section .heading, section .txtHead {
+    text-align: center;
+    margin-bottom: 34px;
+  }
+
+  section .heading h2,
+  section .txtHead h2,
+  #venue h2 {
+    display: inline-block;
+    position: relative;
+    font-size: 32px;
+    color: var(--epic-navy);
+    padding-bottom: 16px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  section .heading h2::after,
+  section .txtHead h2::after,
+  #venue h2::after {
     content: '';
     position: absolute;
-    width: 6px;
-    background-color: #3498db;
-    top: 0;
+    left: 50%;
     bottom: 0;
-    left: 50%;
-    margin-left: -3px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--epic-cyan), var(--epic-blue));
   }
 
-  .timeline-container {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 50%;
-    box-sizing: border-box;
+  #venue .txtHead h2 { text-transform: uppercase; }
+
+  section .heading > p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--epic-muted);
   }
 
-  .timeline-container::after {
+  #introText h1 {
+    text-align: center;
+    color: var(--epic-navy);
+    font-size: 28px;
+    line-height: 1.4;
+    max-width: 900px;
+    margin: 0 auto 26px;
+  }
+  #introText p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: #33404c;
+    text-align: justify;
+  }
+
+  /* ---------- Header / Nav ---------- */
+  .header {
+    background: var(--epic-navy) !important;
+    box-shadow: 0 2px 18px rgba(0,0,0,0.25);
+  }
+  .navbar.navbar-inverse { background: transparent; border: none; }
+  #mainNav > li > a {
+    font-family: var(--font-head);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  #mainNav > li > a:hover,
+  #mainNav > li.active > a {
+    color: var(--epic-cyan) !important;
+  }
+
+  /* ---------- Hero ---------- */
+  .banner-container { position: relative; }
+  .banner-container::after {
     content: '';
     position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: white;
-    border: 4px solid #3498db;
-    top: 15px;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11,31,58,0.55) 0%, rgba(11,31,58,0.78) 65%, rgba(11,31,58,0.92) 100%);
+    pointer-events: none;
+  }
+  .banner-content { position: relative; z-index: 2; }
+  .banner-content header.centered h1 {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .banner-content header.centered p {
+    color: #dfeaf5;
+    font-size: 19px;
+    letter-spacing: 0.5px;
+  }
+  .banner-content header.centered p:last-of-type {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 6px 18px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 30px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(23, 183, 199, 0.18);
+  }
+  .social-icons a {
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.35);
     border-radius: 50%;
-    z-index: 1;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
   }
-
-  .left {
-    left: 0;
+  .social-icons a:hover {
+    background: var(--epic-cyan);
+    border-color: var(--epic-cyan);
+    color: var(--epic-navy);
+    transform: translateY(-3px);
   }
-
-  .right {
-    left: 50%;
+  .hireMe {
+    display: inline-block;
+    margin-top: 26px;
+    padding: 14px 40px;
+    background: linear-gradient(90deg, var(--epic-cyan), var(--epic-teal));
+    color: #fff !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 40px;
+    box-shadow: 0 10px 25px rgba(23,183,199,0.35);
   }
+  .hireMe:hover { box-shadow: 0 14px 32px rgba(23,183,199,0.5); text-decoration: none; }
 
-  .left::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    right: 30px;
-    border: medium solid #f1f1f1;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent #f1f1f1;
+  /* ---------- Buttons ---------- */
+  .btn-primary {
+    background: linear-gradient(90deg, var(--epic-blue), var(--epic-cyan)) !important;
+    border: none !important;
+    border-radius: 30px !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px 34px !important;
+    box-shadow: 0 8px 20px rgba(28,93,153,0.28);
   }
+  .btn-primary:hover { box-shadow: 0 12px 26px rgba(28,93,153,0.4); transform: translateY(-2px); }
 
-  .right::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    left: 30px;
-    border: medium solid #f1f1f1;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent #f1f1f1 transparent transparent;
-  }
-
-  .right::after {
-    left: -16px;
-  }
-
-  .timeline-content {
-    padding: 20px 30px;
-    background-color: white;
+  /* ---------- About ---------- */
+  #aboutEPIC { background: var(--epic-bg-soft); }
+  #aboutEPIC .tileBox img { border: 4px solid #fff; }
+  #aboutEPIC h3 { color: var(--epic-navy); font-size: 19px; }
+  #aboutEPIC ul li {
     position: relative;
-    border-radius: 6px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    padding-left: 26px;
+    margin-bottom: 6px;
+  }
+  #aboutEPIC ul li::before {
+    content: '\f061';
+    font-family: 'FontAwesome';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--epic-cyan);
+    font-size: 13px;
   }
 
-  .timeline-content:hover {
-    transform: scale(1.03);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  /* ---------- Quote / previous edition ---------- */
+  .bg-parlex {
+    background: linear-gradient(120deg, var(--epic-navy) 0%, var(--epic-navy-2) 55%, var(--epic-blue) 130%);
+    padding: 50px 0;
+    position: relative;
   }
-
-  .timeline-content h2 {
-    color: #3498db;
-    margin-top: 0;
+  .quote-image {
+    border: 5px solid rgba(255,255,255,0.15);
+    box-shadow: var(--epic-shadow-lg);
   }
-
-  .timeline-content .date {
-    color: #777;
+  .quote-text p {
     font-style: italic;
+    font-size: 18px !important;
+    border-left: 3px solid var(--epic-cyan);
+    padding-left: 18px;
   }
 
-  .timeline-content .details {
+  /* ---------- Format / Objectives ---------- */
+  #formatObjectives .format-section {
+    background: #fff;
+    border: 1px solid var(--epic-border);
+    border-left: 5px solid var(--epic-cyan);
+    border-radius: 10px;
+    padding: 26px 30px;
+    box-shadow: var(--epic-shadow);
+  }
+  #formatObjectives .format-section h3 {
+    color: var(--epic-navy);
+    font-size: 21px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #formatObjectives .format-section:nth-of-type(1) h3::before { content: '\f0ac'; font-family: 'FontAwesome'; color: var(--epic-cyan); }
+  #formatObjectives .format-section:nth-of-type(2) h3::before { content: '\f19d'; font-family: 'FontAwesome'; color: var(--epic-teal); }
+  #formatObjectives .format-section:nth-of-type(3) h3::before { content: '\f0c0'; font-family: 'FontAwesome'; color: var(--epic-coral); }
+  #formatObjectives ul li { margin-bottom: 5px; }
+  #formatObjectives .heading + .heading ul li {
+    position: relative;
+    padding-left: 28px;
+    list-style: none;
+    margin-bottom: 10px;
+  }
+  #formatObjectives .heading:nth-of-type(2) ul { margin-left: 0 !important; padding-left: 0; }
+  #formatObjectives .heading:nth-of-type(2) ul li {
+    list-style: none;
+    padding-left: 30px;
+    position: relative;
+  }
+  #formatObjectives .heading:nth-of-type(2) ul li::before {
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: #fff;
+    background: var(--epic-teal);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ---------- Registration ---------- */
+  #registration { background: var(--epic-bg-soft) !important; }
+  #registration .heading {
+    background: #fff;
+    border-radius: 14px;
+    padding: 40px 45px;
+    box-shadow: var(--epic-shadow);
+    border-top: 5px solid var(--epic-amber);
+  }
+
+  /* ---------- Schedule ---------- */
+  #schedule { background: #fff; }
+  .schedule-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 22px;
+    margin: 0 auto 36px;
+    max-width: 900px;
+  }
+  .schedule-legend span {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13.5px;
+    color: var(--epic-muted);
+    font-weight: 600;
+  }
+  .schedule-legend span::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 7px;
+  }
+  .legend-keynote::before { background: var(--epic-blue); }
+  .legend-tutorial::before { background: var(--epic-teal); }
+  .legend-break::before { background: var(--epic-amber); }
+  .legend-group::before { background: var(--epic-purple); }
+  .legend-special::before { background: var(--epic-coral); }
+
+  .day-cards { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+  .day-card {
+    border: 1px solid var(--epic-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--epic-shadow);
+    background: #fff;
+  }
+  .day-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 26px;
+    cursor: pointer;
+    background: linear-gradient(90deg, var(--epic-navy), var(--epic-blue));
+    color: #fff;
+    user-select: none;
+  }
+  .day-card-header .day-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .day-card-header .day-number {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 26px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+  .day-card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .day-card-header .day-date {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #cfe3f4;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .day-card-header .toggle-arrow {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+    flex: 0 0 auto;
+  }
+  .day-card.active .toggle-arrow { transform: rotate(180deg); }
+
+  .day-card-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    transition: max-height 0.45s ease;
+  }
+  .day-card.active .day-card-body { max-height: 1400px; }
+
+  .session-table { width: 100%; border-collapse: collapse; }
+  .session-table tr { border-bottom: 1px solid var(--epic-border); }
+  .session-table tr:last-child { border-bottom: none; }
+  .session-table td { padding: 16px 26px; vertical-align: top; }
+  .session-time {
+    width: 150px;
+    font-weight: 700;
+    color: var(--epic-navy);
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .session-time i { color: var(--epic-cyan); margin-right: 8px; }
+  .session-cell { font-size: 15px; line-height: 1.6; }
+  .session-item { display: block; margin-bottom: 6px; }
+  .session-item:last-child { margin-bottom: 0; }
+  .session-badge {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 2px 9px;
+    border-radius: 20px;
+    color: #fff;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .badge-keynote { background: var(--epic-blue); }
+  .badge-tutorial { background: var(--epic-teal); }
+  .badge-break { background: var(--epic-amber); color: #4a3402; }
+  .badge-group { background: var(--epic-purple); }
+  .badge-special { background: var(--epic-coral); }
+  .session-row-break td { background: #fff9ee; }
+  .session-row-lunch td { background: #f4f8fb; font-style: italic; color: var(--epic-muted); }
+
+  /* ---------- Venue ---------- */
+  #venue { background: var(--epic-bg-soft); }
+  #venue .tileBox img { border-radius: 12px; box-shadow: var(--epic-shadow); }
+  #venue h3 { color: var(--epic-navy); }
+  #venue iframe { border-radius: 12px; box-shadow: var(--epic-shadow); }
+  .row.text-center img {
+    filter: grayscale(15%);
   }
 
-  .timeline-content.active .details {
-    max-height: 500px;
+  /* ---------- Mentors ---------- */
+  #mentors { background: #fff; }
+  .mentor-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; }
+  .mentor-card {
+    background: #fff;
+    border: 1px solid var(--epic-border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--epic-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 320px;
+    margin-bottom: 10px;
+  }
+  .mentor-card:hover { transform: translateY(-6px); box-shadow: var(--epic-shadow-lg); }
+  .mentor-img-container { position: relative; overflow: hidden; }
+  .mentor-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+  }
+  .mentor-social {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 0;
+    background: linear-gradient(0deg, rgba(11,31,58,0.85), rgba(11,31,58,0));
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+  .mentor-img-container:hover .mentor-social { opacity: 1; transform: translateY(0); }
+  .mentor-social a {
+    color: #fff;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .mentor-social a:hover { background: var(--epic-cyan); color: var(--epic-navy); }
+  .mentor-info { padding: 20px 22px 24px; }
+  .mentor-info h3 { font-size: 17px; color: var(--epic-navy); margin: 0 0 4px; }
+  .mentor-title {
+    color: var(--epic-cyan);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+  }
+  .mentor-bio {
+    font-size: 14px;
+    color: var(--epic-muted);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .mentor-more { border-radius: 24px !important; padding: 8px 22px !important; font-size: 12.5px !important; }
+
+  /* ---------- FAQ ---------- */
+  #faq { background: var(--epic-bg-soft); }
+  .faq-container { max-width: 820px; margin: 0 auto; }
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--epic-border);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: var(--epic-shadow);
+  }
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    cursor: pointer;
+  }
+  .faq-question h4 { margin: 0; font-size: 16px; color: var(--epic-navy); font-weight: 600; }
+  .toggle-icon {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--epic-cyan);
+    transition: transform 0.3s ease;
+    flex: 0 0 auto;
+    margin-left: 16px;
+  }
+  .faq-item.active .toggle-icon { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 24px;
+  }
+  .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 20px; }
+  .faq-answer p { color: var(--epic-muted); line-height: 1.7; margin: 0; }
+
+  /* ---------- Participants / Goals ---------- */
+  #participantsList, #goalsDeliverables { background: #fff; }
+  #goalsDeliverables { background: var(--epic-bg-soft); }
+  #goalsDeliverables .heading, #participantsList .heading { max-width: 880px; margin: 0 auto; }
+  #goalsDeliverables ul li, #participantsList ul li {
+    position: relative;
+    padding-left: 26px;
+    list-style: none;
+  }
+  #goalsDeliverables ul, #participantsList ul { padding-left: 0 !important; }
+  #goalsDeliverables ul li::before, #participantsList ul li::before {
+    content: '\f005';
+    font-family: 'FontAwesome';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--epic-amber);
+    font-size: 13px;
   }
 
-  @media screen and (max-width: 600px) {
-    .timeline::after {
-      left: 31px;
-    }
-
-    .timeline-container {
-      width: 100%;
-      padding-left: 70px;
-      padding-right: 25px;
-    }
-
-    .timeline-container::before {
-      left: 60px;
-      border: medium solid #f1f1f1;
-      border-width: 10px 10px 10px 0;
-      border-color: transparent #f1f1f1 transparent transparent;
-    }
-
-    .left::after,
-    .right::after {
-      left: 15px;
-    }
-
-    .right {
-      left: 0%;
-    }
+  /* EPIC Junior CTA */
+  .epic-jr-cta {
+    max-width: 700px;
+    margin: 10px auto 60px;
+    text-align: center;
+    background: linear-gradient(120deg, var(--epic-navy), var(--epic-blue));
+    color: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: var(--epic-shadow-lg);
+  }
+  .epic-jr-cta p { color: #dfeaf5; margin-top: 16px; margin-bottom: 0; }
+  .epic-jr-cta .btn-primary {
+    background: linear-gradient(90deg, var(--epic-cyan), var(--epic-teal)) !important;
   }
 
-  /* Ensure responsiveness for the Dorothy section */
+  /* ---------- Contact / Footer ---------- */
+  #contactUs { background: var(--epic-bg-soft); text-align: center; }
+  #contactUs a { font-size: 18px; font-weight: 600; }
+  #contactUs a font { color: var(--epic-navy) !important; }
+  footer.copyright {
+    background: var(--epic-navy);
+    color: #cfe3f4;
+    padding: 22px 0;
+  }
+  footer.copyright .social a { color: #fff; margin-right: 12px; }
+  footer.copyright .social a:hover { color: var(--epic-cyan); }
+
+  .topHome {
+    background: var(--epic-cyan) !important;
+    color: var(--epic-navy) !important;
+  }
+
+  /* ============================================================
+     Original component styles (kept, lightly refined)
+     ============================================================ */
   .quote-image {
     width: 100%;
     max-width: 300px;
@@ -178,84 +618,52 @@
     border-radius: 10px;
     margin-bottom: 20px;
   }
-
   .quote-text {
     font-size: 16px;
     line-height: 1.8;
     text-align: justify;
-    color: white; /* Change text color to white */
+    color: white;
   }
-
   @media screen and (max-width: 768px) {
-    .quote-text {
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .quote-image {
-      max-width: 200px;
-    }
-
-    .parlex-back .row {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+    .quote-text { font-size: 14px; line-height: 1.6; }
+    .quote-image { max-width: 200px; }
+    .parlex-back .row { flex-direction: column; align-items: center; text-align: center; }
+    .banner-content header.centered h1 { font-size: 40px; letter-spacing: 2px; }
+    .session-table td { padding: 12px 16px; }
+    .session-time { width: 120px; font-size: 12.5px; }
+    .day-card-header { padding: 16px 18px; }
+    .mentor-card { width: 100%; max-width: 340px; }
   }
-
-  /* Add animations to Format and Objectives sections */
-  #formatObjectives .format-section, 
+  #formatObjectives .format-section,
   #formatObjectives .heading {
     animation: fadeInUp 0.8s ease-in-out;
   }
-
-  #formatObjectives ul {
-    animation: fadeIn 1s ease-in-out;
-  }
-
+  #formatObjectives ul { animation: fadeIn 1s ease-in-out; }
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
-
-  /* Add animation to logos */
   .row.text-center img {
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.8;
   }
-
-  .row.text-center img:hover {
-    transform: scale(1.1); /* Slight zoom effect */
-    opacity: 1; /* Full opacity on hover */
-  }
+  .row.text-center img:hover { transform: scale(1.1); opacity: 1; }
 </style>
 </head>
-
 <body>
 <header class="header">
   <div class="container">
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
-        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> 
-          <span class="sr-only">Toggle navigation</span> 
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
       </div>
       <!--/.navbar-header-->
@@ -265,15 +673,18 @@
           <li><a href="#aboutEPIC" class="scroll-link">About EPIC</a></li>
           <li><a href="#formatObjectives" class="scroll-link">Format</a></li>
           <li><a href="#registration" class="scroll-link">Registration</a></li>
+          <li><a href="#schedule" class="scroll-link">Schedule</a></li>
           <li><a href="#venue" class="scroll-link">Venue</a></li>
+          <li><a href="#mentors" class="scroll-link">Mentors</a></li>
+          <li><a href="#faq" class="scroll-link">FAQ</a></li>
           <li><a href="#contactUs" class="scroll-link">Contact Us</a></li>
         </ul>
       </div>
-      <!--/.navbar-collapse--> 
+      <!--/.navbar-collapse-->
     </nav>
-    <!--/.navbar--> 
+    <!--/.navbar-->
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </header>
 <!--/.header-->
 <div id="#top"></div>
@@ -285,7 +696,7 @@
         <header class="centered">
           <h1>EPIC VI</h1>
           <p>Programming School for Scientific Research</p>
-		  <p>3 - 7 August 2026</p>	
+		  <p>3 - 7 August 2026</p>
         </header>
         <div class="social-icons">
           <a href="https://x.com/cienciaLatitud0"><i class="fa fa-twitter"></i></a>
@@ -340,7 +751,7 @@
     </div>
   </div>
 </section>
-	
+
 <!--Quote-->
 <section id="#introText" class="bg-parlex">
   <div class="parlex-back">
@@ -356,73 +767,55 @@
     </div>
   </div>
 </section>
-
-
 <section id="formatObjectives" class="secPad white" style="margin-top: 5px; padding-bottom: 5px;">
   <div class="container">
-
     <div class="heading animate__animated animate__fadeIn">
       <h2>Format</h2>
-
       <div class="format-section">
         <h3>Pre-School Online Engagement (July 2026)</h3>
-
         <p>
           EPIC VI will include a series of open online preparatory sessions designed
           to introduce participants to basic programming concepts, computational thinking,
           and the overall structure of the school.
         </p>
-
         <p>The pre-school activities are designed to:</p>
-
         <ul style="margin-left: 20px; line-height: 1.8;">
           <li>Reach students from universities across Ecuador</li>
           <li>Harmonize heterogeneous academic backgrounds</li>
           <li>Identify motivated participants without competitive selection stages</li>
         </ul>
       </div>
-
       <div class="format-section" style="margin-top: 30px;">
         <h3>In-Person School (5 Days)</h3>
-
         <p>
           The in-person school combines conceptual lectures with guided hands-on
           workshops using Python-based tools.
         </p>
-
         <p>Each day includes:</p>
-
         <ul style="margin-left: 20px; line-height: 1.8;">
           <li>One conceptual lecture introducing key scientific ideas</li>
           <li>Guided practical workshops using Python</li>
           <li>Emphasis on models, assumptions, and scientific interpretation</li>
         </ul>
-
         <p>The tutorials will focus on:</p>
-
         <ul style="margin-left: 20px; line-height: 1.8;">
           <li>Computational modeling of physical systems</li>
           <li>Numerical simulations and data analysis</li>
           <li>Machine learning for physical and biological data</li>
           <li>Physics-inspired and interpretable AI approaches</li>
         </ul>
-
         <p>
           All activities are designed to be accessible to advanced undergraduate
           students, with no prior experience in machine learning required.
         </p>
       </div>
-
       <div class="format-section" style="margin-top: 30px;">
         <h3>Day 5: Collaborative Group Activity</h3>
-
         <p>
           The final day replaces the hackathon format used in previous editions with
           a guided collaborative modeling activity.
         </p>
-
         <p>Participants will:</p>
-
         <ul style="margin-left: 20px; line-height: 1.8;">
           <li>Work in small groups on clearly defined modeling tasks</li>
           <li>Apply methods learned during the school</li>
@@ -431,10 +824,8 @@
         </ul>
       </div>
     </div>
-
     <div class="heading animate__animated animate__fadeIn" style="margin-top: 40px;">
       <h2>Objectives</h2>
-
       <ul style="font-size: 16px; line-height: 1.8; margin-left: 20px;">
         <li>Introduce advanced undergraduate students to computational modeling and simulations</li>
         <li>Provide hands-on experience with data analysis and introductory AI methods</li>
@@ -443,15 +834,12 @@
         <li>Establish EPIC as a stable national training school with international links</li>
       </ul>
     </div>
-
   </div>
 </section>
-
-
 <!--registration-->
 <section id="registration" class="secPad" style="margin-top: 20px; padding: 20px 0; background-color: #f9f9f9;">
   <div class="container">
-    <div class="heading"> 
+    <div class="heading">
       <h2>Registration</h2>
       <p style="font-size: 16px; line-height: 1.8;">
         Registration is now open! We welcome applications from undergraduate and MSc students in natural or computer sciences who wish to expand their scientific computing skills. Preference will be given to applicants from Latin American countries and students who have not participated in previous editions of EPIC.
@@ -468,160 +856,281 @@
         </a>
       </div>
     </div>
-  </div>		
+  </div>
 </section>
 
+<!--Schedule (programme sourced from EPIC_6.xlsx) -->
 <section id="schedule" class="secPad white" style="margin-top: 5px; padding-bottom: 10px;">
   <div class="container">
-
     <div class="heading animate__animated animate__fadeIn">
       <h2>Schedule</h2>
       <p style="font-size: 16px; line-height: 1.8;">
-        Explore the detailed schedule for EPIC VI below. Click on each day to expand and view the sessions.
+        Explore the detailed EPIC VI programme below. Click on each day to expand and view the sessions.
       </p>
     </div>
 
-    <div class="timeline">
+    <div class="schedule-legend">
+      <span class="legend-keynote">Talks &amp; Keynotes</span>
+      <span class="legend-tutorial">Python Tutorials</span>
+      <span class="legend-group">Group Work</span>
+      <span class="legend-break">Breaks</span>
+      <span class="legend-special">Special Sessions</span>
+    </div>
 
-      <div class="timeline-container left">
-        <div class="timeline-content" onclick="toggleDetails(this)">
-          <h2>Day 1: Introduction to Computational Modeling in Physics</h2>
-          <div class="details">
+    <div class="day-cards">
 
-            <strong>Morning Session (08h00 – 10h00)</strong>
-            <ul>
-              <li>08h00 – 08h15: Registration</li>
-              <li>08h15 – 08h30: Welcome and Introduction to EPIC VI</li>
-              <li>08h30 – 10h00: Keynote Lecture: Computational Thinking in Physics: From Equations to Models</li>
-              <li>10h00 – 10h30: Coffee Break</li>
-            </ul>
-
-            <strong>Midday Session (10h30 – 12h30)</strong>
-            <ul>
-              <li>10h30 – 12h30: Hands-on Workshop 1: Introduction to Python for Scientific Computing and Data Handling</li>
-            </ul>
-
-            <strong>Afternoon Session (14h00 – 17h00)</strong>
-            <ul>
-              <li>14h00 – 17h00: Hands-on Workshop 2: Numerical Modeling of Simple Physical Systems</li>
-            </ul>
-
+      <!-- Day 1 - Monday 3 August -->
+      <div class="day-card active">
+        <div class="day-card-header" onclick="toggleDay(this)">
+          <div class="day-label">
+            <span class="day-number">1</span>
+            <div>
+              <h3>Monday — Welcome &amp; Foundations</h3>
+              <span class="day-date">3 August 2026</span>
+            </div>
           </div>
+          <i class="fa fa-chevron-down toggle-arrow"></i>
+        </div>
+        <div class="day-card-body">
+          <table class="session-table">
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-special">Opening</span>Bienvenida — Welcome to EPIC VI</span>
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 1: <strong>Lupe Villegas</strong></span>
+              </td>
+            </tr>
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 1: Método de Elementos Finitos — <strong>Pablo Rodríguez López</strong></span>
+              </td>
+            </tr>
+            <tr class="session-row-lunch">
+              <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 2: Machine Learning — <strong>Iván Reyes</strong></span>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
 
-      <div class="timeline-container right">
-        <div class="timeline-content" onclick="toggleDetails(this)">
-          <h2>Day 2: Data Analysis and Simulations in Computational Physics</h2>
-          <div class="details">
-
-            <strong>Morning Session (08h00 – 10h00)</strong>
-            <ul>
-              <li>08h00 – 10h00: Keynote Lecture: From Data to Simulation: Numerical Methods in Physics</li>
-              <li>10h00 – 10h30: Coffee Break</li>
-            </ul>
-
-            <strong>Midday Session (10h30 – 12h30)</strong>
-            <ul>
-              <li>10h30 – 12h30: Hands-on Workshop 3: Data Analysis and Visualization for Physical Systems</li>
-            </ul>
-
-            <strong>Afternoon Session (14h00 – 17h00)</strong>
-            <ul>
-              <li>14h00 – 17h00: Hands-on Workshop 4: Time-Dependent Simulations and Model Exploration</li>
-            </ul>
-
+      <!-- Day 2 - Tuesday 4 August -->
+      <div class="day-card">
+        <div class="day-card-header" onclick="toggleDay(this)">
+          <div class="day-label">
+            <span class="day-number">2</span>
+            <div>
+              <h3>Tuesday — Modeling &amp; Observation</h3>
+              <span class="day-date">4 August 2026</span>
+            </div>
           </div>
+          <i class="fa fa-chevron-down toggle-arrow"></i>
+        </div>
+        <div class="day-card-body">
+          <table class="session-table">
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 3: Método de Elementos Finitos — <strong>Pablo Rodríguez López</strong></span>
+              </td>
+            </tr>
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 4: Astronomía Observacional — <strong>Daysi Quinatoa</strong></span>
+              </td>
+            </tr>
+            <tr class="session-row-lunch">
+              <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 5: Biofísica Computacional — <strong>Andrés Morales Navarrete</strong></span>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
 
-      <div class="timeline-container left">
-        <div class="timeline-content" onclick="toggleDetails(this)">
-          <h2>Day 3: Introduction to AI for Physical and Life Sciences</h2>
-          <div class="details">
-
-            <strong>Morning Session (08h00 – 10h00)</strong>
-            <ul>
-              <li>08h00 – 10h00: Keynote Lecture: Artificial Intelligence as a Tool for Scientific Modeling</li>
-              <li>10h00 – 10h30: Coffee Break</li>
-            </ul>
-
-            <strong>Midday Session (10h30 – 12h30)</strong>
-            <ul>
-              <li>10h30 – 12h30: Hands-on Workshop 5: Introduction to Machine Learning Concepts for Scientific Data</li>
-            </ul>
-
-            <strong>Afternoon Session (14h00 – 17h00)</strong>
-            <ul>
-              <li>14h00 – 17h00: Hands-on Workshop 6: Applying Simple AI Models to Physical and Biological Datasets</li>
-            </ul>
-
+      <!-- Day 3 - Wednesday 5 August -->
+      <div class="day-card">
+        <div class="day-card-header" onclick="toggleDay(this)">
+          <div class="day-label">
+            <span class="day-number">3</span>
+            <div>
+              <h3>Wednesday — AI for Science</h3>
+              <span class="day-date">5 August 2026</span>
+            </div>
           </div>
+          <i class="fa fa-chevron-down toggle-arrow"></i>
+        </div>
+        <div class="day-card-body">
+          <table class="session-table">
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 2: <strong>Wladimir Banda Barragán</strong></span>
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 3: <strong>Helga Dénes</strong></span>
+              </td>
+            </tr>
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 6: Astronomía Observacional — <strong>Daysi Quinatoa</strong></span>
+              </td>
+            </tr>
+            <tr class="session-row-lunch">
+              <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 7: Biofísica Computacional — <strong>Andrés Morales Navarrete</strong></span>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
 
-      <div class="timeline-container right">
-        <div class="timeline-content" onclick="toggleDetails(this)">
-          <h2>Day 4: Physics-Inspired AI and Model Interpretation</h2>
-          <div class="details">
-
-            <strong>Morning Session (08h00 – 10h00)</strong>
-            <ul>
-              <li>08h00 – 10h00: Keynote Lecture: Physics-Inspired and Interpretable AI Models</li>
-              <li>10h00 – 10h30: Coffee Break</li>
-            </ul>
-
-            <strong>Midday Session (10h30 – 12h30)</strong>
-            <ul>
-              <li>10h30 – 12h30: Hands-on Workshop 7: Model Interpretation, Assumptions, and Limitations</li>
-            </ul>
-
-            <strong>Afternoon Session (14h00 – 17h00)</strong>
-            <ul>
-              <li>14h00 – 17h00: Hands-on Workshop 8: Comparing Simulation-Based and Data-Driven Approaches</li>
-            </ul>
-
+      <!-- Day 4 - Thursday 6 August -->
+      <div class="day-card">
+        <div class="day-card-header" onclick="toggleDay(this)">
+          <div class="day-label">
+            <span class="day-number">4</span>
+            <div>
+              <h3>Thursday — Diversity &amp; Teamwork</h3>
+              <span class="day-date">6 August 2026</span>
+            </div>
           </div>
+          <i class="fa fa-chevron-down toggle-arrow"></i>
+        </div>
+        <div class="day-card-body">
+          <table class="session-table">
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 4: <strong>IEEE – UIDE</strong></span>
+                <span class="session-item"><span class="session-badge badge-special">Special</span>Charla 5: Diversidad en la Academia — <strong>UIDE</strong></span>
+              </td>
+            </tr>
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-group">Group Work</span>Trabajo en Grupos</span>
+              </td>
+            </tr>
+            <tr class="session-row-lunch">
+              <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-group">Group Work</span>Trabajo en Grupos</span>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
 
-      <div class="timeline-container left">
-        <div class="timeline-content" onclick="toggleDetails(this)">
-          <h2>Day 5: Collaborative Modeling Activity and Wrap-Up</h2>
-          <div class="details">
-
-            <strong>Morning Session (08h00 – 10h00)</strong>
-            <ul>
-              <li>08h00 – 08h30: Introduction to the Collaborative Group Activity</li>
-              <li>08h30 – 10h00: Group Formation and Problem Overview</li>
-              <li>10h00 – 10h30: Coffee Break</li>
-            </ul>
-
-            <strong>Midday Session (10h30 – 12h30)</strong>
-            <ul>
-              <li>10h30 – 12h30: Guided Modeling and Simulation Task</li>
-            </ul>
-
-            <strong>Afternoon Session (14h00 – 16h00)</strong>
-            <ul>
-              <li>14h00 – 15h30: Group Presentations and Discussion</li>
-              <li>15h30 – 16h00: Concluding Remarks and Certificates</li>
-            </ul>
-
+      <!-- Day 5 - Friday 7 August -->
+      <div class="day-card">
+        <div class="day-card-header" onclick="toggleDay(this)">
+          <div class="day-label">
+            <span class="day-number">5</span>
+            <div>
+              <h3>Friday — Presentations &amp; Closing</h3>
+              <span class="day-date">7 August 2026</span>
+            </div>
           </div>
+          <i class="fa fa-chevron-down toggle-arrow"></i>
+        </div>
+        <div class="day-card-body">
+          <table class="session-table">
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 6: Física Interactiva — <strong>Nelson Herrera</strong></span>
+                <span class="session-item"><span class="session-badge badge-special">Special</span>UIDE Campus Tour</span>
+              </td>
+            </tr>
+            <tr class="session-row-break">
+              <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-special">Special</span>Presentaciones de Proyectos</span>
+              </td>
+            </tr>
+            <tr class="session-row-lunch">
+              <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+            </tr>
+            <tr>
+              <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
+              <td class="session-cell">
+                <span class="session-item"><span class="session-badge badge-special">Closing</span>Despedida (Closing Ceremony)</span>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
 
     </div>
-
   </div>
 </section>
 
 <!--venue-->
 <section id="venue" class="secPad" style="margin-top: 5px;">
 <div class="container">
-
-<div class="row"> 
+<div class="row">
   <div class="col-md-8 tileBox">
     <div class="txtHead">
     <h2>venue</h2>
@@ -635,22 +1144,20 @@
   <!-- Picture -->
   <div class="col-md-4 tileBox"> <img src="images/uide_campus_2.jpg" alt="me"/> </div>
 </div>
-
 <div class="row">
     <h3>Interactive Map</h3>
     <div style="width: 100%; height: 400px;">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7815465074127!2d-78.47110212420631!3d-0.24599759975157964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d597638b0399b7%3A0x6584fbf0c60146da!2sUniversidad%20Internacional%20del%20Ecuador%20-%20UIDE%20Quito!5e0!3m2!1ses-419!2sec!4v1744081592806!5m2!1ses-419!2sec" 
-        width="100%" 
-        height="400" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7815465074127!2d-78.47110212420631!3d-0.24599759975157964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d597638b0399b7%3A0x6584fbf0c60146da!2sUniversidad%20Internacional%20del%20Ecuador%20-%20UIDE%20Quito!5e0!3m2!1ses-419!2sec!4v1744081592806!5m2!1ses-419!2sec"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
 </div>
-
 <div class="row text-center" style="padding: 20px 0;">
   <h3 style="margin-bottom: 20px;">Organized By</h3>
   <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: nowrap;">
@@ -660,8 +1167,7 @@
     <img src="images/uide.png" width="200" alt="Name">
     <img src="images/USFQ.png" width="200" alt="Name">
   </div>
-</div>		
-
+</div>
 <div class="row text-center" style="padding: 20px 0;">
   <h3 style="margin-bottom: 20px;">With the Kind Support Of</h3>
   <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: nowrap;">
@@ -669,17 +1175,14 @@
     <img src="images/pwf-bw.png" width="250" alt="Name">
 	<img src="images/khipu_2023_logo_diapo.png" width="250" alt="Name">
   </div>
-</div>	
-
+</div>
 </section>
-
 <section id="mentors" class="secPad">
   <div class="container">
     <div class="heading">
       <h2>Meet the Mentors</h2>
       <p>Learn from experts in the field of computational science who will guide you through EPIC VI</p>
     </div>
-
     <div class="row mentor-grid">
       <div class="col-md-4 col-sm-8 mentor-card">
         <div class="mentor-img-container">
@@ -692,12 +1195,11 @@
         </div>
         <div class="mentor-info">
           <h3>Andrés Morales-Navarrete, Ph.D.</h3>
-          <p class="mentor-title">Computational Biophysics & Machine Learning for Biology</p>
+          <p class="mentor-title">Computational Biophysics &amp; Machine Learning for Biology</p>
           <p class="mentor-bio">Hernán Andrés Morales-Navarrete holds a PhD in computational Biology from the Max Planck Institute of Molecular Cell Biology.</p>
           <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor1">Read More</button>
         </div>
       </div>
-
       <div class="col-md-4 col-sm-8 mentor-card">
         <div class="mentor-img-container">
           <img src="images/paulina_750x750.png" alt="Mentor 2" class="mentor-img">
@@ -709,12 +1211,11 @@
         </div>
         <div class="mentor-info">
           <h3>Paulina Vizcaino, PhD</h3>
-          <p class="mentor-title">Data Science & Image Analysis</p>
+          <p class="mentor-title">Data Science &amp; Image Analysis</p>
           <p class="mentor-bio">Specializes in computing science and education.</p>
           <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor2">Read More</button>
         </div>
       </div>
-
       <div class="col-md-4 col-sm-8 mentor-card">
         <div class="mentor-img-container">
           <img src="images/helga_750x750.png" alt="Mentor 3" class="mentor-img">
@@ -726,12 +1227,11 @@
         </div>
         <div class="mentor-info">
           <h3>Helga Dénes, Ph.D.</h3>
-          <p class="mentor-title">Radio Astronomy & Astrophysics</p>
+          <p class="mentor-title">Radio Astronomy &amp; Astrophysics</p>
           <p class="mentor-bio">Helga’s main scientific interest is how the gas content of galaxies influences their evolution.</p>
           <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor3">Read More</button>
         </div>
       </div>
-
       <div class="col-md-4 col-sm-8 mentor-card">
         <div class="mentor-img-container">
           <img src="images/lupe_750x750.png" alt="Mentor 4" class="mentor-img">
@@ -743,12 +1243,11 @@
         </div>
         <div class="mentor-info">
           <h3>Lupe Villegas, PhD</h3>
-          <p class="mentor-title">Cellular Image  & Biomedical Image Analysis</p>
+          <p class="mentor-title">Cellular Image &amp; Biomedical Image Analysis</p>
           <p class="mentor-bio">I am a physicist with a deep passion for the medical sciences, driven by a longstanding fascination with the complexity of biological systems.</p>
           <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor4">Read More</button>
         </div>
       </div>
-
       <div class="col-md-4 col-sm-8 mentor-card">
         <div class="mentor-img-container">
           <img src="images/wladi_750x750.png" alt="Mentor 5" class="mentor-img">
@@ -765,7 +1264,6 @@
           <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor5">Read More</button>
         </div>
       </div>
-
       <div class="col-md-4 col-sm-8 mentor-card">
         <div class="mentor-img-container">
           <img src="images/ivan_750x750.png" alt="Mentor 6" class="mentor-img">
@@ -782,7 +1280,6 @@
           <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor6">Read More</button>
         </div>
       </div>
-
 	    <div class="col-md-4 col-sm-8 mentor-card">
         <div class="mentor-img-container">
           <img src="images/Daysi.jpeg" alt="Mentor 7" class="mentor-img">
@@ -799,7 +1296,6 @@
           <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor7">Read More</button>
         </div>
       </div>
-
 	  	<div class="col-md-4 col-sm-8 mentor-card">
         <div class="mentor-img-container">
           <img src="images/Pablo.jpeg" alt="Mentor 8" class="mentor-img">
@@ -817,11 +1313,10 @@
         </div>
       </div>
 	</div>
-	    
-    </div>
-	  
-  </div>
 
+    </div>
+
+  </div>
   <div class="modal fade" id="mentorModal" tabindex="-1" role="dialog" aria-labelledby="mentorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -840,17 +1335,16 @@
     </div>
   </div>
 </section>
-
 <!--FAQ-->
 <section id="faq" class="secPad">
   <div class="container">
     <div class="heading">
       <h2>Frequently Asked Questions</h2>
     </div>
-    
+
     <div class="faq-container">
       <div class="faq-item">
-        <div class="faq-question">
+        <div class="faq-question" onclick="toggleFaq(this)">
           <h4>Who can apply to EPIC VI?</h4>
           <span class="toggle-icon">+</span>
         </div>
@@ -858,9 +1352,9 @@
           <p>We welcome applications from undergraduate students, MSc students and PhD students working on any field of natural sciences and/or computer sciences who wish to expand their scientific computing skills. While we review all applications, preference is given to applicants from Latin American countries and to students who have not participated in previous editions of EPIC.</p>
         </div>
       </div>
-      
+
       <div class="faq-item">
-        <div class="faq-question">
+        <div class="faq-question" onclick="toggleFaq(this)">
           <h4>Do I need programming experience?</h4>
           <span class="toggle-icon">+</span>
         </div>
@@ -868,9 +1362,9 @@
           <p>Basic programming notions are essential to sign up for this School. Familiarity with Python is recommended as it will be the primary language used throughout the competition.</p>
         </div>
       </div>
-      
+
       <div class="faq-item">
-        <div class="faq-question">
+        <div class="faq-question" onclick="toggleFaq(this)">
           <h4>Is there a registration fee?</h4>
           <span class="toggle-icon">+</span>
         </div>
@@ -878,9 +1372,9 @@
           <p>No, there is no registration fee for EPIC VI. The event is fully funded by ICTP's Physics Without Frontiers (PWF) program and UNESCO-Quito.</p>
         </div>
       </div>
-      
+
       <div class="faq-item">
-        <div class="faq-question">
+        <div class="faq-question" onclick="toggleFaq(this)">
           <h4>Can I participate remotely?</h4>
           <span class="toggle-icon">+</span>
         </div>
@@ -888,11 +1382,10 @@
           <p>No, the EPIC VI School will be held in person at Universidad Internacional del Ecuador (UIDE) in Quito.</p>
         </div>
       </div>
-		
+
     </div>
   </div>
 </section>
-
 <section id="participantsList" class="secPad white" style="margin-top: 5px; padding-bottom: 10px;">
   <div class="container">
     <div class="heading animate__animated animate__fadeIn">
@@ -903,55 +1396,45 @@
     </div>
   </div>
 </section>
-	
+
 <section id="goalsDeliverables" class="secPad white" style="margin-top: 5px; padding-bottom: 10px;">
   <div class="container">
-
     <div class="heading animate__animated animate__fadeIn">
       <h2>Goals and Deliverables</h2>
-
       <p style="font-size: 16px; line-height: 1.8;">
         EPIC VI aims to strengthen computational science education in Ecuador by
         providing advanced undergraduate and early Master’s students with hands-on
         experience in computational modeling, simulations, data analysis, and
         introductory artificial intelligence methods.
       </p>
-
       <p style="font-size: 16px; line-height: 1.8;">
         The school combines conceptual lectures with guided Python-based workshops,
         emphasizing the connection between physical intuition and computational tools.
         Activities are designed to prioritize scientific reasoning, interpretation,
         and teamwork.
       </p>
-
       <p style="font-size: 16px; line-height: 1.8;">
         By the end of EPIC VI, participants will:
       </p>
-
       <ul style="font-size: 16px; line-height: 1.8; margin-top: 10px; padding-left: 20px;">
         <li>Gain practical experience in computational modeling and simulations</li>
         <li>Understand how data-driven and model-based approaches complement each other</li>
         <li>Develop confidence in applying computational tools to scientific problems</li>
         <li>Improve teamwork and scientific communication skills</li>
       </ul>
-
       <p style="font-size: 16px; line-height: 1.8;">
         All teaching materials, including lecture notes, slides, Python notebooks,
         and hands-on tutorials, will be released as open-access educational resources.
       </p>
-
       <p style="font-size: 16px; line-height: 1.8;">
         EPIC VI aims to leave participants with not only enhanced technical skills
         but also a deeper understanding of how computational methods drive innovation
         in diverse scientific fields.
       </p>
-
     </div>
-
   </div>
 </section>
-
-<div style="text-align:center; margin-top:20px;">
+<div class="epic-jr-cta">
   <a href="EPIC_JR.html" class="btn btn-primary btn-lg">
     Visit EPIC Junior
   </a>
@@ -959,22 +1442,20 @@
 This year we will also host the second edition of the EPIC Junior School.
 </p>
 </div>
-	
 
 <!--Contact -->
 <section id="contactUs" class="page-section secPad">
   <div class="container">
     <div class="row">
-      <div class="heading"> 
+      <div class="heading">
         <!-- Heading -->
         <h2>Contact</h2>
         <p><a href="mailto:ciencia.latitud0@gmail.com"><font color="black">ciencia.latitud0@gmail.com</font></a></p>
       </div>
     </div>
   </div>
-  <!--/.container--> 
+  <!--/.container-->
 </section>
-
 <!--/.page-section-->
 <footer class="copyright">
   <div class="container">
@@ -984,27 +1465,50 @@ This year we will also host the second edition of the EPIC Junior School.
       </div>
       <div class="col-md-6"> <span class="pull-right">Copyright 2026 | All Rights Reserved  </span> </div>
     </div>
-    <!-- / .row --> 
+    <!-- / .row -->
   </div>
 </footer>
-<a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a> 
-
-<!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]--> 
-<script src="js/modernizr-latest.js"></script> 
-<script src="js/jquery-1.8.2.min.js" type="text/javascript"></script> 
-<script src="js/bootstrap.min.js" type="text/javascript"></script> 
-<script src="js/jquery.isotope.min.js" type="text/javascript"></script> 
-<script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script> 
-<script src="js/jquery.nav.js" type="text/javascript"></script> 
-<script src="js/jquery.cslider.js" type="text/javascript"></script> 
-<script src="js/jquery.diagram.js"></script> 
-<script src="js/custom.js"></script> 
+<a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+<!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]-->
+<script src="js/modernizr-latest.js"></script>
+<script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.isotope.min.js" type="text/javascript"></script>
+<script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="js/jquery.nav.js" type="text/javascript"></script>
+<script src="js/jquery.cslider.js" type="text/javascript"></script>
+<script src="js/jquery.diagram.js"></script>
+<script src="js/custom.js"></script>
 <script src="js/owl-carousel/owl.carousel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="js/countdown.js"></script>
 <script src="js/mentors.js"></script>
 <script>
   AOS.init();
+
+  function toggleDay(headerEl) {
+    var card = headerEl.parentElement;
+    var wasActive = card.classList.contains('active');
+    document.querySelectorAll('.day-card').forEach(function (c) {
+      c.classList.remove('active');
+    });
+    if (!wasActive) {
+      card.classList.add('active');
+    }
+  }
+
+  function toggleFaq(questionEl) {
+    var item = questionEl.parentElement;
+    var wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(function (i) {
+      i.classList.remove('active');
+    });
+    if (!wasActive) {
+      item.classList.add('active');
+    }
+  }
+
+  // Kept for backward-compatibility if referenced elsewhere
   function toggleDetails(element) {
     element.classList.toggle('active');
   }
