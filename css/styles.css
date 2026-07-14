@@ -1299,43 +1299,11 @@ tr:hover {
   }
 
 
-  .faq-container {
-	margin-top: 20px;
-  }
-  
-  .faq-item {
-	margin-bottom: 15px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	overflow: hidden;
-  }
-  
-  .faq-question {
-	background-color: #3498db;
-	color: white;
-	padding: 15px;
-	cursor: pointer;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-  }
-  
-  .faq-question h4 {
-	margin: 0;
-  }
-  
-  .toggle-icon {
-	font-size: 18px;
-	font-weight: bold;
-  }
-  
-  .faq-answer {
-	display: none;
-	padding: 15px;
-	background-color: #f9f9f9;
-	color: #333;
-	border-top: 1px solid #ddd;
-  }
+  /* FAQ styling now lives in index.html's inline <style> block
+     (light-theme card design with max-height accordion transition).
+     The legacy rules that used to live here (blue background-color,
+     display:none) were fighting with it and kept the answers from
+     ever appearing. Removed. */
 
 .mentor-grid {
   margin-top: 40px;
