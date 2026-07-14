@@ -165,7 +165,18 @@
   #nav-toggle { border-color: var(--epic-border); }
 
   /* ---------- Hero ---------- */
-  .banner-container { position: relative; min-height: 560px; display: flex; align-items: center; }
+  /* Some of the template's other stylesheets (da-slider.css in
+     particular) position slide-caption blocks with position:absolute
+     plus top/left/right offsets, meant for a carousel. This banner is
+     not a slider, so that inherited rule on .row must be neutralized
+     here — otherwise the caption card drifts off to one side and gets
+     cut off, which is exactly what happened. */
+  .banner-container {
+    position: relative !important;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+  }
   .banner-container::after {
     content: '';
     position: absolute;
@@ -173,10 +184,23 @@
     background: linear-gradient(180deg, rgba(18,58,99,0.12) 0%, rgba(18,58,99,0.18) 100%);
     pointer-events: none;
   }
-  .banner-content { position: relative; z-index: 2; width: 100%; }
+  .banner-content {
+    position: relative !important;
+    z-index: 2;
+    width: 100%;
+  }
   .banner-content .row {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    float: none !important;
+    display: block !important;
+    width: auto !important;
     max-width: 640px;
-    margin: 0 auto;
+    margin: 0 auto !important;
     background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(6px);
     border-radius: 18px;
@@ -184,6 +208,17 @@
     text-align: center;
     box-shadow: var(--epic-shadow-lg);
     border: 1px solid rgba(255,255,255,0.6);
+  }
+  .banner-content header.centered,
+  .banner-content .social-icons,
+  .banner-content .hireMe {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    float: none !important;
   }
   .banner-content header.centered h1 {
     font-size: 54px;
@@ -353,13 +388,17 @@
   #schedule { background: #fff; }
   .programme-poster {
     max-width: 980px;
-    margin: 0 auto 40px;
+    margin: 40px auto 0;
     text-align: center;
     border: 1px solid var(--epic-border);
     border-radius: 14px;
-    padding: 16px;
+    padding: 24px 16px 16px;
     box-shadow: var(--epic-shadow);
     background: #fff;
+  }
+  .programme-poster-title {
+    font-size: 20px;
+    margin: 0 0 16px;
   }
   .programme-poster img {
     width: 100%;
@@ -922,15 +961,7 @@
     <div class="heading animate__animated animate__fadeIn">
       <h2>Schedule</h2>
       <p style="font-size: 16px; line-height: 1.8;">
-        The full EPIC VI programme at a glance, and an interactive day-by-day breakdown below.
-      </p>
-    </div>
-
-    <div class="programme-poster">
-      <img src="images/EPIC_VI_Programme_EN.png" alt="EPIC VI full programme, Monday to Friday, 3-7 August 2026" />
-      <p class="programme-poster-caption">
-        <i class="fa fa-download"></i>
-        <a href="images/EPIC_VI_Programme_EN.png" download>Download the programme as an image</a>
+        Explore the detailed EPIC VI programme below. Click on each day to expand and view the sessions.
       </p>
     </div>
 
@@ -960,18 +991,18 @@
           <table class="session-table">
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Breakfast</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-special">Opening</span>Bienvenida — Welcome to EPIC VI</span>
-                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 1: <strong>Lupe Villegas</strong></span>
+                <span class="session-item"><span class="session-badge badge-special">Opening</span>Welcome to EPIC VI</span>
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Talk 1: <strong>Lupe Villegas</strong></span>
               </td>
             </tr>
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Coffee Break</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
@@ -981,7 +1012,7 @@
             </tr>
             <tr class="session-row-lunch">
               <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Lunch</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
@@ -1009,7 +1040,7 @@
           <table class="session-table">
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Breakfast</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
@@ -1019,7 +1050,7 @@
             </tr>
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Coffee Break</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
@@ -1029,7 +1060,7 @@
             </tr>
             <tr class="session-row-lunch">
               <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Lunch</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
@@ -1057,18 +1088,18 @@
           <table class="session-table">
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Breakfast</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 2: <strong>Wladimir Banda Barragán</strong></span>
-                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 3: <strong>Helga Dénes</strong></span>
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Talk 2: <strong>Wladimir Banda Barragán</strong></span>
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Talk 3: <strong>Helga Dénes</strong></span>
               </td>
             </tr>
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Coffee Break</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
@@ -1078,7 +1109,7 @@
             </tr>
             <tr class="session-row-lunch">
               <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Lunch</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
@@ -1106,33 +1137,33 @@
           <table class="session-table">
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Breakfast</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 4: <strong>IEEE – UIDE</strong></span>
-                <span class="session-item"><span class="session-badge badge-special">Special</span>Charla 5: Diversidad en la Academia — <strong>UIDE</strong></span>
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Talk 4: <strong>IEEE – UIDE</strong></span>
+                <span class="session-item"><span class="session-badge badge-special">Special</span>Talk 5: Diversity in Academia — <strong>UIDE</strong></span>
               </td>
             </tr>
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Coffee Break</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-group">Group Work</span>Trabajo en Grupos</span>
+                <span class="session-item"><span class="session-badge badge-group">Group Work</span>Group Work</span>
               </td>
             </tr>
             <tr class="session-row-lunch">
               <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Lunch</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-group">Group Work</span>Trabajo en Grupos</span>
+                <span class="session-item"><span class="session-badge badge-group">Group Work</span>Group Work</span>
               </td>
             </tr>
           </table>
@@ -1155,33 +1186,33 @@
           <table class="session-table">
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-clock-o"></i>07h00 – 08h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Desayuno (Breakfast)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Breakfast</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Charla 6: Física Interactiva — <strong>Nelson Herrera</strong></span>
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Talk 6: Interactive Physics — <strong>Nelson Herrera</strong></span>
                 <span class="session-item"><span class="session-badge badge-special">Special</span>UIDE Campus Tour</span>
               </td>
             </tr>
             <tr class="session-row-break">
               <td class="session-time"><i class="fa fa-coffee"></i>10h30 – 11h00</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Receso &amp; Coffee Break</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Coffee Break</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>11h00 – 13h00</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-special">Special</span>Presentaciones de Proyectos</span>
+                <span class="session-item"><span class="session-badge badge-special">Special</span>Project Presentations</span>
               </td>
             </tr>
             <tr class="session-row-lunch">
               <td class="session-time"><i class="fa fa-cutlery"></i>13h00 – 14h30</td>
-              <td class="session-cell"><span class="session-badge badge-break">Break</span>Almuerzo (Lunch)</td>
+              <td class="session-cell"><span class="session-badge badge-break">Break</span>Lunch</td>
             </tr>
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-special">Closing</span>Despedida (Closing Ceremony)</span>
+                <span class="session-item"><span class="session-badge badge-special">Closing</span>Closing Ceremony</span>
               </td>
             </tr>
           </table>
@@ -1189,6 +1220,16 @@
       </div>
 
     </div>
+
+    <div class="programme-poster">
+      <h3 class="programme-poster-title">Full programme at a glance</h3>
+      <img src="images/EPIC_VI_Programme_EN.png" alt="EPIC VI full programme, Monday to Friday, 3-7 August 2026" />
+      <p class="programme-poster-caption">
+        <i class="fa fa-download"></i>
+        <a href="images/EPIC_VI_Programme_EN.png" download>Download the programme as an image</a>
+      </p>
+    </div>
+
   </div>
 </section>
 
