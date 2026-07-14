@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
     mentor6: {
       name: "Helga Dénes, PhD",
       title: "Radio Astronomy & Astrophysics",
-      affiliation: "Universidad Yachay Tech, Urcuquí",
-      bio: "Helga Dénes has a Master's degree in Astronomy from Eötvös Loránd University in Budapest, Hungary, and a PhD in Astrophysics (2015) from Swinburne University of Technology in Melbourne, Australia. After her PhD, she was a postdoctoral researcher jointly at CSIRO Astronomy and Space Science in Sydney and at the Australian National University in Canberra, and later at ASTRON, the Netherlands Institute for Radio Astronomy. She is now a Professor at Yachay Tech University's School of Physical Sciences and Nanotechnology. Helga's main scientific interest is how the gas content of galaxies influences their evolution, and she is a member of the Apertif, WALLABY, and GASKAP survey teams, the International Astronomical Union (IAU), and the Astronomical Society of Australia (ASA).",
+      affiliation: "Universidad San Francisco de Quito (USFQ)",
+      bio: "Helga Dénes has a Master's degree in Astronomy from Eötvös Loránd University in Budapest, Hungary, and a PhD in Astrophysics (2015) from Swinburne University of Technology in Melbourne, Australia. After her PhD, she was a postdoctoral researcher jointly at CSIRO Astronomy and Space Science in Sydney and at the Australian National University in Canberra, and later at ASTRON, the Netherlands Institute for Radio Astronomy. She is now a Professor at Universidad San Francisco de Quito (USFQ). Helga's main scientific interest is how the gas content of galaxies influences their evolution, and she is a member of the Apertif, WALLABY, and GASKAP survey teams, the International Astronomical Union (IAU), and the Astronomical Society of Australia (ASA).",
       achievements: [
         "New H I scaling relations to probe the H I content of galaxies via global H I-deficiency maps",
         "Cold gas outflows from the Small Magellanic Cloud traced with ASKAP",
