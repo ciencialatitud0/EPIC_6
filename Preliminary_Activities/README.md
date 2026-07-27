@@ -108,7 +108,7 @@ For testing and customising your installation on Linux/MaxOSX laptops/PCs, follo
 
 10. Once the notebook is open, you can start coding your notebook:<br>
 
-https://github.com/ciencialatitud0/EPIC_4/blob/main/Preliminary_Activities/2_notebook.ipynb
+https://github.com/ciencialatitud0/EPIC_6/blob/main/Preliminary_Activities/2_notebook.ipynb
 
 ### On Windows:
 If you are using Windows, we highly recommend either:
