@@ -4,7 +4,7 @@ Please read carefully all the information given below.
 
 This School focuses mainly on python, but there are a few lectures on Matlab and R too (https://www.r-project.org/).  All the code will be shared on github, so we recommend reading the basics on using GIT:
 
-https://github.com/ciencialatitud0/EPIC_4/blob/main/Preliminary_Activities/1_introgit.pdf
+https://github.com/ciencialatitud0/EPIC_6/blob/main/Preliminary_Activities/1_introgit.pdf 
 
 We will use python 3.x and jupyter notebooks (.ipynb) for the courses taught at this School.
 
