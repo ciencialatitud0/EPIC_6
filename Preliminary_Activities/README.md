@@ -127,13 +127,15 @@ In the long term, you may want to fully switch to Unix-based operating systems. 
 
 If you have little or no python programming experience, we highly recommend to follow all these tutorials before EPIC starts:
 
-- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-1/104-python-basics-review.ipynb
-- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-1/105-Numpy-Arrays.ipynb
-- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-1/106-Plotting-in-Python.ipynb
-- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-1/107-Python-Functions.ipynb
-- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-1/108-Data-Input-Output.ipynb
-- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-1/109-Data-IO-Pandas.ipynb
-
+- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-1/101-Introduction-GoogleColab.ipynb
+- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-1/104-Git-GitHub-GitLab.ipynb
+- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-2/201-Python-Basics-Review.ipynb
+- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-2/202-Numpy-Arrays.ipynb
+- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-2/203-Plotting-in-Python.ipynb
+- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-2/204-Python-Functions.ipynb
+- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-2/205-Data-Input-Output.ipynb
+- https://github.com/wbandabarragan/computational-physics-1/blob/main/unit-2/206-Data-IO-Pandas.ipynb
+  
 - https://swcarpentry.github.io/python-novice-gapminder/
 
 Please note that we will **NOT** have time to cover the basics in the School, so make sure you are familiar with the material above.
