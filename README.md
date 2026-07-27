@@ -14,3 +14,6 @@ The material repository can be found in this sub-folder:
 
 https://github.com/ciencialatitud0/EPIC_6/tree/main/Tutorials
 
+The preliminary activities for EPIC 6 (tutorials on basic Python coding and Git) can be found here:
+
+https://github.com/ciencialatitud0/EPIC_6/tree/main/Preliminary_Activities
