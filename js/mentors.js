@@ -180,6 +180,23 @@ document.addEventListener('DOMContentLoaded', function() {
         "Next-Generation Connectivity Technologies"
       ]
     },
+    mentor12: {
+      name: "Nelson Herrera Aráuz, Ing.",
+      title: "Mathematics, Physics & Digital Circuits",
+      affiliation: "Universidad Internacional del Ecuador (UIDE), Quito",
+      bio: "Nelson Herrera Aráuz was born in Quito in October 1950. He completed his secondary education at Colegio Central Técnico and went on to study Electronics Engineering at Escuela Politécnica Nacional, Pure Mathematics at the School of Sciences of Universidad Central del Ecuador, Electromechanical Engineering at the José Antonio Echeverría Institute in Havana, Cuba, and Physics at the University of Montpellier, France. He carried out scientific research and academic work in Prague and Warsaw, and authored a documented theoretical-experimental study on the magnetic phenomena and disturbances caused by the solar eclipse of July 11, 1991. He is Professor Emeritus at Universidad Internacional del Ecuador (UIDE), where he has held the Chair of Mathematics, Physics, and Digital Circuits at the School of Automotive Mechanical Engineering for 25 years to date.",
+      achievements: [
+        "Professor Emeritus, Universidad Internacional del Ecuador (UIDE) — 25 years holding the Chair of Mathematics, Physics, and Digital Circuits",
+        "Documented theoretical-experimental study on magnetic phenomena and disturbances caused by the solar eclipse of July 11, 1991",
+        "International research and academic experience in Havana (Cuba), Montpellier (France), Prague (Czechia), and Warsaw (Poland)",
+        "Multidisciplinary training spanning Electronics Engineering, Pure Mathematics, Electromechanical Engineering, and Physics"
+      ],
+      courses: [
+        "Mathematics",
+        "Physics",
+        "Digital Circuits"
+      ]
+    },
   };
 
   // Mentor modal functionality
