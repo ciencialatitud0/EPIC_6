@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ]
     },
     mentor9: {
-      name: "Reidel González Paz",
+      name: "Reidel González Paz, Eng.",
       title: "Software Engineering & Applied AI",
       affiliation: "Universidad Internacional del Ecuador (UIDE), Quito",
       bio: "Reidel is a Software Engineer with two decades of IT experience, starting his career in 2006 at DESOFT (Cuba's national software development enterprise) as a developer and systems specialist. Based in Ecuador since 2015, he works as an independent consultant building custom software solutions — from ERPs and POS systems to APIs, electronic invoicing, and laboratory management software. He currently teaches Artificial Intelligence, Cybersecurity, and Software Development at UIDE, including the Master's in Applied AI, and has mentored students to top honors in international technology competitions.",
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ]
     },
     mentor10: {
-      name: "Marcela Gallegos Altamirano",
+      name: "Marcela Gallegos Altamirano, MSc.",
       title: "Systems Engineering & Digital Business",
       affiliation: "Universidad Politécnica Salesiana",
       bio: "Marcela Gallegos Altamirano holds a degree in Systems Engineering from Universidad Politécnica Salesiana and a Master's degree in Communication Networks from Pontificia Universidad Católica del Ecuador (PUCE). Since 2018, she has been a member of IEEE, actively participating in technology, innovation, and leadership initiatives. She currently teaches in the Digital Business program at Universidad Politécnica Salesiana, where she has led courses in programming, technology, and applied engineering. She previously spent six years managing a research data center, and her work focuses on technology, education, and community-outreach projects that promote digital skills, innovation, and inclusion.",
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ]
     },
     mentor11: {
-      name: "Marco Vinueza Bustamante",
+      name: "Marco Vinueza Bustamante, Eng.",
       title: "Telecommunications Engineering & RF Systems",
       affiliation: "Escuela Politécnica Nacional / IEEE Región 9",
       bio: "Marco Alfonso Vinueza Bustamante is a Telecommunications Engineer from Escuela Politécnica Nacional (Ecuador), where he graduated Summa Cum Laude and received academic excellence scholarships. His areas of interest include RF engineering, mobile networks, wireless communications, IoT, and next-generation connectivity technologies. He has taken part in research projects on antenna design, sensor networks, and embedded systems, with publications indexed in IEEE Xplore and Scopus. He is also an active IEEE volunteer, holding leadership roles in IEEE MTT-S, IEEE ComSoc, and IEEE Region 9, where he drives mentorship, training, and technical activities for students and young professionals across Latin America.",
