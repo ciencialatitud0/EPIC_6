@@ -56,7 +56,6 @@
     --font-head: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
     --font-body: 'Source Sans 3', Arial, sans-serif;
   }
-
   /* Force a light theme everywhere, regardless of what the base
      stylesheet (css/styles.css) sets as its default section/body
      background. This single override matters most — without it,
@@ -75,7 +74,6 @@
   section {
     background-color: #ffffff;
   }
-
   h1, h2, h3, h4, h5, .txtHead h2 {
     font-family: var(--font-head);
     font-weight: 700;
@@ -99,9 +97,7 @@
     letter-spacing: inherit;
   }
   section p, section li { color: var(--epic-ink); }
-
   a { transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease; }
-
   /* ---------- Section rhythm & headings ---------- */
   section .heading, section .txtHead {
     text-align: center;
@@ -119,7 +115,6 @@
   section .heading .format-section * {
     text-align: left;
   }
-
   section .heading h2,
   section .txtHead h2,
   #venue h2 {
@@ -132,7 +127,6 @@
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-
   section .heading h2::after,
   section .txtHead h2::after,
   #venue h2::after {
@@ -146,15 +140,12 @@
     border-radius: 4px;
     background: linear-gradient(90deg, var(--epic-cyan), var(--epic-blue));
   }
-
   #venue .txtHead h2 { text-transform: uppercase; }
-
   section .heading > p {
     max-width: 760px;
     margin: 0 auto;
     color: var(--epic-muted);
   }
-
   #introText h1 {
     text-align: center;
     color: var(--epic-navy);
@@ -169,10 +160,8 @@
     color: #33404c;
     text-align: justify;
   }
-
   /* Header/Nav and Hero are intentionally left unstyled here — they
      use the theme's own css/styles.css as originally designed. */
-
   /* ---------- Buttons ---------- */
   .btn-primary {
     background: linear-gradient(90deg, var(--epic-blue), var(--epic-cyan)) !important;
@@ -184,7 +173,6 @@
     box-shadow: 0 8px 20px rgba(28,93,153,0.28);
   }
   .btn-primary:hover { box-shadow: 0 12px 26px rgba(28,93,153,0.4); transform: translateY(-2px); }
-
   /* ---------- About ---------- */
   #aboutEPIC { background: var(--epic-bg-soft); }
   #aboutEPIC .tileBox img { border: 4px solid #fff; }
@@ -203,7 +191,6 @@
     color: var(--epic-cyan);
     font-size: 13px;
   }
-
   /* ---------- Quote / previous edition ---------- */
   .bg-parlex {
     background: linear-gradient(120deg, var(--epic-bg-soft) 0%, var(--epic-bg-soft-2) 100%);
@@ -223,7 +210,6 @@
     padding-left: 18px;
     color: var(--epic-navy) !important;
   }
-
   /* ---------- Format / Objectives ---------- */
   #formatObjectives .format-section {
     background: #fff;
@@ -273,7 +259,6 @@
     align-items: center;
     justify-content: center;
   }
-
   /* ---------- Registration ---------- */
   #registration { background: var(--epic-bg-soft) !important; }
   #registration .heading {
@@ -283,7 +268,6 @@
     box-shadow: var(--epic-shadow);
     border-top: 5px solid var(--epic-amber);
   }
-
   /* ---------- Schedule ---------- */
   #schedule { background: #fff; }
   .programme-poster {
@@ -341,7 +325,6 @@
   .legend-break::before { background: var(--epic-amber); }
   .legend-group::before { background: var(--epic-purple); }
   .legend-special::before { background: var(--epic-coral); }
-
   .day-cards { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
   .day-card {
     border: 1px solid var(--epic-border);
@@ -399,14 +382,12 @@
     flex: 0 0 auto;
   }
   .day-card.active .toggle-arrow { transform: rotate(180deg); }
-
   .day-card-body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.45s ease;
   }
   .day-card.active .day-card-body { max-height: 1400px; }
-
   .session-table { width: 100%; border-collapse: collapse; }
   .session-table tr { border-bottom: 1px solid var(--epic-border); }
   .session-table tr:last-child { border-bottom: none; }
@@ -447,7 +428,6 @@
   .badge-special { background: var(--epic-coral); }
   .session-row-break td { background: #fff9ee; }
   .session-row-lunch td { background: #f4f8fb; font-style: italic; color: var(--epic-muted); }
-
   /* ---------- Venue ---------- */
   #venue { background: var(--epic-bg-soft); }
   #venue .tileBox img { border-radius: 12px; box-shadow: var(--epic-shadow); }
@@ -456,7 +436,6 @@
   .row.text-center img {
     filter: grayscale(15%);
   }
-
   /* ---------- Mentors ---------- */
   #mentors { background: #fff; }
   .mentor-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; }
@@ -530,7 +509,6 @@
     margin-bottom: 16px;
   }
   .mentor-more { border-radius: 24px !important; padding: 8px 22px !important; font-size: 12.5px !important; }
-
   /* ---------- FAQ ---------- */
   #faq { background: var(--epic-bg-soft); }
   .faq-container { max-width: 820px; margin: 0 auto; }
@@ -569,7 +547,6 @@
   }
   .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 20px; }
   .faq-answer p { color: var(--epic-muted); line-height: 1.7; margin: 0; }
-
   /* ---------- Participants / Goals ---------- */
   #participantsList, #goalsDeliverables { background: #fff; }
   #goalsDeliverables { background: var(--epic-bg-soft); }
@@ -589,7 +566,6 @@
     color: var(--epic-amber);
     font-size: 13px;
   }
-
   /* EPIC Junior CTA */
   .epic-jr-cta {
     max-width: 700px;
@@ -605,7 +581,6 @@
   .epic-jr-cta .btn-primary {
     background: linear-gradient(90deg, var(--epic-cyan), var(--epic-teal)) !important;
   }
-
   /* ---------- Contact / Footer ---------- */
   #contactUs { background: var(--epic-bg-soft); text-align: center; }
   #contactUs a { font-size: 18px; font-weight: 600; }
@@ -617,12 +592,10 @@
   }
   footer.copyright .social a { color: #fff; margin-right: 12px; }
   footer.copyright .social a:hover { color: var(--epic-cyan); }
-
   .topHome {
     background: var(--epic-cyan) !important;
     color: var(--epic-navy) !important;
   }
-
   /* ============================================================
      Original component styles (kept, lightly refined)
      ============================================================ */
@@ -755,14 +728,13 @@
           <li>Fluid dynamics</li>
         </ul>
         <p style="font-size: 16px; line-height: 1.8; margin-top: 20px; text-align: justify;">
-          EPIC 6 is kindly supported and funded by ICTP’s Physics Without Frontiers (PWF) program and UNESCO-Quito. If you would like to know more about the PWF team, please have a look at their ongoing and previous projects:
+          EPIC 6 is kindly supported and funded by ICTP's Physics Without Frontiers (PWF) program and UNESCO-Quito. If you would like to know more about the PWF team, please have a look at their ongoing and previous projects:
           <a href="https://www.ictp.it/home/physics-without-frontiers" target="_blank" style="color: #3498db; text-decoration: underline;">Physics Without Frontiers (PWF) Program</a>.
         </p>
       </div>
     </div>
   </div>
 </section>
-
 <!--Quote-->
 <section id="#introText" class="bg-parlex">
   <div class="parlex-back">
@@ -869,7 +841,6 @@
     </div>
   </div>
 </section>
-
 <!--Schedule (programme sourced from EPIC_6.xlsx) -->
 <section id="schedule" class="secPad white" style="margin-top: 5px; padding-bottom: 10px;">
   <div class="container">
@@ -879,7 +850,6 @@
         Explore the detailed EPIC VI programme below. Click on each day to expand and view the sessions.
       </p>
     </div>
-
     <div class="schedule-legend">
       <span class="legend-keynote">Talks &amp; Keynotes</span>
       <span class="legend-tutorial">Python Tutorials</span>
@@ -887,9 +857,7 @@
       <span class="legend-break">Breaks</span>
       <span class="legend-special">Special Sessions</span>
     </div>
-
     <div class="day-cards">
-
       <!-- Day 1 - Monday 3 August -->
       <div class="day-card active">
         <div class="day-card-header" onclick="toggleDay(this)">
@@ -932,13 +900,12 @@
             <tr>
               <td class="session-time"><i class="fa fa-clock-o"></i>14h30 – 16h30</td>
               <td class="session-cell">
-                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 2: Machine Learning — <strong>Iván Reyes</strong> <span class="speaker-org">(UIDE)</span></span>
+                <span class="session-item"><span class="session-badge badge-tutorial">Tutorial</span>Python Tutorial 2: Machine Learning — <strong>Reidel González Paz</strong> <span class="speaker-org">(UIDE)</span></span>
               </td>
             </tr>
           </table>
         </div>
       </div>
-
       <!-- Day 2 - Tuesday 4 August -->
       <div class="day-card">
         <div class="day-card-header" onclick="toggleDay(this)">
@@ -986,7 +953,6 @@
           </table>
         </div>
       </div>
-
       <!-- Day 3 - Wednesday 5 August -->
       <div class="day-card">
         <div class="day-card-header" onclick="toggleDay(this)">
@@ -1035,7 +1001,6 @@
           </table>
         </div>
       </div>
-
       <!-- Day 4 - Thursday 6 August -->
       <div class="day-card">
         <div class="day-card-header" onclick="toggleDay(this)">
@@ -1058,7 +1023,7 @@
               <td class="session-time"><i class="fa fa-clock-o"></i>08h30 – 10h30</td>
               <td class="session-cell">
                 <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Talk 4: <strong>IEEE – UIDE</strong></span>
-                <span class="session-item"><span class="session-badge badge-special">Special</span>Talk 5: Diversity in Academia — <strong>UIDE</strong></span>
+                <span class="session-item"><span class="session-badge badge-keynote">Talk</span>Talk 5: Diversity in Academia — <strong>UIDE</strong></span>
               </td>
             </tr>
             <tr class="session-row-break">
@@ -1084,7 +1049,6 @@
           </table>
         </div>
       </div>
-
       <!-- Day 5 - Friday 7 August -->
       <div class="day-card">
         <div class="day-card-header" onclick="toggleDay(this)">
@@ -1133,9 +1097,7 @@
           </table>
         </div>
       </div>
-
     </div>
-
     <div class="programme-poster">
       <h3 class="programme-poster-title">Full programme at a glance</h3>
       <img src="images/EPIC_VI_Programme_EN.png" alt="EPIC VI full programme, Monday to Friday, 3-7 August 2026" />
@@ -1144,10 +1106,8 @@
         <a href="images/EPIC_VI_Programme_EN.png" download>Download the programme as an image</a>
       </p>
     </div>
-
   </div>
 </section>
-
 <!--venue-->
 <section id="venue" class="secPad" style="margin-top: 5px;">
 <div class="container">
@@ -1254,6 +1214,57 @@
           <p class="mentor-affiliation"><i class="fa fa-university"></i> Universidad Rey Juan Carlos (URJC), Madrid</p>
           <p class="mentor-bio">My research has two main branches. On one hand, I'm interested in fluctuation-mediated interactions, such as the Casimir (or Van der Waals) effect, radiative heat transfer, and quantum friction. On the other, I study the transport properties of materials, specifically 2D materials like graphene and topologically non-trivial materials like Chern insulators and Weyl semimetals.</p>
           <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor3">Read More</button>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-8 mentor-card">
+        <div class="mentor-img-container">
+          <img src="images/Reidel_Gonzalez.jpeg" alt="Reidel González Paz" class="mentor-img">
+          <div class="mentor-social">
+            <a href="https://www.linkedin.com/in/reidel-gonzález-paz-a066aab7/"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="mentor-info">
+          <h3>Reidel González Paz</h3>
+          <p class="mentor-title">Software Engineering &amp; Applied AI</p>
+          <p class="mentor-affiliation"><i class="fa fa-university"></i> Universidad Internacional del Ecuador (UIDE), Quito</p>
+          <p class="mentor-bio">A Software Engineer with two decades of IT experience, Reidel began his career in 2006 at DESOFT in Cuba as a developer and systems specialist. Based in Ecuador since 2015, he works as an independent consultant and currently teaches AI, Cybersecurity, and Software Development at UIDE.</p>
+          <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor9">Read More</button>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-8 mentor-card">
+        <div class="mentor-img-container">
+          <img src="images/Marcela_Gallegos.jpeg" alt="Marcela Gallegos" class="mentor-img">
+          <div class="mentor-social">
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="mentor-info">
+          <h3>Marcela Gallegos Altamirano</h3>
+          <p class="mentor-title">Systems Engineering &amp; Digital Business</p>
+          <p class="mentor-affiliation"><i class="fa fa-university"></i> Universidad Politécnica Salesiana</p>
+          <p class="mentor-bio">Marcela holds a degree in Systems Engineering from Universidad Politécnica Salesiana and a Master's in Communication Networks from PUCE. An IEEE member since 2018, she teaches in the Digital Business program at UPS and previously managed a research data center for six years.</p>
+          <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor10">Read More</button>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-8 mentor-card">
+        <div class="mentor-img-container">
+          <img src="images/Marco_Vinueza.jpeg" alt="Marco Vinueza" class="mentor-img">
+          <div class="mentor-social">
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="mentor-info">
+          <h3>Marco Vinueza Bustamante</h3>
+          <p class="mentor-title">Telecommunications Engineering &amp; RF Systems</p>
+          <p class="mentor-affiliation"><i class="fa fa-university"></i> Escuela Politécnica Nacional / IEEE Región 9</p>
+          <p class="mentor-bio">Marco is a Telecommunications Engineer from Escuela Politécnica Nacional (Summa Cum Laude), with research in antenna design, sensor networks, and embedded systems published in IEEE Xplore and Scopus. He is an active IEEE volunteer leader in MTT-S, ComSoc, and Region 9.</p>
+          <button class="btn btn-primary btn-sm mentor-more" data-mentor="mentor11">Read More</button>
         </div>
       </div>
       <div class="col-md-4 col-sm-8 mentor-card">
@@ -1393,9 +1404,7 @@
         </div>
       </div>
 	</div>
-
     </div>
-
   </div>
   <div class="modal fade" id="mentorModal" tabindex="-1" role="dialog" aria-labelledby="mentorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -1421,7 +1430,6 @@
     <div class="heading">
       <h2>Frequently Asked Questions</h2>
     </div>
-
     <div class="faq-container">
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
@@ -1432,7 +1440,6 @@
           <p>We welcome applications from undergraduate students, MSc students and PhD students working on any field of natural sciences and/or computer sciences who wish to expand their scientific computing skills. While we review all applications, preference is given to applicants from Latin American countries and to students who have not participated in previous editions of EPIC.</p>
         </div>
       </div>
-
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
           <h4>Do I need programming experience?</h4>
@@ -1442,7 +1449,6 @@
           <p>Basic programming notions are essential to sign up for this School. Familiarity with Python is recommended as it will be the primary language used throughout the competition.</p>
         </div>
       </div>
-
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
           <h4>Is there a registration fee?</h4>
@@ -1452,7 +1458,6 @@
           <p>No, there is no registration fee for EPIC VI. The event is fully funded by ICTP's Physics Without Frontiers (PWF) program and UNESCO-Quito.</p>
         </div>
       </div>
-
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
           <h4>Can I participate remotely?</h4>
@@ -1462,7 +1467,6 @@
           <p>No, the EPIC VI School will be held in person at Universidad Internacional del Ecuador (UIDE) in Quito.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1470,13 +1474,40 @@
   <div class="container">
     <div class="heading animate__animated animate__fadeIn">
       <h2>Participant List</h2>
-         <ul style="font-size: 16px; line-height: 1.8; margin-top: 10px; padding-left: 20px;">
-	  <li>TBD</li>
+         <ul style="font-size: 16px; line-height: 1.8; margin-top: 10px; padding-left: 20px; column-count: 2; column-gap: 50px;">
+	  <li>Brittany Yoalibeth Jimenez Arcos, Universidad Yachay Tech</li>
+	  <li>Yorlan Ferney Males Araujo, Universidad Yachay Tech</li>
+	  <li>Sisa Pakari Lluilema Lluilema, Universidad Yachay Tech</li>
+	  <li>Bryan Armando Cárdenas Caisaguano, Escuela Politécnica Nacional</li>
+	  <li>Daniela Esperanza Analuisa Chamba, Universidad Yachay Tech</li>
+	  <li>Dylan Mateo Cabascango Vásquez, Universidad de Las Américas (UDLA)</li>
+	  <li>Jessica Carolina Pijal Limaico, Universidad San Francisco de Quito (USFQ)</li>
+	  <li>Antonio Paolo Trávez Monge, FLACSO Ecuador</li>
+	  <li>Soleil Kamitto Nuñez Pumacallahui, Universidad Nacional de Ingeniería / Universidad Tecnológica del Perú</li>
+	  <li>Franklin Ronaldo Limaico Ibadango, Universidad Yachay Tech</li>
+	  <li>Danna Antonella Ayala Hurtado, Escuela Superior Politécnica del Litoral (ESPOL)</li>
+	  <li>Ricardo Paúl Calderón Álvarez, Universidad Yachay Tech</li>
+	  <li>Eliana Sarahi Dávila Pacheco, Escuela Politécnica Nacional</li>
+	  <li>Kevin Fernando Caiza Lema, Universidad Internacional del Ecuador (UIDE)</li>
+	  <li>Katherine Abigail Dávila Pacheco, Universidad Internacional del Ecuador (UIDE)</li>
+	  <li>José Miguel Navas Núñez, Universidad San Francisco de Quito (USFQ)</li>
+	  <li>Cinthia Belén Benites Bailón, Universidad Regional Amazónica Ikiam</li>
+	  <li>Manuel Josué Malla Campoverde, Universidad Técnica de Machala</li>
+	  <li>Gabriela Siomara Flores Chávez, Escuela Superior Politécnica de Chimborazo (ESPOCH)</li>
+	  <li>Jonathan Paúl Zambrano Arriaga, Escuela Superior Politécnica del Litoral (ESPOL)</li>
+	  <li>Juliana Nicole Abarca Ochoa, Universidad Técnica del Norte</li>
+	  <li>Jhonson Emanuel López Guayllas, Escuela Superior Politécnica del Litoral (ESPOL)</li>
+	  <li>Camila Nadasdy Reyes Chamba, Escuela Superior Politécnica de Chimborazo (ESPOCH)</li>
+	  <li>Christian Agustín Andrade Carranza, Escuela Politécnica Nacional</li>
+	  <li>Anahí Belén Rodríguez Carrillo, Universidad Yachay Tech</li>
+	  <li>Nestor Francisco Gavilanes Oñate, Universidad Internacional del Ecuador (UIDE)</li>
+	  <li>Liset Carolina Ramos Redroban, Universidad Internacional del Ecuador (UIDE)</li>
+	  <li>Leslie Joel Coyago Chacaguasay, Escuela Politécnica Nacional</li>
+	  <li>Marco Alexander Panchi Herrera, Escuela Superior Politécnica de Chimborazo (ESPOCH)</li>
 	</ul>
     </div>
   </div>
 </section>
-
 <section id="goalsDeliverables" class="secPad white" style="margin-top: 5px; padding-bottom: 10px;">
   <div class="container">
     <div class="heading animate__animated animate__fadeIn">
@@ -1522,7 +1553,6 @@
 This year we will also host the second edition of the EPIC Junior School.
 </p>
 </div>
-
 <!--Contact -->
 <section id="contactUs" class="page-section secPad">
   <div class="container">
@@ -1565,7 +1595,6 @@ This year we will also host the second edition of the EPIC Junior School.
 <script src="js/mentors.js"></script>
 <script>
   AOS.init();
-
   function toggleDay(headerEl) {
     var card = headerEl.parentElement;
     var wasActive = card.classList.contains('active');
@@ -1576,7 +1605,6 @@ This year we will also host the second edition of the EPIC Junior School.
       card.classList.add('active');
     }
   }
-
   function toggleFaq(questionEl) {
     var item = questionEl.parentElement;
     var wasActive = item.classList.contains('active');
@@ -1587,7 +1615,6 @@ This year we will also host the second edition of the EPIC Junior School.
       item.classList.add('active');
     }
   }
-
   // Kept for backward-compatibility if referenced elsewhere
   function toggleDetails(element) {
     element.classList.toggle('active');
