@@ -197,6 +197,40 @@ document.addEventListener('DOMContentLoaded', function() {
         "Digital Circuits"
       ]
     },
+    mentor13: {
+      name: "Kingsley Fregene, PhD",
+      title: "Intelligent & Robotic Systems",
+      affiliation: "Lockheed Martin — IEEE Fellow",
+      bio: "Dr. Kingsley Fregene is Director of Technology Integration at Lockheed Martin, where he leads the development and execution of strategic research and technology initiatives. Throughout his career, which has also included leadership roles at Honeywell, he has specialized in intelligent and robotic systems designed to protect lives and reduce human exposure to hazardous environments. He is an IEEE Fellow, a member of the IEEE Control Systems Society Board of Governors, and has served on editorial boards within IEEE societies related to control systems, robotics, and automation. In 2021, he received the Control Engineering Practice Award from the American Automatic Control Council. Dr. Fregene holds a Ph.D. and a master's degree from the University of Waterloo, as well as a first-class honors degree in Electrical and Computer Engineering.",
+      achievements: [
+        "IEEE Fellow; member, IEEE Control Systems Society Board of Governors",
+        "Control Engineering Practice Award, American Automatic Control Council (2021)",
+        "Leadership roles at Lockheed Martin (Director of Technology Integration) and Honeywell",
+        "Ph.D. and M.Sc., University of Waterloo; first-class honors degree in Electrical and Computer Engineering"
+      ],
+      courses: [
+        "Intelligent & Robotic Systems",
+        "Control Systems Engineering",
+        "Technology Strategy & Integration"
+      ]
+    },
+    mentor14: {
+      name: "Junmin Wang, PhD",
+      title: "Control, Modeling & Smart Mobility",
+      affiliation: "The University of Texas at Austin — IEEE Fellow",
+      bio: "Dr. Junmin Wang is the Fletcher Stuckey Pratt Chair Professor in Engineering at The University of Texas at Austin, where he also directs the Mobility Systems Lab. His career combines academic and industrial experience in control, modeling, artificial intelligence, smart mobility, robotics, and human-centered automation. He has authored or co-authored more than 420 peer-reviewed publications and holds 13 U.S. patents. He has received numerous international honors and is an IEEE, ASME, and SAE Fellow.",
+      achievements: [
+        "Fletcher Stuckey Pratt Chair Professor in Engineering, The University of Texas at Austin",
+        "Director, Mobility Systems Lab",
+        "More than 420 peer-reviewed publications and 13 U.S. patents",
+        "Fellow of IEEE, ASME, and SAE"
+      ],
+      courses: [
+        "Control Systems & Modeling",
+        "Smart Mobility",
+        "Human-Centered Automation & Robotics"
+      ]
+    },
   };
 
   // Mentor modal functionality
