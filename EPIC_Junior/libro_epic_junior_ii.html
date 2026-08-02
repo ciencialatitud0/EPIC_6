@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libro de Trabajo · EPIC Junior II</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #6c5ce7;
+        --primary-light: #a29bfe;
+        --accent: #009688;
+        --gold: #f5b74e;
+        --colab: #f9ab00;
+        --navy: #0b1120;
+        --navy-light: #141d33;
+        --navy-card: #1a2540;
+        --text: #2d3436;
+        --muted: #636e72;
+        --border: #e5e5f0;
+        --success: #00b894;
+        --danger: #e74c3c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        background: #f7f7fb;
+    }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; margin: 0; }
+
+    /* ---------- LAYOUT ---------- */
+    .app { display: flex; min-height: 100vh; }
+
+    .sidebar {
+        width: 260px;
+        flex-shrink: 0;
+        background: linear-gradient(180deg, var(--navy) 0%, #05070f 100%);
+        color: white;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 28px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        overflow-y: auto;
+    }
+    .sidebar .brand { display: flex; flex-direction: column; gap: 4px; }
+    .sidebar .brand .stars { font-size: 1.6rem; }
+    .sidebar .brand h1 { font-size: 1.3rem; letter-spacing: 0.5px; }
+    .sidebar .brand span { color: var(--primary-light); font-size: 0.8rem; }
+    .sidebar .brand .booktag {
+        display: inline-block;
+        margin-top: 4px;
+        background: rgba(245,183,78,0.18);
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 999px;
+        width: fit-content;
+    }
+
+    .nav { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+    .nav a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #c8cfe0;
+        text-decoration: none;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition: background 0.2s, color 0.2s;
+    }
+    .nav a:hover { background: rgba(255,255,255,0.06); color: white; }
+    .nav a.active { background: var(--primary); color: white; }
+    .nav .soon { opacity: 0.55; font-size: 0.75rem; margin-left: auto; }
+
+    .sidebar-footer { margin-top: auto; font-size: 0.72rem; color: #8892b0; line-height: 1.5; }
+
+    main { flex: 1; min-width: 0; }
+
+    /* ---------- HERO / PORTADA ---------- */
+    .hero {
+        background: radial-gradient(circle at 20% 20%, #241b4d 0%, var(--navy) 55%, #05070f 100%);
+        color: white;
+        padding: 70px 60px 60px;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero::before {
+        content: "";
+        position: absolute; inset: 0;
+        background-image: radial-gradient(2px 2px at 20px 30px, white, transparent),
+                           radial-gradient(2px 2px at 140px 80px, white, transparent),
+                           radial-gradient(1.5px 1.5px at 300px 40px, white, transparent),
+                           radial-gradient(1.5px 1.5px at 400px 120px, white, transparent),
+                           radial-gradient(2px 2px at 500px 60px, white, transparent),
+                           radial-gradient(1.5px 1.5px at 600px 20px, white, transparent);
+        opacity: 0.4;
+        pointer-events: none;
+    }
+    .hero-inner { position: relative; max-width: 780px; }
+    .eyebrow {
+        display: inline-block;
+        background: rgba(108,92,231,0.25);
+        border: 1px solid var(--primary-light);
+        color: var(--primary-light);
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 18px;
+    }
+    .hero h1 { font-size: 2.6rem; line-height: 1.15; margin-bottom: 10px; }
+    .hero h2 { font-size: 1.15rem; font-weight: 500; color: #c8cfe0; margin-bottom: 20px; font-family: 'Inter', sans-serif; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+    .hero-meta div {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 12px;
+        padding: 12px 18px;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .section { padding: 60px; max-width: 1050px; }
+    .section-tight { padding-top: 30px; }
+
+    .callout {
+        background: white;
+        border: 1px solid var(--border);
+        border-left: 5px solid var(--primary);
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin-bottom: 18px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    .callout.warn { border-left-color: var(--gold); }
+    .callout strong { color: var(--text); }
+
+    .how-to {
+        background: linear-gradient(135deg, #f1f0fd, #eafaf8);
+        border-radius: 16px;
+        padding: 24px 28px;
+        margin: 30px 0;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    .how-to h3 { margin-bottom: 10px; color: var(--primary); }
+
+    .team-heading { margin-top: 40px; margin-bottom: 4px; }
+    .team-heading p { color: var(--muted); font-size: 0.9rem; margin-top: 4px; margin-bottom: 4px; }
+
+    /* ---------- SCHEDULE TABLE ---------- */
+    table.schedule { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.82rem; }
+    table.schedule th, table.schedule td { border: 1px solid var(--border); padding: 10px; text-align: center; vertical-align: middle; }
+    table.schedule thead th { background: var(--navy); color: white; }
+    table.schedule .row-header { background: #f1f0fd; font-weight: 600; white-space: nowrap; }
+    table.schedule .section-row td { background: var(--primary); color: white; font-weight: 700; letter-spacing: 0.5px; }
+    table.schedule .section-row.vespertina td { background: var(--gold); color: #4a3300; }
+    table.schedule .presenter { display: block; margin-top: 4px; font-size: 0.78rem; color: var(--primary); font-weight: 600; }
+    table.schedule .maestrantes { color: #d35400; font-weight: 700; }
+    table.schedule .empty-cell { color: var(--muted); font-style: italic; }
+
+    .logo-strip {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 32px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px 26px;
+        margin-top: 6px;
+    }
+    .logo-strip img { height: 54px; width: auto; object-fit: contain; }
+    .logo-strip img.logo-uide { height: 82px; }
+    .orgs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .orgs span {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 0.78rem;
+        color: var(--muted);
+    }
+
+    /* ---------- DAY SECTIONS ---------- */
+    .day-header { margin-bottom: 34px; }
+    .day-badge {
+        display: inline-block;
+        background: var(--primary);
+        color: white;
+        padding: 6px 16px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+    }
+    .day-header h2 { font-size: 2rem; margin-bottom: 8px; }
+    .day-header p { color: var(--muted); font-size: 0.95rem; }
+
+    .block { margin-bottom: 46px; }
+    .block h3 { font-size: 1.3rem; margin-bottom: 2px; color: var(--text); }
+    .block .block-time { display: block; font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 4px; }
+    .block .block-presenter { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 14px; }
+    .block > p.block-desc { color: var(--muted); margin-bottom: 18px; font-size: 0.95rem; line-height: 1.6; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 2px 10px rgba(20,20,50,0.04);
+        transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(20,20,50,0.08); }
+    .card-icon { font-size: 1.8rem; }
+    .card h4 { font-size: 1.05rem; line-height: 1.35; }
+    .card p { font-size: 0.87rem; color: var(--muted); line-height: 1.55; flex-grow: 1; }
+    .tag {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        width: fit-content;
+    }
+    .tag.sim { background: #e6f7f5; color: var(--accent); }
+    .tag.nb { background: #f1f0fd; color: var(--primary); }
+    .tag.prep { background: #fdf3e3; color: #a9740f; }
+
+    .card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+    .btn-sim { background: var(--accent); color: white; }
+    .btn-sim:hover { background: #00786a; }
+    .btn-nb { background: var(--primary); color: white; }
+    .btn-nb:hover { background: #5a4bcf; }
+    .btn-colab { background: var(--colab); color: #202124; }
+    .btn-colab:hover { background: #e09b00; }
+    .btn-mystery { background: var(--danger); color: white; }
+    .btn-mystery:hover { background: #c0392b; }
+
+    .mini-note {
+        background: #fff8ec;
+        border: 1px dashed var(--gold);
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 0.83rem;
+        color: #7a5a17;
+        margin-top: 8px;
+    }
+
+    .agenda-list { display: flex; flex-direction: column; gap: 12px; }
+    .agenda-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 16px 20px;
+    }
+    .agenda-item .agenda-icon { font-size: 1.5rem; }
+    .agenda-item .agenda-time { font-weight: 700; color: var(--primary); font-size: 0.85rem; min-width: 110px; }
+    .agenda-item .agenda-title { font-weight: 600; font-size: 0.95rem; }
+    .agenda-item .agenda-presenter { font-size: 0.82rem; color: var(--muted); }
+
+    /* ---------- SOON SECTIONS ---------- */
+    .soon-card {
+        background: white;
+        border: 2px dashed var(--border);
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        color: var(--muted);
+    }
+    .soon-card .big-icon { font-size: 2.4rem; margin-bottom: 10px; }
+    .soon-card h3 { color: var(--text); margin-bottom: 8px; }
+
+    footer.page-footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.8rem;
+        padding: 30px 60px 60px;
+    }
+
+    @media (max-width: 900px) {
+        .app { flex-direction: column; }
+        .sidebar {
+            position: relative;
+            height: auto;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 16px 20px;
+        }
+        .sidebar .brand { flex: 1; }
+        .nav { flex-direction: row; flex-wrap: wrap; margin-top: 0; }
+        .sidebar-footer { display: none; }
+        .hero { padding: 40px 24px; }
+        .section { padding: 36px 24px; }
+        footer.page-footer { padding: 20px 24px 40px; }
+        table.schedule { font-size: 0.7rem; }
+    }
+</style>
+</head>
+<body>
+
+<div class="app">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="stars">✨🔭✨</div>
+            <h1>EPIC Junior II</h1>
+            <span>Escuela de Computación Científica</span>
+            <span class="booktag">📘 Libro de Trabajo</span>
+        </div>
+        <nav class="nav" id="nav">
+            <a href="#portada">🏠 Portada</a>
+            <a href="#dia1">📘 Día 1 · Lunes</a>
+            <a href="#dia2">📗 Día 2 · Martes <span class="soon">pronto</span></a>
+            <a href="#dia3">📙 Día 3 · Miércoles <span class="soon">pronto</span></a>
+            <a href="#dia4">📕 Día 4 · Jueves <span class="soon">pronto</span></a>
+        </nav>
+        <div class="sidebar-footer">
+            Yachay Tech · UIDE · Latitud Cero · Hands-On Astronomy · OEAA
+        </div>
+    </aside>
+
+    <main>
+        <section id="portada">
+            <div class="hero">
+                <div class="hero-inner">
+                    <span class="eyebrow">📘 Libro de Trabajo</span>
+                    <h1>EPIC Junior II</h1>
+                    <h2>Escuela de Computación Científica para Estudiantes de Secundaria</h2>
+                    <div class="hero-meta">
+                        <div>📅 3 – 6 de agosto de 2026</div>
+                        <div>📍 Campus UIDE, Quito</div>
+                        <div>🎓 Dirigido a: Estudiantes de Secundaria</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section section-tight">
+                <div class="callout">
+                    <strong>La jornada de la mañana es independiente de la jornada de la tarde.</strong> Al registrarte puedes elegir asistir solo en la mañana (08h00–13h00), solo en la tarde (14h30–16h00), o todo el día.
+                </div>
+                <div class="callout warn">
+                    <strong>Alimentación:</strong> los coffee breaks incluyen bebida y snacks. El almuerzo es en UIDE o cada participante puede traer el suyo.
+                </div>
+
+                <h3 style="margin-top: 40px; margin-bottom: 4px;">Programa Preliminar</h3>
+                <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 4px;">Horario general de las cuatro jornadas.</p>
+
+                <table class="schedule">
+                    <thead>
+                        <tr>
+                            <th>Horario</th>
+                            <th>Lunes<br>3 agosto 2026</th>
+                            <th>Martes<br>4 agosto 2026</th>
+                            <th>Miércoles<br>5 agosto 2026</th>
+                            <th>Jueves<br>6 agosto 2026</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="section-row"><td colspan="5">JORNADA MATUTINA (LABORATORIO)</td></tr>
+
+                        <tr>
+                            <td class="row-header">Recepción</td>
+                            <td><strong>08h00 – 08h30</strong><br>Bienvenida</td>
+                            <td><strong>08h30 – 09h00</strong><br>Llegada</td>
+                            <td><strong>08h30 – 09h00</strong><br>Llegada</td>
+                            <td><strong>08h30 – 09h00</strong><br>Llegada</td>
+                        </tr>
+
+                        <tr>
+                            <td class="row-header">08h30 – 10h30</td>
+                            <td>Tutorial: Programación para Ciencias<span class="presenter">Wladimir Banda Barragán, Yachay Tech</span></td>
+                            <td>Talleres de Astro Computacional<span class="presenter">Jerson Chunez + Santiago López + Camilo Castañeda</span></td>
+                            <td>Astro Plots 3D – RAM · Talleres de Astro Computacional<span class="presenter">Jerson Chunez + Santiago López + Camilo Castañeda</span></td>
+                            <td>Simposio de Proyectos de Astrofísica (AUDITORIO)<span class="presenter">Daniel Villarruel</span></td>
+                        </tr>
+
+                        <tr>
+                            <td class="row-header">10h30 – 11h00</td>
+                            <td colspan="4">Receso &amp; Coffee Break (30 min · bebida y snacks)</td>
+                        </tr>
+
+                        <tr>
+                            <td class="row-header">11h00 – 13h00</td>
+                            <td>Taller: Análisis de Datos<span class="presenter">Wladimir Banda Barragán</span><div style="margin-top:8px;">Taller: Inicio de Proyectos Grupales<span class="presenter">Equipo OEAA, <span class="maestrantes">Maestrantes</span></span></div></td>
+                            <td><span class="maestrantes">Maestrantes</span> / OEAA → Hands-On Astro II</td>
+                            <td><span class="maestrantes">Maestrantes</span> / OEAA → Hands-On Astro III</td>
+                            <td>Simposio de Proyectos de Astrofísica (AUDITORIO) + Premios de Trivia</td>
+                        </tr>
+
+                        <tr>
+                            <td class="row-header">13h00 – 14h30</td>
+                            <td colspan="4">Almuerzo (UIDE / Traer almuerzo)</td>
+                        </tr>
+
+                        <tr class="section-row vespertina"><td colspan="5">JORNADA VESPERTINA (AUDITORIO)</td></tr>
+
+                        <tr>
+                            <td class="row-header">14h30 – 15h00</td>
+                            <td>Trivia de Astronomía 1<span class="presenter">Franklin Limaico, Yachay Tech</span></td>
+                            <td>Trivia de Astronomía 2<span class="presenter">Helga Dénes, USFQ</span></td>
+                            <td>Trivia de Astronomía 3<span class="presenter">Leonel Guamán</span></td>
+                            <td rowspan="2" class="empty-cell">Por definir</td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">15h00 – 16h00</td>
+                            <td>Charla: ¿Qué son los agujeros negros?<span class="presenter">Franklin Limaico, Yachay Tech</span></td>
+                            <td>Conversa con un Astrónom@<span class="presenter">Daysi Quinatoa, Helga Dénes, Wladimir Banda Barragán, <span class="maestrantes">Maestrantes</span></span></td>
+                            <td>Mini Charla de Astro<span class="presenter">Leonel Guamán</span></td>
+                        </tr>
+
+                        <tr>
+                            <td class="row-header">16h00 – 16h30</td>
+                            <td colspan="4">Receso &amp; Snacks de Despedida (10 min · bebida y snacks)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="team-heading">
+                    <h3>Organizan</h3>
+                </div>
+                <div class="logo-strip">
+                    <img src="org_yachaytech.png" alt="Universidad Yachay Tech">
+                    <img class="logo-uide" src="org_uide.png" alt="UIDE - Powered by Arizona State University">
+                    <img src="org_oeaa.png" alt="Olimpiadas Ecuatorianas de Astronomía y Astrofísica">
+                    <img src="org_hoa.png" alt="Hands-On Astronomy">
+                    <img src="org_latitudcero.jpg" alt="Grupo de Investigadores Latitud Cero">
+                </div>
+
+                <div class="how-to">
+                    <h3>📖 Cómo usar este libro</h3>
+                    Usa el menú de la izquierda para saltar entre días. Cada actividad indica si es un <span class="tag sim" style="vertical-align:middle;">Simulador</span> (se abre directo en el navegador) o un <span class="tag nb" style="vertical-align:middle;">Notebook</span> (puedes abrirlo directo en <a href="https://colab.research.google.com" target="_blank">Google Colab</a> con el botón amarillo, o descargarlo y subirlo tú mismo). Los días 2 a 4 se irán completando a medida que se acerque la fecha.
+                </div>
+            </div>
+        </section>
+
+        <section id="dia1">
+            <div class="section">
+                <div class="day-header">
+                    <span class="day-badge">Día 1 · Lunes 3 de agosto</span>
+                    <h2>Programación para Ciencias &amp; Análisis de Datos</h2>
+                    <p>08h00–08h30 Bienvenida · 08h30–10h30 Tutorial · 11h00–13h00 Taller · 14h30–16h00 Trivia &amp; Charla</p>
+                </div>
+
+                <div class="block">
+                    <h3>📚 Material de preparación</h3>
+                    <p class="block-desc">Antes del taller, revisa esta lectura de dos páginas: el rol de la computación en la ciencia, qué es Google Colab, y Python como calculadora.</p>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-icon">📄</div>
+                            <span class="tag prep">Lectura previa · PDF</span>
+                            <h4>Introducción a la Computación en Física y Astronomía</h4>
+                            <p>Rol de la computación en ciencia, qué es Colab, Python como calculadora, un primer plot y una vista previa de los dos bloques del día.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-nb" href="introduccion_computacion_fisica_astronomia.pdf" target="_blank">📖 Ver PDF</a>
+                                <a class="btn btn-nb" href="introduccion_computacion_fisica_astronomia.pdf" download>⬇ Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <h3>🧮 Bloque 1 — Tutorial: Programación para Ciencias</h3>
+                    <span class="block-time">08h30 – 10h30 · LABORATORIO</span>
+                    <span class="block-presenter">Wladimir Banda Barragán, Yachay Tech</span>
+                    <p class="block-desc">Python como calculadora con el péndulo, y luego lectura y graficación de datos reales del movimiento parabólico (lanzamiento a 30°).</p>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-icon">🚀</div>
+                            <span class="tag sim">Simulador interactivo</span>
+                            <h4>Movimiento Parabólico</h4>
+                            <p>Lanzan un proyectil a 30°, y exportan la trayectoria completa (tiempo, posición X, posición Y) a CSV.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-sim" href="https://cphysplus.github.io/fisica-interactiva/movimiento-parabolico.html" target="_blank">🔗 Abrir simulador</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">📓</div>
+                            <span class="tag nb">Notebook · Colab</span>
+                            <h4>1_python_para_ciencia.ipynb</h4>
+                            <p>Calculadora del péndulo, lectura del CSV a 30°, graficación de la trayectoria, y tarea final: comparar contra un lanzamiento a 75°.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-colab" href="https://colab.research.google.com/github/cphysplus/fisica-interactiva/blob/main/notebooks/1_python_para_ciencia.ipynb" target="_blank">🚀 Abrir en Colab</a>
+                                <a class="btn btn-nb" href="1_python_para_ciencia.ipynb" download>⬇ Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <h3>📊 Bloque 2 — Taller: Análisis de Datos</h3>
+                    <span class="block-time">11h00 – 13h00 · LABORATORIO</span>
+                    <span class="block-presenter">Wladimir Banda Barragán + Equipo OEAA, Yachay Tech</span>
+                    <p class="block-desc">Miden el período de un péndulo ellos mismos y usan Python para calcular experimentalmente la gravedad a partir de sus propios datos.</p>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-icon">🔬</div>
+                            <span class="tag sim">Simulador interactivo</span>
+                            <h4>Péndulo Simple — Laboratorio</h4>
+                            <p>Ajustan la longitud, sueltan el péndulo y detienen el cronómetro ellos mismos. Exportan sus mediciones a Excel.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-sim" href="https://cphysplus.github.io/fisica-interactiva/pendulo_simple.html" target="_blank">🔗 Abrir simulador</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">📓</div>
+                            <span class="tag nb">Notebook · Colab</span>
+                            <h4>2_analisis_de_datos.ipynb</h4>
+                            <p>Suben su tabla de Excel, grafican T² vs. L, ajustan una recta y calculan g experimentalmente, comparándola con el valor aceptado.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-colab" href="https://colab.research.google.com/github/cphysplus/fisica-interactiva/blob/main/notebooks/2_analisis_de_datos.ipynb" target="_blank">🚀 Abrir en Colab</a>
+                                <a class="btn btn-nb" href="2_analisis_de_datos.ipynb" download>⬇ Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-note">
+                        🎯 Este mismo notebook termina con un <strong>desafío final</strong>: usar el <a href="https://cphysplus.github.io/fisica-interactiva/pendulo_planeta_misterioso.html" target="_blank">péndulo del planeta misterioso</a> para descubrir a qué planeta del sistema solar fue trasladado el péndulo, comparando su valor de g calculado contra una tabla de referencia.
+                    </div>
+                </div>
+
+                <div class="block">
+                    <h3>🌌 Jornada vespertina</h3>
+                    <span class="block-time">14h30 – 16h00 · AUDITORIO</span>
+                    <p class="block-desc">Sesiones de auditorio, sin materiales de cómputo.</p>
+                    <div class="agenda-list">
+                        <div class="agenda-item">
+                            <div class="agenda-icon">🏆</div>
+                            <div class="agenda-time">14h30 – 15h00</div>
+                            <div>
+                                <div class="agenda-title">Trivia de Astronomía 1</div>
+                                <div class="agenda-presenter">Franklin Limaico, Yachay Tech</div>
+                            </div>
+                        </div>
+                        <div class="agenda-item">
+                            <div class="agenda-icon">🕳️</div>
+                            <div class="agenda-time">15h00 – 16h00</div>
+                            <div>
+                                <div class="agenda-title">Charla: ¿Qué son los agujeros negros?</div>
+                                <div class="agenda-presenter">Franklin Limaico, Yachay Tech</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="dia2">
+            <div class="section">
+                <div class="day-header">
+                    <span class="day-badge">Día 2 · Martes 4 de agosto</span>
+                    <h2>Próximamente</h2>
+                    <p>08h30–09h00 Llegada · 08h30–10h30 Talleres de Astro Computacional (Jerson Chunez, Santiago López, Camilo Castañeda) · 11h00–13h00 Hands-On Astro II (Maestrantes/OEAA) · 14h30–15h00 Trivia de Astronomía 2 (Helga Dénes) · 15h00–16h00 Conversa con un Astrónom@ (Daysi Quinatoa, Helga Dénes, Wladimir Banda Barragán, Maestrantes)</p>
+                </div>
+                <div class="soon-card">
+                    <div class="big-icon">🛠️</div>
+                    <h3>Materiales en construcción</h3>
+                    <p>Aquí encontrarás los simuladores y notebooks del Día 2 apenas estén listos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dia3">
+            <div class="section">
+                <div class="day-header">
+                    <span class="day-badge">Día 3 · Miércoles 5 de agosto</span>
+                    <h2>Próximamente</h2>
+                    <p>08h30–09h00 Llegada · 08h30–10h30 Astro Plots 3D – RAM (Jerson Chunez, Santiago López, Camilo Castañeda) · 11h00–13h00 Hands-On Astro III (Maestrantes/OEAA) · 14h30–15h00 Trivia de Astronomía 3 (Leonel Guamán) · 15h00–16h00 Mini Charla de Astro (Leonel Guamán)</p>
+                </div>
+                <div class="soon-card">
+                    <div class="big-icon">🛠️</div>
+                    <h3>Materiales en construcción</h3>
+                    <p>Aquí encontrarás los simuladores y notebooks del Día 3 apenas estén listos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dia4">
+            <div class="section">
+                <div class="day-header">
+                    <span class="day-badge">Día 4 · Jueves 6 de agosto</span>
+                    <h2>Próximamente</h2>
+                    <p>08h30–10h30 Simposio de Proyectos de Astrofísica (Daniel Villarruel) · 11h00–13h00 Simposio de Proyectos de Astrofísica + Premios de Trivia · 14h30–16h00 Por definir</p>
+                </div>
+                <div class="soon-card">
+                    <div class="big-icon">🏆</div>
+                    <h3>Día de cierre</h3>
+                    <p>Simposio de Proyectos de Astrofísica y entrega de certificados. Los materiales de apoyo se agregarán aquí.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="page-footer">
+            <a class="btn btn-nb" href="https://ciencialatitud0.github.io/EPIC_6/EPIC_JR.html" style="margin-bottom: 16px;">⬅ Volver a la página principal</a>
+            <div>Elaborado por el Grupo de Física Computacional, cPhys+, de la Universidad Yachay Tech. <span style="font-size:1.3em;">🇪🇨</span></div>
+        </footer>
+    </main>
+</div>
+
+<script>
+    const links = document.querySelectorAll('.nav a');
+    const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = '#' + entry.target.id;
+                links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(sec => { if (sec) observer.observe(sec); });
+</script>
+
+</body>
+</html>
