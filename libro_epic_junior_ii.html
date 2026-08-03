@@ -248,6 +248,10 @@
     .tag.sim { background: #e6f7f5; color: var(--accent); }
     .tag.nb { background: #f1f0fd; color: var(--primary); }
     .tag.prep { background: #fdf3e3; color: #a9740f; }
+    .tag.proj { background: #e8f0fe; color: #1a56b0; }
+
+    .proj-meta { font-size: 0.78rem !important; color: var(--muted); flex-grow: 0 !important; line-height: 1.5 !important; }
+    .proj-meta strong { color: var(--text); }
 
     .card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
 
@@ -350,7 +354,7 @@
         <nav class="nav" id="nav">
             <a href="#portada">🏠 Portada</a>
             <a href="#dia1">📘 Día 1 · Lunes</a>
-            <a href="#dia2">📗 Día 2 · Martes <span class="soon">pronto</span></a>
+            <a href="#dia2">📗 Día 2 · Martes</a>
             <a href="#dia3">📙 Día 3 · Miércoles <span class="soon">pronto</span></a>
             <a href="#dia4">📕 Día 4 · Jueves <span class="soon">pronto</span></a>
         </nav>
@@ -409,7 +413,7 @@
                         <tr>
                             <td class="row-header">08h30 – 10h30</td>
                             <td>Tutorial: Programación para Ciencias<span class="presenter">Wladimir Banda Barragán, Yachay Tech</span></td>
-                            <td>Talleres de Astro Computacional<span class="presenter">Jerson Chunez + Santiago López + Camilo Castañeda</span></td>
+                            <td>Taller: Análisis de Datos<span class="presenter">Wladimir Banda Barragán + Jerson Chunez + Santiago López + Camilo Castañeda</span></td>
                             <td>Astro Plots 3D – RAM · Talleres de Astro Computacional<span class="presenter">Jerson Chunez + Santiago López + Camilo Castañeda</span></td>
                             <td>Simposio de Proyectos de Astrofísica (AUDITORIO)<span class="presenter">Daniel Villarruel</span></td>
                         </tr>
@@ -421,7 +425,7 @@
 
                         <tr>
                             <td class="row-header">11h00 – 13h00</td>
-                            <td>Taller: Análisis de Datos<span class="presenter">Wladimir Banda Barragán</span><div style="margin-top:8px;">Taller: Inicio de Proyectos Grupales<span class="presenter">Equipo OEAA, <span class="maestrantes">Maestrantes</span></span></div></td>
+                            <td>Taller: Inicio de Proyectos Grupales<span class="presenter">Equipo OEAA, <span class="maestrantes">Maestrantes</span></span></td>
                             <td><span class="maestrantes">Maestrantes</span> / OEAA → Hands-On Astro II</td>
                             <td><span class="maestrantes">Maestrantes</span> / OEAA → Hands-On Astro III</td>
                             <td>Simposio de Proyectos de Astrofísica (AUDITORIO) + Premios de Trivia</td>
@@ -459,10 +463,11 @@
                     <h3>Organizan</h3>
                 </div>
                 <div class="logo-strip">
-                    <img src="images/LOGOTIPO-YACHAY-TECH-UITEY-2023.png" alt="Universidad Yachay Tech">
-                    <img class="logo-uide" src="images/thumbnail_Logo%20UIDE.png" alt="UIDE - Powered by Arizona State University">
-                    <img src="images/logo_oeaa.png" alt="Olimpiadas Ecuatorianas de Astronomía y Astrofísica">
-                    <img src="images/hoa.png" alt="Hands-On Astronomy">
+                    <img src="org_yachaytech.png" alt="Universidad Yachay Tech">
+                    <img class="logo-uide" src="org_uide.png" alt="UIDE - Powered by Arizona State University">
+                    <img src="org_oeaa.png" alt="Olimpiadas Ecuatorianas de Astronomía y Astrofísica">
+                    <img src="org_hoa.png" alt="Hands-On Astronomy">
+                    <img src="org_latitudcero.jpg" alt="Grupo de Investigadores Latitud Cero">
                 </div>
 
                 <div class="how-to">
@@ -476,8 +481,8 @@
             <div class="section">
                 <div class="day-header">
                     <span class="day-badge">Día 1 · Lunes 3 de agosto</span>
-                    <h2>Programación para Ciencias &amp; Análisis de Datos</h2>
-                    <p>08h00–08h30 Bienvenida · 08h30–10h30 Tutorial · 11h00–13h00 Taller · 14h30–16h00 Trivia &amp; Charla</p>
+                    <h2>Programación para Ciencias</h2>
+                    <p>08h00–08h30 Bienvenida · 08h30–10h30 Tutorial · 14h30–16h00 Trivia &amp; Charla</p>
                 </div>
 
                 <div class="block">
@@ -490,8 +495,8 @@
                             <h4>Introducción a la Computación en Física y Astronomía</h4>
                             <p>Rol de la computación en ciencia, qué es Colab, Python como calculadora, un primer plot y una vista previa de los dos bloques del día.</p>
                             <div class="card-actions">
-                                <a class="btn btn-nb" href="https://github.com/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior/Day_1/introduccion_computacion_fisica_astronomia.pdf" target="_blank">📖 Ver PDF</a>
-                                <a class="btn btn-nb" href="https://github.com/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior/Day_1/introduccion_computacion_fisica_astronomia.pdf" target="_blank">⬇ Descargar</a>
+                                <a class="btn btn-nb" href="introduccion_computacion_fisica_astronomia.pdf" target="_blank">📖 Ver PDF</a>
+                                <a class="btn btn-nb" href="introduccion_computacion_fisica_astronomia.pdf" download>⬇ Descargar</a>
                             </div>
                         </div>
                     </div>
@@ -518,41 +523,10 @@
                             <h4>1_python_para_ciencia.ipynb</h4>
                             <p>Calculadora del péndulo, lectura del CSV a 30°, graficación de la trayectoria, y tarea final: comparar contra un lanzamiento a 75°.</p>
                             <div class="card-actions">
-                                <a class="btn btn-colab" href="https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior/Day_1/1_python_para_ciencia.ipynb" target="_blank">🚀 Abrir en Colab</a>
-                                <a class="btn btn-nb" href="https://github.com/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior/Day_1/1_python_para_ciencia.ipynb" target="_blank">⬇ Descargar</a>
+                                <a class="btn btn-colab" href="https://colab.research.google.com/github/cphysplus/fisica-interactiva/blob/main/notebooks/1_python_para_ciencia.ipynb" target="_blank">🚀 Abrir en Colab</a>
+                                <a class="btn btn-nb" href="1_python_para_ciencia.ipynb" download>⬇ Descargar</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="block">
-                    <h3>📊 Bloque 2 — Taller: Análisis de Datos</h3>
-                    <span class="block-time">11h00 – 13h00 · LABORATORIO</span>
-                    <span class="block-presenter">Wladimir Banda Barragán + Equipo OEAA, Yachay Tech</span>
-                    <p class="block-desc">Miden el período de un péndulo ellos mismos y usan Python para calcular experimentalmente la gravedad a partir de sus propios datos.</p>
-                    <div class="card-grid">
-                        <div class="card">
-                            <div class="card-icon">🔬</div>
-                            <span class="tag sim">Simulador interactivo</span>
-                            <h4>Péndulo Simple — Laboratorio</h4>
-                            <p>Ajustan la longitud, sueltan el péndulo y detienen el cronómetro ellos mismos. Exportan sus mediciones a Excel.</p>
-                            <div class="card-actions">
-                                <a class="btn btn-sim" href="https://cphysplus.github.io/fisica-interactiva/pendulo_simple.html" target="_blank">🔗 Abrir simulador</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-icon">📓</div>
-                            <span class="tag nb">Notebook · Colab</span>
-                            <h4>2_analisis_de_datos.ipynb</h4>
-                            <p>Suben su tabla de Excel, grafican T² vs. L, ajustan una recta y calculan g experimentalmente, comparándola con el valor aceptado.</p>
-                            <div class="card-actions">
-                                <a class="btn btn-colab" href="https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior/Day_1/2_analisis_de_datos.ipynb" target="_blank">🚀 Abrir en Colab</a>
-                                <a class="btn btn-nb" href="https://github.com/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior/Day_1/2_analisis_de_datos.ipynb" target="_blank">⬇ Descargar</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mini-note">
-                        🎯 Este mismo notebook termina con un <strong>desafío final</strong>: usar el <a href="https://cphysplus.github.io/fisica-interactiva/pendulo_planeta_misterioso.html" target="_blank">péndulo del planeta misterioso</a> para descubrir a qué planeta del sistema solar fue trasladado el péndulo, comparando su valor de g calculado contra una tabla de referencia.
                     </div>
                 </div>
 
@@ -587,13 +561,112 @@
             <div class="section">
                 <div class="day-header">
                     <span class="day-badge">Día 2 · Martes 4 de agosto</span>
-                    <h2>Próximamente</h2>
-                    <p>08h30–09h00 Llegada · 08h30–10h30 Talleres de Astro Computacional (Jerson Chunez, Santiago López, Camilo Castañeda) · 11h00–13h00 Hands-On Astro II (Maestrantes/OEAA) · 14h30–15h00 Trivia de Astronomía 2 (Helga Dénes) · 15h00–16h00 Conversa con un Astrónom@ (Daysi Quinatoa, Helga Dénes, Wladimir Banda Barragán, Maestrantes)</p>
+                    <h2>Análisis de Datos</h2>
+                    <p>08h30–09h00 Llegada · 08h30–10h30 Taller: Análisis de Datos (Wladimir Banda Barragán + Jerson Chunez + Santiago López + Camilo Castañeda) · 11h00–13h00 Hands-On Astronomy: Taller de Astronomía (Maestrantes/OEAA) · 14h30–15h00 Trivia de Astronomía 2 (Helga Dénes) · 15h00–16h00 Conversa con un Astrónom@ (Daysi Quinatoa, Helga Dénes, Wladimir Banda Barragán, Maestrantes)</p>
                 </div>
+
+                <div class="block">
+                    <h3>📊 Bloque 1 — Taller: Análisis de Datos</h3>
+                    <span class="block-time">08h30 – 10h30 · LABORATORIO</span>
+                    <span class="block-presenter">Wladimir Banda Barragán + Jerson Chunez + Santiago López + Camilo Castañeda, Yachay Tech</span>
+                    <p class="block-desc">Miden el período de un péndulo ellos mismos y usan Python para calcular experimentalmente la gravedad a partir de sus propios datos.</p>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-icon">🔬</div>
+                            <span class="tag sim">Simulador interactivo</span>
+                            <h4>Péndulo Simple — Laboratorio</h4>
+                            <p>Ajustan la longitud, sueltan el péndulo y detienen el cronómetro ellos mismos. Exportan sus mediciones a Excel.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-sim" href="https://cphysplus.github.io/fisica-interactiva/pendulo_simple.html" target="_blank">🔗 Abrir simulador</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">📓</div>
+                            <span class="tag nb">Notebook · Colab</span>
+                            <h4>2_analisis_de_datos.ipynb</h4>
+                            <p>Suben su tabla de Excel, grafican T² vs. L, ajustan una recta y calculan g experimentalmente, comparándola con el valor aceptado.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-colab" href="https://colab.research.google.com/github/cphysplus/fisica-interactiva/blob/main/notebooks/2_analisis_de_datos.ipynb" target="_blank">🚀 Abrir en Colab</a>
+                                <a class="btn btn-nb" href="2_analisis_de_datos.ipynb" download>⬇ Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-note">
+                        🎯 Este mismo notebook termina con un <strong>desafío final</strong>: usar el <a href="https://cphysplus.github.io/fisica-interactiva/pendulo_planeta_misterioso.html" target="_blank">péndulo del planeta misterioso</a> para descubrir a qué planeta del sistema solar fue trasladado el péndulo, comparando su valor de g calculado contra una tabla de referencia.
+                    </div>
+                </div>
+
+                <div class="block">
+                    <h3>🔭 Bloque 2 — Hands-On Astronomy: Taller de Astronomía</h3>
+                    <span class="block-time">11h00 – 13h00 · LABORATORIO</span>
+                    <span class="block-presenter">Maestrantes + Equipo OEAA</span>
+                    <p class="block-desc">Cada equipo escoge uno de estos cinco proyectos, lee el PDF con la pregunta científica y el contexto, y trabaja en grupo con datos astronómicos reales en Python para responderla.</p>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-icon">🪐</div>
+                            <span class="tag proj">Proyecto A · PDF</span>
+                            <h4>El uno por ciento que falta</h4>
+                            <p>¿Cómo pequeñas y repetidas caídas en el brillo de una estrella pueden usarse para estimar el período orbital y el tamaño relativo de un planeta imperceptible?</p>
+                            <p class="proj-meta"><strong>Dataset:</strong> WASP-18b, tránsito de exoplanetas (NASA)<br><strong>Autoría:</strong> Alejandro Cobo, Jerson Chunez, Daniel Espinoza</p>
+                            <div class="card-actions">
+                                <a class="btn btn-nb" href="ProyectoA.pdf" target="_blank">📖 Ver PDF</a>
+                                <a class="btn btn-nb" href="ProyectoA.pdf" download>⬇ Descargar</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">✨</div>
+                            <span class="tag proj">Proyecto B · PDF</span>
+                            <h4>Dos cúmulos, dos relojes</h4>
+                            <p>¿Cuál es más antiguo: las Pléyades o Messier 67, y cómo puede la distribución de sus estrellas revelar la respuesta?</p>
+                            <p class="proj-meta"><strong>Dataset:</strong> Catálogo de cúmulos abiertos de Hunt &amp; Reffert (2024), fotometría Gaia<br><strong>Autoría:</strong> Pablo Escobar, Ariana Guerrón</p>
+                            <div class="card-actions">
+                                <a class="btn btn-nb" href="ProyectoB.pdf" target="_blank">📖 Ver PDF</a>
+                                <a class="btn btn-nb" href="ProyectoB.pdf" download>⬇ Descargar</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🌀</div>
+                            <span class="tag proj">Proyecto C · PDF</span>
+                            <h4>Galaxias que giran demasiado rápido</h4>
+                            <p>¿Puede la materia visible explicar, por sí sola, la rotación de las galaxias?</p>
+                            <p class="proj-meta"><strong>Dataset:</strong> SPARC, curvas de rotación de galaxias (Rotmod_LTG)<br><strong>Autoría:</strong> Gary Guamán, Joustin Lomas, Santiago López</p>
+                            <div class="card-actions">
+                                <a class="btn btn-nb" href="ProyectoC.pdf" target="_blank">📖 Ver PDF</a>
+                                <a class="btn btn-nb" href="ProyectoC.pdf" download>⬇ Descargar</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🌊</div>
+                            <span class="tag proj">Proyecto D · PDF</span>
+                            <h4>El chirrido de siete milisegundos</h4>
+                            <p>¿Puede reconocerse la misma señal de onda gravitacional en dos detectores, y qué nos dice la diferencia en su tiempo de llegada?</p>
+                            <p class="proj-meta"><strong>Dataset:</strong> LIGO GWOSC, evento GW150914 (H1 y L1, 4096 Hz)<br><strong>Autoría:</strong> Camilo Castañeda, Franklin Limaico, Jorge Pico</p>
+                            <div class="card-actions">
+                                <a class="btn btn-nb" href="ProyectoD.pdf" target="_blank">📖 Ver PDF</a>
+                                <a class="btn btn-nb" href="ProyectoD.pdf" download>⬇ Descargar</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🌡️</div>
+                            <span class="tag proj">Proyecto E · PDF</span>
+                            <h4>La temperatura favorita del hidrógeno</h4>
+                            <p>¿Por qué la línea de absorción de Hβ no es más intensa ni en las estrellas más frías ni más calientes de la muestra?</p>
+                            <p class="proj-meta"><strong>Dataset:</strong> Archivo MILES (Instituto de Astrofísica de Canarias)<br><strong>Autoría:</strong> Daniel Villarruel-Yánez, Leonardo Lozano</p>
+                            <div class="card-actions">
+                                <a class="btn btn-nb" href="ProyectoE.pdf" target="_blank">📖 Ver PDF</a>
+                                <a class="btn btn-nb" href="ProyectoE.pdf" download>⬇ Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-note">
+                        👥 Formen equipos pequeños y escojan un proyecto. Lean el PDF completo antes de empezar: incluye el contexto científico, los objetivos y cómo trabajará el equipo paso a paso con el notebook de datos reales.
+                    </div>
+                </div>
+
                 <div class="soon-card">
                     <div class="big-icon">🛠️</div>
-                    <h3>Materiales en construcción</h3>
-                    <p>Aquí encontrarás los simuladores y notebooks del Día 2 apenas estén listos.</p>
+                    <h3>Resto del día en construcción</h3>
+                    <p>La Trivia de Astronomía 2 y "Conversa con un Astrónom@" se agregarán aquí próximamente.</p>
                 </div>
             </div>
         </section>
