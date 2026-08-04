@@ -14,33 +14,33 @@ We will use python 3.x. Similarly, we will mainly use jupyter notebooks (.ipynb)
 
 	* [0_Intro_DigitalImages.ipynb](./code/0_Intro_DigitalImages.ipynb)
 	* GoogleColab:
- 		[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BioDecodingLab/Machine_Learning_for_Bioimage_Analysis/blob/main/code/0_Intro_DigitalImages.ipynb)
+ 		[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/Tutorials/Tutorial_Machine_Learning_for_Bioimage_Analysis/code/0_Intro_DigitalImages.ipynb)
 
 ### 1. BioImage Analysis with Python
 
 - It is a step by step pipeline for segmenting cells in 2D fluorescence microscopy images (with labeled membranes)
 	* [1_Image_analysis_tutorial.ipynb](./code/1_Image_analysis_tutorial.ipynb)
 	* GoogleColab:
-	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BioDecodingLab/Machine_Learning_for_Bioimage_Analysis/blob/main/code/1_Image_analysis_tutorial.ipynb)
+	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/Tutorials/Tutorial_Machine_Learning_for_Bioimage_Analysis/code/1_Image_analysis_tutorial.ipynb)
  
  
 ### 2. Noise Removal using Autoencoders
 - Step by step pipeline to remove noise from images using AutoEncoders
 	* [2_NoiseRemoval_Autoencoders.ipynb](./code/2_NoiseRemoval_Autoencoders.ipynb)
 	* GoogleColab:
-	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BioDecodingLab/Machine_Learning_for_Bioimage_Analysis/blob/main/code/2_NoiseRemoval_Autoencoders.ipynb)
+	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/Tutorials/Tutorial_Machine_Learning_for_Bioimage_Analysis/code/2_NoiseRemoval_Autoencoders.ipynb)
 
 ### 3. Image Segmentation using UNet
 - Step by step pipeline to sgemnte cell borders using UNet
 	* [3_ImageSegmentation_UNet.ipynb](./code/3_ImageSegmentation_UNet.ipynb)
 	* GoogleColab:
-	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BioDecodingLab/Machine_Learning_for_Bioimage_Analysis/blob/main/code/3_ImageSegmentation_UNet.ipynb)
+	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/Tutorials/Tutorial_Machine_Learning_for_Bioimage_Analysis/code/3_ImageSegmentation_UNet.ipynb)
 	
 ### 4. Image Classification using CNN
 - Step by step pipeline to classify retinal images using CNN
 	* [3_ImageSegmentation_UNet.ipynb](./code/4_Retina_classification_using_CNN.ipynb)
 	* GoogleColab:
-	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BioDecodingLab/Machine_Learning_for_Bioimage_Analysis/blob/main/code/4_Retina_classification_using_CNN.ipynb)
+	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/Tutorials/Tutorial_Machine_Learning_for_Bioimage_Analysis/code/4_Retina_classification_using_CNN.ipynb)
 
 ## Disclaimer
 - These materials have been adapted from the original versions: 
