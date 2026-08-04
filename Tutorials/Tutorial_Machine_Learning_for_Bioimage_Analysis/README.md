@@ -42,6 +42,13 @@ We will use python 3.x. Similarly, we will mainly use jupyter notebooks (.ipynb)
 	* GoogleColab:
 	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/Tutorials/Tutorial_Machine_Learning_for_Bioimage_Analysis/code/4_Retina_classification_using_CNN.ipynb)
 
+### 5. PINN for Reaction-Diffusion Morphogen Gradients
+- Step by step pipeline for using Physics-Informed Neural Networks (PINNs) for morphogen gradient inference
+	* [5_PINN_ReactionDiffusion_MorphogenGradient.ipynb](./code/5_PINN_ReactionDiffusion_MorphogenGradient.ipynb)
+	* GoogleColab:
+	[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/Tutorials/Tutorial_Machine_Learning_for_Bioimage_Analysis/code/5_PINN_ReactionDiffusion_MorphogenGradient.ipynb)
+
+
 ## Disclaimer
 - These materials have been adapted from the original versions: 
     - "Python BioImage Analysis Tutorial:" https://github.com/WhoIsJack/python-bioimage-analysis-tutorial
