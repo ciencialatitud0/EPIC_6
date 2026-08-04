@@ -2,44 +2,12 @@
 
 This is an introduction to image analysis of biological images (i.e. microscopy images) using machine learning.
 
-Please create a local copy of the code and required files by cloning the repository:
-$ git clone [https://github.com/BioDecodingLab/Machine_Learning_for_Bioimage_Analysis.git](https://github.com/BioDecodingLab/Machine_Learning_for_Bioimage_Analysis.git)
 
 We will use python 3.x. Similarly, we will mainly use jupyter notebooks (.ipynb) for the courses taught at this course.
 
 - Jupyter notebooks are very useful tools for learning programming because they provide a nice visual and interactive interface.
 - You can see the results of your code live, instead of waiting till your script (.py) finishes running in a terminal.
 
-
-To be able to use python and jupyter notebooks in your laptop, there are several options:
-
-#### OPTION 1: Google Colab (see https://colab.research.google.com/):
-
-**Important Note: We highly recommend this option for participants with little programming experience.**
-
-One option is to use Google Colab, for which you would need a Google account, which can be a personal gmail account or an institutional email account supported by Google. The advantage of using Google Colab is that all libraries are installed in a Linux server remotely, so we don't need to worry about compatibility issues, different operating systems, etc. The disadvantage is that Colab provides limited memory and computing resources as everything runs in a cloud, so you can only use it to process small datasets.
-
-
-1. Log into your Google account.
-
-2. Upload the notebooks and the image data (tiffs and jpgs)
-
-3. Open this notebook: [My_first_python_notebook.ipynb](./code/My_first_python_notebook.ipynb)
-     [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BioDecodingLab/Machine_Learning_for_Bioimage_Analysis/blob/main/code/My_first_python_notebook.ipynb)
-
-
-	
-#### OPTION 2: Anaconda/Miniconda:
-	- Create environment:
-	$ conda create -n MLBioImage python=3.8 -y
-	- Activate the environment:
- 	$ conda activate MLBioImage	
- 	- Install a few extra libraries:
- 	$ conda install -c conda-forge numpy scipy scikit-image tifffile matplotlib pandas scikit-learn tqdm jupyter notebook -y
- 	- Install PyTorch
-	$ conda install pytorch torchvision torchaudio -c pytorch -y
- 	- Open a jupyter notebook
- 	$ jupyter notebook
 
 ### 0. Introduction to Digital Images
 - Brief intro to digital images
