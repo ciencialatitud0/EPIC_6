@@ -11,8 +11,8 @@
 |  **3** | Danna Ayala
 | | Leslie Joel Coyago  |---|
 |  | Christian Andrade
-|  **4** | Brittany Jimenez
-| | Jessica Pijal  |Análisis de imágenes citológicas para la clasificación de células cervicales mediante redes neuronales|
+|  **4** | Brittany Jimenez | Análisis de imágenes citológicas para la clasificación de células cervicales mediante redes neuronales
+| | Jessica Pijal  |
 |  | Alexander Panchi
 |  **5** | Dylan Cabascango
 | | Bryan Cárdenas  |---|
