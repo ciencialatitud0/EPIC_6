@@ -17,6 +17,18 @@
 |  **5** | Dylan Cabascango
 | | Bryan Cárdenas  |---|
 |  | Belén Rodríguez
-
-
-
+|  **6** | Franklin Limaico
+| | Ricardo Calderón  |---|
+|  | Antonio Trávez
+|  **7** | Soleil Nuñez
+| | Jhonson Lopez  |---|
+|  | Jonathan Zambrano
+|  **8** | Danna Ayala
+| | Leslie Joel Coyago   |---|
+|  | Christian Andrade
+|  **9** | José Navas
+| | Eliana Dávila   |---|
+|  | Josué Malla
+|  **10** | Camila Reyes
+| | Gabriela Flores   |---|
+|  | Juliana Abarca
