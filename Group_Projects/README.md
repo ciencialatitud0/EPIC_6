@@ -1,10 +1,10 @@
 # Groups for EPIC 6 Projects
 
-| Group | Member |
-|:---:|---|
+| Group | Member | Project |
+|:---:|---|---|
 | **1** | Camila Reyes 
-|  | Gabriela Flores
+|  | Gabriela Flores |---|
 |  | Juliana Abarca
 | **2** | José Navas
-|  | Eliana Dávila
+|  | Eliana Dávila |---|
 |  | Josué Malla
