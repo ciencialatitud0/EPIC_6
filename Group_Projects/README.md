@@ -2,13 +2,13 @@
 
 | Group | Member | Project |
 |:---:|---|---|
-|  | Camila Reyes 
-| **1**  | Gabriela Flores |---|
+| **1**  | Camila Reyes 
+|  | Gabriela Flores |---|
 |  | Juliana Abarca
-|  | José Navas
-| **2** | Eliana Dávila |---|
+| **2**  | José Navas
+| | Eliana Dávila |---|
 |  | Josué Malla
-|  | Danna Ayala
-| **3** | Leslie Joel Coyago  |---|
+|  **3** | Danna Ayala
+| | Leslie Joel Coyago  |---|
 |  | Christian Andrade
 
