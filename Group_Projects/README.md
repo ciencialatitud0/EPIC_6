@@ -8,3 +8,7 @@
 | **2** | José Navas
 |  | Eliana Dávila |---|
 |  | Josué Malla
+| **3** | Danna Ayala
+|  | Leslie Joel Coyago  |---|
+|  | Christian Andrade
+
