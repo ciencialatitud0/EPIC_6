@@ -2,10 +2,10 @@
 
 | Group | Member | Project |
 |:---:|---|---|
-| **1**  | Camila Reyes 
+|  **1**  | Camila Reyes 
 |  | Gabriela Flores |---|
 |  | Juliana Abarca
-| **2**  | José Navas
+|  **2**  | José Navas
 | | Eliana Dávila |---|
 |  | Josué Malla
 |  **3** | Danna Ayala
@@ -23,12 +23,3 @@
 |  **7** | Soleil Nuñez
 | | Jhonson Lopez  |---|
 |  | Jonathan Zambrano
-|  **8** | Danna Ayala
-| | Leslie Joel Coyago   |---|
-|  | Christian Andrade
-|  **9** | José Navas
-| | Eliana Dávila   |---|
-|  | Josué Malla
-|  **10** | Camila Reyes
-| | Gabriela Flores   |---|
-|  | Juliana Abarca
