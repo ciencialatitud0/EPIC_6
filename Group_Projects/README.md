@@ -33,17 +33,15 @@
 | | Katherine Dávila   |---|
 |  | Liset Ramos
 
-# Suggested Structure
+# Suggested Presentation Structure
 
 - Motivation: Why did we choose this project?
 
-- Specific Objectives: What scientific questions do we wanna answer?
+- Specific Objectives: What scientific question/s do we wanna answer?
 
-- Methods: Which methods are we using?
+- Methods: Which methods are we using? How do they work?
 
-- Results: Show the notebook and your main plots
+- Results: Show the notebook and your main plots your group got
 
 - Conclusions: These should be related to the objectives
-
-
 
