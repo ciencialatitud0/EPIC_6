@@ -2,8 +2,8 @@
 
 | Group | Member | Project |
 |:---:|---|---|
-|  **1**  | Camila Reyes 
-|  | Gabriela Flores |---|
+|  **1**  | Camila Reyes | Hubble Data Processing for Gravitational Lensing
+|  | Gabriela Flores
 |  | Juliana Abarca
 |  **2**  | José Navas
 | | Eliana Dávila |---|
