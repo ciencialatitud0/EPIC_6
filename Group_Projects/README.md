@@ -23,7 +23,7 @@
 |  **7** | Soleil Nuñez
 | | Jhonson Lopez  |---|
 |  | Jonathan Zambrano
-|  **8** | Yorlan Males
+|  **8** | Yorlan Males | Reconstrucción de una fuente de calor oculta con PINNs
 | | Daniela Analuisa  |---|
 |  | Milena Mosquera
 |  **9** | Sisa Lluilema
