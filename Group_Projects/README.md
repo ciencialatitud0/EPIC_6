@@ -23,3 +23,11 @@
 |  **7** | Soleil Nuñez
 | | Jhonson Lopez  |---|
 |  | Jonathan Zambrano
+|  **8** | Yorlan Males
+| | Daniela Analuisa  |---|
+|  | Milena Mosquera
+
+
+
+
+
