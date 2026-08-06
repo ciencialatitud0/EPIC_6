@@ -17,8 +17,8 @@
 |  **5** | Dylan Cabascango
 | | Bryan Cárdenas  |---|
 |  | Belén Rodríguez
-|  **6** | Franklin Limaico
-| | Ricardo Calderón  |---|
+|  **6** | Franklin Limaico | CNN for Brain Tumor Classification adding a Pretrained Model Stage
+| | Ricardo Calderón 
 |  | Antonio Trávez
 |  **7** | Soleil Nuñez
 | | Jhonson Lopez  |---|
