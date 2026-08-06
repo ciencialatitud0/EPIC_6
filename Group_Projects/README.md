@@ -29,8 +29,21 @@
 |  **9** | Sisa Lluilema
 | | Belén Benites  |---|
 |  | Nestor Gavilanes
+|  **10** | Kevin Caiza
+| | Katherine Dávila   |---|
+|  | Liset Ramos
 
+# Suggested Structure
 
+- Motivation: Why did we choose this project?
+
+- Specific Objectives: What scientific questions do we wanna answer?
+
+- Methods: Which methods are we using?
+
+- Results: Show the notebook and your main plots
+
+- Conclusions: These should be related to the objectives
 
 
 
