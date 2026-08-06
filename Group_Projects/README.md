@@ -26,6 +26,9 @@
 |  **8** | Yorlan Males
 | | Daniela Analuisa  |---|
 |  | Milena Mosquera
+|  **9** | Sisa Lluilema
+| | Belén Benites  |---|
+|  | Nestor Gavilanes
 
 
 
