@@ -5,8 +5,8 @@
 |  **1**  | Camila Reyes | Hubble Data Processing for Gravitational Lensing
 |  | Gabriela Flores
 |  | Juliana Abarca
-|  **2**  | José Navas
-| | Eliana Dávila |---|
+|  **2**  | José Navas | Segmentation, Continuous Geometry and Anisotropic Diffusion on the Leaf Blade
+| | Eliana Dávila
 |  | Josué Malla
 |  **3** | Danna Ayala | Deep Learning para detección y segmentación de barcos en imagenes satelitales
 | | Leslie Joel Coyago 
