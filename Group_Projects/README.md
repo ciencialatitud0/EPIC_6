@@ -24,7 +24,7 @@
 | | Jhonson Lopez  |---|
 |  | Jonathan Zambrano
 |  **8** | Yorlan Males | Reconstrucción de una fuente de calor oculta con PINNs
-| | Daniela Analuisa  |---|
+| | Daniela Analuisa 
 |  | Milena Mosquera
 |  **9** | Sisa Lluilema | CNN para la clasificación de galaxias por su morfología
 | | Belén Benites  
