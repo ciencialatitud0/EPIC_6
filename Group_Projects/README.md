@@ -14,8 +14,8 @@
 |  **4** | Brittany Jimenez | Análisis de imágenes citológicas para la clasificación de células cervicales mediante redes neuronales
 | | Jessica Pijal  |
 |  | Alexander Panchi
-|  **5** | Dylan Cabascango
-| | Bryan Cárdenas  |---|
+|  **5** | Dylan Cabascango | Detección de manchas solares y análisis de su relación con la actividad magnética
+| | Bryan Cárdenas
 |  | Belén Rodríguez
 |  **6** | Franklin Limaico | CNN for Brain Tumor Classification adding a Pretrained Model Stage
 | | Ricardo Calderón 
