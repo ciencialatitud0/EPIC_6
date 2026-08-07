@@ -17,7 +17,7 @@
 |  **5** | Dylan Cabascango | Detección de manchas solares y análisis de su relación con la actividad magnética
 | | Bryan Cárdenas
 |  | Belén Rodríguez
-|  **6** | Franklin Limaico | CNN for Brain Tumor Classification adding a Pretrained Model Stage
+|  **6** | Franklin Limaico | CNN-Based Brain Tumor Classification with an Added Pretrained Model Stage
 | | Ricardo Calderón 
 |  | Antonio Trávez
 |  **7** | Soleil Nuñez | Convolutional Neural Networks for Alzheimer's Disease Classification
