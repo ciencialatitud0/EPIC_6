@@ -20,8 +20,8 @@
 |  **6** | Franklin Limaico | CNN for Brain Tumor Classification adding a Pretrained Model Stage
 | | Ricardo Calderón 
 |  | Antonio Trávez
-|  **7** | Soleil Nuñez
-| | Jhonson Lopez  |---|
+|  **7** | Soleil Nuñez | Convolutional Neural Networks for Alzheimer's Disease Classification
+| | Jhonson Lopez  
 |  | Jonathan Zambrano
 |  **8** | Yorlan Males | Reconstrucción de una fuente de calor oculta con PINNs
 | | Daniela Analuisa 
