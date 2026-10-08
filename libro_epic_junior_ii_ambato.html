@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libro de Trabajo · EPIC Junior Ambato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #6c5ce7;
+        --primary-light: #a29bfe;
+        --accent: #009688;
+        --gold: #f5b74e;
+        --colab: #f9ab00;
+        --navy: #0b1120;
+        --navy-light: #141d33;
+        --navy-card: #1a2540;
+        --text: #2d3436;
+        --muted: #636e72;
+        --border: #e5e5f0;
+        --success: #00b894;
+        --danger: #e74c3c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        background: #f7f7fb;
+    }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; margin: 0; }
+
+    /* ---------- LAYOUT ---------- */
+    .app { display: flex; min-height: 100vh; }
+
+    .sidebar {
+        width: 260px;
+        flex-shrink: 0;
+        background: linear-gradient(180deg, var(--navy) 0%, #05070f 100%);
+        color: white;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 28px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        overflow-y: auto;
+    }
+    .sidebar .brand { display: flex; flex-direction: column; gap: 4px; }
+    .sidebar .brand .stars { font-size: 1.6rem; }
+    .sidebar .brand h1 { font-size: 1.3rem; letter-spacing: 0.5px; }
+    .sidebar .brand span { color: var(--primary-light); font-size: 0.8rem; }
+    .sidebar .brand .booktag {
+        display: inline-block;
+        margin-top: 4px;
+        background: rgba(245,183,78,0.18);
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 999px;
+        width: fit-content;
+    }
+
+    .nav { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+    .nav a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #c8cfe0;
+        text-decoration: none;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition: background 0.2s, color 0.2s;
+    }
+    .nav a:hover { background: rgba(255,255,255,0.06); color: white; }
+    .nav a.active { background: var(--primary); color: white; }
+    .nav .soon { opacity: 0.55; font-size: 0.75rem; margin-left: auto; }
+
+    .sidebar-footer { margin-top: auto; font-size: 0.72rem; color: #8892b0; line-height: 1.5; }
+
+    main { flex: 1; min-width: 0; }
+
+    /* ---------- HERO / PORTADA ---------- */
+    .hero {
+        background: radial-gradient(circle at 20% 20%, #241b4d 0%, var(--navy) 55%, #05070f 100%);
+        color: white;
+        padding: 70px 60px 60px;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero::before {
+        content: "";
+        position: absolute; inset: 0;
+        background-image: radial-gradient(2px 2px at 20px 30px, white, transparent),
+                           radial-gradient(2px 2px at 140px 80px, white, transparent),
+                           radial-gradient(1.5px 1.5px at 300px 40px, white, transparent),
+                           radial-gradient(1.5px 1.5px at 400px 120px, white, transparent),
+                           radial-gradient(2px 2px at 500px 60px, white, transparent),
+                           radial-gradient(1.5px 1.5px at 600px 20px, white, transparent);
+        opacity: 0.4;
+        pointer-events: none;
+    }
+    .hero-inner { position: relative; max-width: 780px; }
+    .eyebrow {
+        display: inline-block;
+        background: rgba(108,92,231,0.25);
+        border: 1px solid var(--primary-light);
+        color: var(--primary-light);
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 18px;
+    }
+    .hero h1 { font-size: 2.6rem; line-height: 1.15; margin-bottom: 10px; }
+    .hero h2 { font-size: 1.15rem; font-weight: 500; color: #c8cfe0; margin-bottom: 20px; font-family: 'Inter', sans-serif; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+    .hero-meta div {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 12px;
+        padding: 12px 18px;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .section { padding: 60px; max-width: 1050px; }
+    .section-tight { padding-top: 30px; }
+
+    .callout {
+        background: white;
+        border: 1px solid var(--border);
+        border-left: 5px solid var(--primary);
+        border-radius: 12px;
+        padding: 20px 24px;
+        margin-bottom: 18px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    .callout.warn { border-left-color: var(--gold); }
+    .callout strong { color: var(--text); }
+
+    .how-to {
+        background: linear-gradient(135deg, #f1f0fd, #eafaf8);
+        border-radius: 16px;
+        padding: 24px 28px;
+        margin: 30px 0;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    .how-to h3 { margin-bottom: 10px; color: var(--primary); }
+
+    .team-heading { margin-top: 40px; margin-bottom: 4px; }
+    .team-heading p { color: var(--muted); font-size: 0.9rem; margin-top: 4px; margin-bottom: 4px; }
+
+    /* ---------- SCHEDULE TABLE ---------- */
+    table.schedule { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.85rem; }
+    table.schedule th, table.schedule td { border: 1px solid var(--border); padding: 10px; text-align: center; vertical-align: middle; }
+    table.schedule thead th { background: var(--navy); color: white; }
+    table.schedule .row-header { background: #f1f0fd; font-weight: 600; white-space: nowrap; }
+    table.schedule .section-row td { background: var(--primary); color: white; font-weight: 700; letter-spacing: 0.5px; }
+    table.schedule .section-row.vespertina td { background: var(--gold); color: #4a3300; }
+    table.schedule .presenter { display: block; margin-top: 4px; font-size: 0.78rem; color: var(--primary); font-weight: 600; }
+    table.schedule .maestrantes { color: #d35400; font-weight: 700; }
+    table.schedule .empty-cell { color: var(--muted); font-style: italic; }
+
+    .logo-strip {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 32px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px 26px;
+        margin-top: 6px;
+    }
+    .logo-strip img { height: 54px; width: auto; object-fit: contain; }
+    .orgs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .orgs span {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 0.78rem;
+        color: var(--muted);
+    }
+
+    /* ---------- DAY SECTIONS ---------- */
+    .day-header { margin-bottom: 34px; }
+    .day-badge {
+        display: inline-block;
+        background: var(--primary);
+        color: white;
+        padding: 6px 16px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+    }
+    .day-header h2 { font-size: 2rem; margin-bottom: 8px; }
+    .day-header p { color: var(--muted); font-size: 0.95rem; }
+
+    .block { margin-bottom: 46px; }
+    .block h3 { font-size: 1.3rem; margin-bottom: 2px; color: var(--text); }
+    .block .block-time { display: block; font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 4px; }
+    .block .block-presenter { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 14px; }
+    .block > p.block-desc { color: var(--muted); margin-bottom: 18px; font-size: 0.95rem; line-height: 1.6; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 2px 10px rgba(20,20,50,0.04);
+        transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(20,20,50,0.08); }
+    .card-icon { font-size: 1.8rem; }
+    .card h4 { font-size: 1.05rem; line-height: 1.35; }
+    .card p { font-size: 0.87rem; color: var(--muted); line-height: 1.55; flex-grow: 1; }
+    .tag {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        width: fit-content;
+    }
+    .tag.sim { background: #e6f7f5; color: var(--accent); }
+    .tag.nb { background: #f1f0fd; color: var(--primary); }
+    .tag.prep { background: #fdf3e3; color: #a9740f; }
+    .tag.proj { background: #e8f0fe; color: #1a56b0; }
+    .tag.data { background: #eaf6ea; color: #2d7a2d; }
+
+    .proj-meta { font-size: 0.78rem !important; color: var(--muted); flex-grow: 0 !important; line-height: 1.5 !important; }
+    .proj-meta strong { color: var(--text); }
+
+    .card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+    .btn-sim { background: var(--accent); color: white; }
+    .btn-sim:hover { background: #00786a; }
+    .btn-nb { background: var(--primary); color: white; }
+    .btn-nb:hover { background: #5a4bcf; }
+    .btn-colab { background: var(--colab); color: #202124; }
+    .btn-colab:hover { background: #e09b00; }
+    .btn-data { background: var(--success); color: white; }
+    .btn-data:hover { background: #009874; }
+    .btn-mystery { background: var(--danger); color: white; }
+    .btn-mystery:hover { background: #c0392b; }
+
+    .mini-note {
+        background: #fff8ec;
+        border: 1px dashed var(--gold);
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 0.83rem;
+        color: #7a5a17;
+        margin-top: 8px;
+    }
+
+    .agenda-list { display: flex; flex-direction: column; gap: 12px; }
+    .agenda-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 16px 20px;
+    }
+    .agenda-item .agenda-icon { font-size: 1.5rem; }
+    .agenda-item .agenda-time { font-weight: 700; color: var(--primary); font-size: 0.85rem; min-width: 110px; }
+    .agenda-item .agenda-title { font-weight: 600; font-size: 0.95rem; }
+    .agenda-item .agenda-presenter { font-size: 0.82rem; color: var(--muted); }
+
+    /* ---------- SOON SECTIONS ---------- */
+    .soon-card {
+        background: white;
+        border: 2px dashed var(--border);
+        border-radius: 16px;
+        padding: 40px;
+        text-align: center;
+        color: var(--muted);
+    }
+    .soon-card .big-icon { font-size: 2.4rem; margin-bottom: 10px; }
+    .soon-card h3 { color: var(--text); margin-bottom: 8px; }
+
+    footer.page-footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.8rem;
+        padding: 30px 60px 60px;
+    }
+
+    @media (max-width: 900px) {
+        .app { flex-direction: column; }
+        .sidebar {
+            position: relative;
+            height: auto;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 16px 20px;
+        }
+        .sidebar .brand { flex: 1; }
+        .nav { flex-direction: row; flex-wrap: wrap; margin-top: 0; }
+        .sidebar-footer { display: none; }
+        .hero { padding: 40px 24px; }
+        .section { padding: 36px 24px; }
+        footer.page-footer { padding: 20px 24px 40px; }
+        table.schedule { font-size: 0.72rem; }
+    }
+</style>
+</head>
+<body>
+
+<div class="app">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="stars">✨🔭✨</div>
+            <h1>EPIC Junior Ambato</h1>
+            <span>Escuela de Computación Científica</span>
+            <span class="booktag">📘 Libro de Trabajo</span>
+        </div>
+        <nav class="nav" id="nav">
+            <a href="#portada">🏠 Portada</a>
+            <a href="#charla">🕳️ La charla</a>
+            <a href="#tutorial">🐍 Tutorial de Python</a>
+            <a href="#oeaa">🏅 OEAA</a>
+            <a href="#yachaytech">🎓 Yachay Tech</a>
+        </nav>
+        <div class="sidebar-footer">
+            Yachay Tech · U.E. Bilingüe Indoamérica · Latitud Cero · Hands-On Astronomy · OEAA
+        </div>
+    </aside>
+
+    <main>
+        <section id="portada">
+            <div class="hero">
+                <div class="hero-inner">
+                    <span class="eyebrow">📘 Libro de Trabajo</span>
+                    <h1>EPIC Junior Ambato</h1>
+                    <h2>Escuela de Computación Científica para Estudiantes de Secundaria</h2>
+                    <div class="hero-meta">
+                        <div>📅 Miércoles 14 de octubre de 2026</div>
+                        <div>🕑 14h00 – 16h00</div>
+                        <div>📍 U.E. Bilingüe Indoamérica, Ambato</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section section-tight">
+                <div class="callout">
+                    <strong>Jornada única de la tarde, de 14h00 a 16h00.</strong> La charla, el tutorial de programación y la mini charla de cierre se desarrollan de forma seguida, sin receso.
+                </div>
+                <div class="callout warn">
+                    <strong>Trae tu laptop si puedes.</strong> Para el tutorial de Python solo necesitas un navegador y una cuenta de Google: todo corre en Google Colab, no hay que instalar nada.
+                </div>
+
+                <h3 style="margin-top: 40px; margin-bottom: 4px;">Programa</h3>
+                <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 4px;">Instructor: Ángel Rodríguez (Yachay Tech) · Equipo de soporte: maestrantes y estudiantes de Yachay Tech, USFQ y EPN.</p>
+
+                <table class="schedule">
+                    <thead>
+                        <tr>
+                            <th>Horario</th>
+                            <th>Miércoles 14 de octubre de 2026</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="section-row vespertina"><td colspan="2">JORNADA VESPERTINA</td></tr>
+
+                        <tr>
+                            <td class="row-header">13h45 – 14h00</td>
+                            <td>Llegada &amp; Registro de Asistencia</td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">14h00 – 14h10</td>
+                            <td>Bienvenida y presentación de EPIC Junior</td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">14h10 – 15h00</td>
+                            <td>Charla: Entre estrellas y agujeros negros<span class="presenter">Ángel Rodríguez</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">15h00 – 15h45</td>
+                            <td>Tutorial dinámico de programación en Python sobre cuerpos compactos<span class="presenter">Ángel Rodríguez + Equipo de Soporte</span></td>
+                        </tr>
+                        <tr>
+                            <td class="row-header">15h45 – 16h00</td>
+                            <td>Mini charla: la OEAA e invitación a participar en las Olimpiadas de Astronomía y Astrofísica</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="team-heading">
+                    <h3>Organizan</h3>
+                </div>
+                <div class="logo-strip">
+                    <img src="images/LOGOTIPO-YACHAY-TECH-UITEY-2023.png" alt="Universidad Yachay Tech">
+                    <img src="images/logo_oeaa.png" alt="Olimpiadas Ecuatorianas de Astronomía y Astrofísica">
+                    <img src="images/hoa.png" alt="Hands-On Astronomy">
+                    <img src="images/logo_latitud_cero.png" alt="Grupo de Investigadores Latitud Cero">
+                </div>
+
+                <div class="how-to">
+                    <h3>📖 Cómo usar este libro</h3>
+                    Usa el menú de la izquierda para moverte entre las actividades. Cada una indica si es una <span class="tag prep" style="vertical-align:middle;">Charla</span>, un <span class="tag sim" style="vertical-align:middle;">Simulador</span> (se abre directo en el navegador) o un <span class="tag nb" style="vertical-align:middle;">Notebook</span> (se abre en <a href="https://colab.research.google.com" target="_blank">Google Colab</a> con el botón amarillo). Los archivos de datos <span class="tag data" style="vertical-align:middle;">Datos</span> se descargan a tu computadora y luego se suben al notebook.
+                </div>
+            </div>
+        </section>
+
+        <section id="charla">
+            <div class="section">
+                <div class="day-header">
+                    <span class="day-badge">14h10 – 15h00</span>
+                    <h2>Entre estrellas y agujeros negros</h2>
+                    <p>Evolución estelar y objetos compactos: cómo nacen, viven y mueren las estrellas, y qué dejan atrás — enanas blancas, estrellas de neutrones y agujeros negros.</p>
+                </div>
+
+                <div class="block">
+                    <h3>🕳️ Charla</h3>
+                    <span class="block-time">14h10 – 15h00</span>
+                    <span class="block-presenter">Ángel Rodríguez, Maestría en Física, Yachay Tech</span>
+                    <p class="block-desc">Recorrido por la vida de una estrella: por qué brillan, qué decide su destino, y qué queda cuando se les acaba el combustible.</p>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-icon">📄</div>
+                            <span class="tag prep">Charla · PDF</span>
+                            <h4>Entre estrellas y agujeros negros</h4>
+                            <p>Diapositivas de la charla. Se publican el mismo día del evento.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-nb" href="https://github.com/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior_Ambato/entre_estrellas_y_agujeros_negros.pdf" target="_blank">📖 Ver PDF</a>
+                                <a class="btn btn-nb" href="https://github.com/ciencialatitud0/EPIC_6/raw/main/EPIC_Junior_Ambato/entre_estrellas_y_agujeros_negros.pdf" target="_blank">⬇ Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-note">
+                        📌 Para quien sube el material: coloca el archivo como <strong>EPIC_Junior_Ambato/entre_estrellas_y_agujeros_negros.pdf</strong> en el repositorio y los dos botones de arriba funcionan sin tocar esta página.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tutorial">
+            <div class="section">
+                <div class="day-header">
+                    <span class="day-badge">15h00 – 15h45</span>
+                    <h2>Tutorial de Python: cuerpos compactos</h2>
+                    <p>Primero exploramos el diagrama H–R con un simulador, y luego lo reconstruimos nosotros mismos en Python con datos de estrellas reales.</p>
+                </div>
+
+                <div class="block">
+                    <h3>🔭 Paso 1 — Explora el cielo</h3>
+                    <span class="block-time">15h00 – 15h10</span>
+                    <p class="block-desc">Antes de escribir una sola línea de código, juega con el explorador estelar: haz clic en varias estrellas y fíjate en su temperatura, su luminosidad y su radio.</p>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-icon">⭐</div>
+                            <span class="tag sim">Simulador interactivo</span>
+                            <h4>Explorador Estelar — Diagrama H–R</h4>
+                            <p>Selecciona estrellas del diagrama de Hertzsprung–Russell y observa cómo cambian su temperatura, luminosidad, radio y clase espectral. Desarrollado por cPhys+ en Yachay Tech.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-sim" href="https://cphysplus.github.io/fisica-interactiva/Hertzsprung-Russell.html" target="_blank">🔗 Abrir simulador</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <h3>🐍 Paso 2 — Programa tú mismo</h3>
+                    <span class="block-time">15h10 – 15h45 · Google Colab</span>
+                    <span class="block-presenter">Ángel Rodríguez + Equipo de Soporte</span>
+                    <p class="block-desc">Python como calculadora (el tamaño de un agujero negro y la densidad de una estrella de neutrones), lectura de un catálogo de estrellas reales, y construcción del diagrama H–R desde cero. Termina con una tarea sobre objetos compactos.</p>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-icon">📓</div>
+                            <span class="tag nb">Notebook · Colab</span>
+                            <h4>entre_estrellas_y_agujeros_negros.ipynb</h4>
+                            <p>Tres temas y una tarea. No hay que instalar nada: se abre y se ejecuta directo en el navegador.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-colab" href="https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior_Ambato/entre_estrellas_y_agujeros_negros.ipynb" target="_blank">🚀 Abrir en Colab</a>
+                                <a class="btn btn-nb" href="https://github.com/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior_Ambato/entre_estrellas_y_agujeros_negros.ipynb" target="_blank">⬇ Descargar</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">📑</div>
+                            <span class="tag data">Datos · TXT</span>
+                            <h4>estrellas_hr.txt</h4>
+                            <p>Catálogo de 23 estrellas reales con su temperatura, su luminosidad y su tipo. Se usa en el Tema 2 del notebook.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-data" href="EPIC_Junior_Ambato/estrellas_hr.txt" download>⬇ Descargar datos</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🕳️</div>
+                            <span class="tag data">Datos · TXT</span>
+                            <h4>objetos_compactos.txt</h4>
+                            <p>Diez enanas blancas, estrellas de neutrones y agujeros negros con su masa y su radio. Se usa en la tarea final.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-data" href="EPIC_Junior_Ambato/objetos_compactos.txt" download>⬇ Descargar datos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mini-note">
+                        💡 Descarga los dos archivos <strong>.txt</strong> a tu computadora antes de empezar. El notebook te pedirá subirlos con el botón <strong>"Elegir archivos"</strong> en el momento justo.
+                    </div>
+                </div>
+
+                <div class="block">
+                    <h3>📝 La tarea</h3>
+                    <p class="block-desc">Al final del notebook hay tres ejercicios de programación para completar: calcular el radio de Schwarzschild de todos los agujeros negros a la vez, calcular la densidad de cada objeto, y graficar masa contra tamaño. Cada línea por completar está marcada con <strong>✏️ TAREA</strong> y una pista.</p>
+                    <div class="agenda-list">
+                        <div class="agenda-item">
+                            <div class="agenda-icon">1️⃣</div>
+                            <div class="agenda-time">Tarea 1</div>
+                            <div>
+                                <div class="agenda-title">El radio de Schwarzschild</div>
+                                <div class="agenda-presenter">¿Para qué tipo de objeto coincide el tamaño real con el radio de Schwarzschild? ¿Por qué?</div>
+                            </div>
+                        </div>
+                        <div class="agenda-item">
+                            <div class="agenda-icon">2️⃣</div>
+                            <div class="agenda-time">Tarea 2</div>
+                            <div>
+                                <div class="agenda-title">¿Cuál es el más denso?</div>
+                                <div class="agenda-presenter">Calcula la densidad de cada objeto. La respuesta sobre el menos denso sorprende a mucha gente.</div>
+                            </div>
+                        </div>
+                        <div class="agenda-item">
+                            <div class="agenda-icon">3️⃣</div>
+                            <div class="agenda-time">Tarea 3</div>
+                            <div>
+                                <div class="agenda-title">Masa contra radio</div>
+                                <div class="agenda-presenter">Grafica los tres tipos de objeto y discute por qué las enanas blancas se encogen al ganar masa, pero los agujeros negros crecen.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="oeaa">
+            <div class="section">
+                <div class="day-header">
+                    <span class="day-badge">15h45 – 16h00</span>
+                    <h2>Olimpiadas Ecuatorianas de Astronomía y Astrofísica</h2>
+                    <p>Mini charla de cierre e invitación a participar.</p>
+                </div>
+
+                <div class="block">
+                    <p class="block-desc">La OEAA es una competencia nacional para estudiantes de Básica Superior y Bachillerato. De ahí salen las y los representantes del Ecuador en la Olimpiada Latinoamericana de Astronomía y Astronáutica (OLAA) y en la International Olympiad on Astronomy and Astrophysics (IOAA). Varias personas del equipo de soporte de hoy empezaron exactamente así.</p>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="card-icon">🏅</div>
+                            <span class="tag proj">OEAA</span>
+                            <h4>Sigue a la OEAA</h4>
+                            <p>Fechas de convocatoria, material de preparación y resultados se publican en su Instagram.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-nb" href="https://www.instagram.com/oeaa_ec?igsh=OHJkNGdtM2ttZTNj" target="_blank">🔗 @oeaa_ec</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-icon">🔭</div>
+                            <span class="tag proj">Hands-On Astronomy</span>
+                            <h4>Entrenamiento Hands-On Astro</h4>
+                            <p>Grupo dedicado al entrenamiento de estudiantes de secundaria rumbo a las olimpiadas de astronomía y astrofísica.</p>
+                            <div class="card-actions">
+                                <a class="btn btn-nb" href="https://ciencialatitud0.github.io/EPIC_6/EPIC_JR.html" target="_blank">🔗 Conoce EPIC Junior II</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="yachaytech">
+            <div class="section">
+                <div class="day-header">
+                    <h2>Conoce la Universidad Yachay Tech</h2>
+                </div>
+                <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:center;">
+                    <img src="images/yachay_tech_campus.jpg" alt="Campus de la Universidad Yachay Tech" style="flex:1 1 380px; max-width:480px; width:100%; border-radius:16px; object-fit:cover;">
+                    <div style="flex:1 1 380px;">
+                        <p class="block-desc" style="text-align: justify;">
+                            La Universidad Yachay Tech es una universidad pública de investigación ubicada en San Miguel de Urcuquí, Imbabura, dentro de la Ciudad del Conocimiento Yachay. Fundada en 2014, se enfoca en ciencia y tecnología, con escuelas de Física y Nanotecnología, Matemática y Computación, Ciencias Biológicas, Ciencias Químicas y Ciencias de la Tierra. Su modelo educativo combina formación académica con investigación aplicada, y sus estudiantes y docentes participan activamente en proyectos científicos nacionales e internacionales, incluyendo la organización de EPIC.
+                        </p>
+                        <a class="btn btn-nb" href="https://yachaytech.edu.ec" target="_blank">🔗 Visita yachaytech.edu.ec</a>
+
+                        <h3 style="margin-top: 28px;">Escuela de Ciencias Físicas y Nanotecnología</h3>
+                        <p class="block-desc" style="text-align: justify;">
+                            La Escuela de Ciencias Físicas y Nanotecnología de Yachay Tech agrupa los departamentos de Física y Nanotecnología, y desarrolla investigación fundamental y aplicada en ambas áreas. La carrera de Física cubre disciplinas básicas desde perspectivas teóricas y experimentales, mientras que la Ingeniería en Nanotecnología forma profesionales con una base sólida en física y matemática, con un enfoque interdisciplinario que se proyecta hacia la química, la biología, la ciencia de materiales y la ingeniería. La Escuela también ofrece la Maestría en Física Aplicada con mención en Nanotecnología, con un fuerte componente de interdisciplinariedad, investigación, innovación y liderazgo.
+                        </p>
+                        <a class="btn btn-nb" href="https://yachaytech.edu.ec/en/escuela-de-ciencias-fisicas-y-nanotecnologia/" target="_blank">🔗 Más sobre la Escuela</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="page-footer">
+            <a class="btn btn-nb" href="https://ciencialatitud0.github.io/EPIC_6/EPIC_JR_Ambato.html" style="margin-bottom: 16px;">⬅ Volver a la página principal</a>
+            <div>Elaborado por el Grupo de Física Computacional, cPhys+, de la Universidad Yachay Tech. <span style="font-size:1.3em;">🇪🇨</span></div>
+        </footer>
+    </main>
+</div>
+
+<script>
+    const links = document.querySelectorAll('.nav a');
+    const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = '#' + entry.target.id;
+                links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(sec => { if (sec) observer.observe(sec); });
+</script>
+
+</body>
+</html>
