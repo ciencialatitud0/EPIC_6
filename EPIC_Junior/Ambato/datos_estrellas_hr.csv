@@ -1,0 +1,41 @@
+﻿nombre,temperatura,luminosidad,radio,espectro,grupo,tiene_planetas
+VY Canis Majoris,3490,270000,1420,M5Iae C,Supergigantes Rojas,no
+V915 Scorpii,3990,74000,571,K0Ia-0,Supergigantes Rojas,no
+Betelgeuse,3700,100000,887,M1-M2 Ia,Supergigantes Rojas,no
+Eta Carinae A,30000,4600000,240,LBV,Supergigantes Azules,no
+Zeta1 Scorpii,17200,850000,103,B1.5 Iae,Supergigantes Azules,no
+Rigel A,12100,120000,78.9,B8 Iab,Supergigantes Azules,no
+Alnilam,27500,537000,32,B0 Iab,Gigantes Azules,no
+Alnitak,29500,250000,20,O9.7 Ib,Gigantes Azules,no
+Mintaka,29500,180000,18,O9.5 II,Gigantes Azules,no
+Arcturus,4286,170,25.4,K1.5 III,Gigantes (Rojas y Naranjas),no
+Aldebaran,3910,518,44,K5 III,Gigantes (Rojas y Naranjas),no
+Polúx,4660,43,9.1,K0 IIIb,Gigantes (Rojas y Naranjas),si
+Capella Ab,5730,72.7,8.83,K0 III,Gigantes (Rojas y Naranjas),no
+Theta¹ Orionis C,40000,250000,10.6,O6Vp,"Secuencia Principal (O, B, A)",no
+Tau Scorpii,31440,20400,6.5,B0.2V,"Secuencia Principal (O, B, A)",no
+Zeta Ophiuchi,34000,68000,8.5,O9.5IV,"Secuencia Principal (O, B, A)",no
+Spica,22400,20500,7.4,B1III-IV,"Secuencia Principal (O, B, A)",no
+Achernar A,15000,3493,6.7,B6Vep,"Secuencia Principal (O, B, A)",no
+Achernar B,9064,17.5,1.9,A1V,"Secuencia Principal (O, B, A)",no
+Sirius A,9882,25.4,1.71,A1V,"Secuencia Principal (O, B, A)",no
+Vega,9830,40.12,2.36,A0Va,"Secuencia Principal (O, B, A)",no
+Fomalhaut,8590,16.6,1.84,A3Va,"Secuencia Principal (O, B, A)",no
+Procyon A,6530,6.9,2.05,F5IV-V,"Secuencia Principal (F, G, K)",no
+Sol,5778,1,1,G2V,"Secuencia Principal (F, G, K)",si
+Kepler-90,6080,1.77,1.2,G0 V,"Secuencia Principal (F, G, K)",si
+51 Pegasi,5758,1.36,1.176,G2IV B,"Secuencia Principal (F, G, K)",si
+HD 40307,4977,0.23,0.72,K2.5V C,"Secuencia Principal (F, G, K)",si
+Epsilon Eridani,5116,0.34,0.895,K2V,"Secuencia Principal (F, G, K)",si
+61 Cygni A,4370,0.15,0.66,K5V,"Secuencia Principal (F, G, K)",no
+Proxima Centauri,3042,0.0017,0.15,M5.5Ve,Secuencia Principal (M),si
+Kepler-182,3755,0.055,0.52,M1V,Secuencia Principal (M),si
+Estrella de Barnard,3134,0.0004,0.19,M4V,Secuencia Principal (M),si
+K2-18,3457,0.0251,0.41,M2.5 V,Secuencia Principal (M),si
+GJ 357,3505,0.014,0.337,M2.5V,Secuencia Principal (M),si
+Trappist-1,2560,0.0005,0.117,M8V,Secuencia Principal (M),si
+Sirius B,26083,0.056,0.0084,DA2,Enanas Blancas,no
+40 Eridani B,16400,0.013,0.0136,DA4,Enanas Blancas,no
+Procyon B,7740,0.00049,0.0123,DQZ,Enanas Blancas,no
+Van Maanen,6130,0.00017,0.011,DZ7,Enanas Blancas,no
+WD 0346+246,3780,0.00003981,0.01,DZ,Enanas Blancas,no
