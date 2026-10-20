@@ -219,6 +219,7 @@
     .block > p.block-desc { color: var(--muted); margin-bottom: 18px; font-size: 0.95rem; line-height: 1.6; }
 
     .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .card-grid > * { min-width: 0; }
     .card {
         background: white;
         border: 1px solid var(--border);
@@ -232,8 +233,15 @@
     }
     .card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(20,20,50,0.08); }
     .card-icon { font-size: 1.8rem; }
-    .card h4 { font-size: 1.05rem; line-height: 1.35; }
-    .card p { font-size: 0.87rem; color: var(--muted); line-height: 1.55; flex-grow: 1; }
+    .card h4 {
+        font-size: 1.05rem;
+        line-height: 1.35;
+        /* los nombres de archivo son una sola palabra larga: hay que partirla */
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        min-width: 0;
+    }
+    .card p { font-size: 0.87rem; color: var(--muted); line-height: 1.55; flex-grow: 1; overflow-wrap: anywhere; }
     .tag {
         display: inline-block;
         font-size: 0.7rem;
@@ -515,7 +523,7 @@
                         <div class="card">
                             <div class="card-icon">📓</div>
                             <span class="tag nb">Notebook · Colab</span>
-                            <h4>entre_estrellas_y_agujeros_negros.ipynb</h4>
+                            <h4>entre_<wbr>estrellas_<wbr>y_<wbr>agujeros_<wbr>negros.ipynb</h4>
                             <p>Tres temas y una tarea. No hay que instalar nada: se abre y se ejecuta directo en el navegador.</p>
                             <div class="card-actions">
                                 <a class="btn btn-colab" href="https://colab.research.google.com/github/ciencialatitud0/EPIC_6/blob/main/EPIC_Junior_Ambato/entre_estrellas_y_agujeros_negros.ipynb" target="_blank">🚀 Abrir en Colab</a>
