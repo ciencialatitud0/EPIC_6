@@ -151,6 +151,45 @@
     .callout.warn { border-left-color: var(--gold); }
     .callout strong { color: var(--text); }
 
+    /* ---------- CAJA DE REGISTRO ---------- */
+    .registro {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 22px;
+        background: linear-gradient(135deg, #eafaf8, #f1f0fd);
+        border: 1px solid var(--border);
+        border-left: 5px solid var(--success);
+        border-radius: 14px;
+        padding: 20px 24px;
+        margin-bottom: 18px;
+    }
+    .registro-texto { flex: 1 1 320px; min-width: 0; }
+    .registro-texto h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--text); }
+    .registro-texto p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin: 0 0 12px; }
+    .registro-texto .registro-url {
+        display: block;
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-top: 8px;
+        overflow-wrap: anywhere;
+    }
+    .btn-registro { background: var(--success); color: #fff; }
+    .btn-registro:hover { background: #009874; }
+    .registro-qr {
+        flex: 0 0 auto;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px;
+        line-height: 0;
+    }
+    .registro-qr img { width: 124px; height: 124px; display: block; }
+    @media (max-width: 560px) {
+        .registro { justify-content: center; text-align: center; }
+        .registro-texto { flex-basis: 100%; }
+    }
+
     .how-to {
         background: linear-gradient(135deg, #f1f0fd, #eafaf8);
         border-radius: 16px;
@@ -389,6 +428,18 @@
             </div>
 
             <div class="section section-tight">
+                <div class="registro">
+                    <div class="registro-texto">
+                        <h3>🎟️ ¿Todavía no te registras?</h3>
+                        <p>Quedan <strong>15 cupos</strong>. El registro se cierra el <strong>miércoles 21 de octubre de 2026</strong>, o antes si se llenan.</p>
+                        <a class="btn btn-registro" href="https://forms.gle/YUk9nXQfjZp5KX316" target="_blank">📝 Registrarme</a>
+                        <span class="registro-url">https://forms.gle/YUk9nXQfjZp5KX316</span>
+                    </div>
+                    <div class="registro-qr">
+                        <img src="images/qr_registro_epic_jr_ambato.png" alt="Código QR del formulario de registro">
+                    </div>
+                </div>
+
                 <div class="callout">
                     <strong>Jornada única de la tarde, de 14h00 a 15h30.</strong> La charla, el tutorial de programación y el reto grupal se desarrollan de forma seguida, sin receso. Duración total: 90 minutos.
                 </div>
