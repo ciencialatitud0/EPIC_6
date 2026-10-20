@@ -1,8 +1,9 @@
 # EPIC Junior Ambato — Material
 
-**Miércoles 14 de octubre de 2026 · 14h00 – 16h00 · Unidad Educativa Bilingüe Indoamérica, Ambato**
+**Jueves 22 de octubre de 2026 · 14h00 – 15h30 · Unidad Educativa Bilingüe Indoamérica, salón B14 · Ambato**
 
-Instructor: Ángel Rodríguez (Maestría en Física, Yachay Tech).
+Ponente principal: Fis. Abigail Rivadeneira (docente de Física, UEBI).
+Facilitador: Fis. Ángel David Rodríguez Ocaña (docente de Matemática, UEBI / Maestría en Física, Yachay Tech).
 
 ## Contenido
 
@@ -10,8 +11,8 @@ Instructor: Ángel Rodríguez (Maestría en Física, Yachay Tech).
 |---|---|
 | `entre_estrellas_y_agujeros_negros.pdf` | Diapositivas de la charla. **Pendiente de subir.** |
 | `entre_estrellas_y_agujeros_negros.ipynb` | Notebook del tutorial de Python (Google Colab). |
-| `estrellas_hr.txt` | Copia de respaldo. Los datos del Tema 2 se exportan del applet H–R con el botón **⬇ Exportar datos (CSV)** → `datos_estrellas_hr.csv` (40 estrellas: nombre, temperatura, luminosidad, radio, espectro, grupo, tiene_planetas). |
-| `objetos_compactos.txt` | 10 objetos compactos: `nombre, tipo, masa_soles, radio_km`. Se usa en la tarea final. |
+| `estrellas_hr.csv` | Copia de respaldo del catálogo estelar. Lo normal es que los datos del Tema 2 se exporten del applet H–R con el botón **⬇ Exportar datos (CSV)** → `datos_estrellas_hr.csv`. Mismas 40 filas y mismas columnas: `nombre, temperatura, luminosidad, radio, espectro, grupo, tiene_planetas`. |
+| `objetos_compactos.csv` | 10 objetos compactos: `nombre, tipo, masa_soles, radio_km`. Se usa en la tarea final. No sale del applet: las estrellas de neutrones y los agujeros negros no aparecen en el diagrama H–R. |
 
 ## Para subir la charla
 
@@ -34,7 +35,7 @@ no hay que editar la página.
 ## Notas para el instructor
 
 El notebook sigue el estilo de `EPIC_Junior/Day_1/1_python_para_ciencia.ipynb`:
-código mínimo, datos en `.txt` que se cargan con `files.upload()` y nada que instalar.
+código mínimo, datos en `.csv` que se cargan con `files.upload()` y nada que instalar.
 
 La tarea final tiene tres líneas marcadas con `ESCRIBE_AQUI`. Las respuestas son:
 
