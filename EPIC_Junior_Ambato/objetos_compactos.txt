@@ -1,0 +1,11 @@
+nombre,tipo,masa_soles,radio_km
+Sirio B,Enana blanca,1.02,5800
+40 Eridani B,Enana blanca,0.57,9000
+Van Maanen,Enana blanca,0.68,7200
+Pulsar del Cangrejo,Estrella de neutrones,1.4,12
+Pulsar de Vela,Estrella de neutrones,1.4,12
+PSR J0348+0432,Estrella de neutrones,2.01,13
+V404 Cygni,Agujero negro,9.0,26.6
+Cygnus X-1,Agujero negro,21.2,62.5
+GW150914,Agujero negro,62,183
+Sagitario A*,Agujero negro,4300000,12685000

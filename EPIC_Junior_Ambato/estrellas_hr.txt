@@ -1,0 +1,24 @@
+nombre,temperatura,luminosidad,tipo
+Sol,5772,1.0,Secuencia principal
+Proxima Centauri,3042,0.0017,Secuencia principal
+Alfa Centauri A,5790,1.5,Secuencia principal
+Alfa Centauri B,5260,0.5,Secuencia principal
+Sirio A,9940,25,Secuencia principal
+Vega,9600,40,Secuencia principal
+Altair,7550,10.6,Secuencia principal
+Procion A,6530,6.9,Secuencia principal
+Spica,25300,20500,Secuencia principal
+Regulo,12460,316,Secuencia principal
+Bellatrix,21800,9211,Secuencia principal
+Arturo,4290,170,Gigante
+Aldebaran,3910,440,Gigante
+Polux,4865,43,Gigante
+Capella A,4970,78,Gigante
+Betelgeuse,3600,100000,Supergigante
+Rigel,12100,120000,Supergigante
+Antares,3660,76000,Supergigante
+Deneb,8525,196000,Supergigante
+Sirio B,25000,0.026,Enana blanca
+Procion B,7740,0.00049,Enana blanca
+Van Maanen,6220,0.00017,Enana blanca
+40 Eridani B,16500,0.013,Enana blanca
